@@ -1,4 +1,4 @@
-# Hi, anomaly_lib is a library for statistical testing and comparison of algorithm results 👋
+# Hi, anomaly_lib is a library for anomaly detection in time series👋
 
 ![GitHub Followers](https://img.shields.io/github/followers/kdis-lab?style=social)
 
