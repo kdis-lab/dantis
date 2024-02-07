@@ -1,0 +1,1074 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="anomaly_lib.machine_learning package" href="anomaly_lib.machine_learning.html" /><link rel="prev" title="anomaly_lib package" href="anomaly_lib.html" />
+
+    <link rel="shortcut icon" href="_static/logo.png"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>anomaly_lib.deep_learning package - anomaly_lib documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #2e5c7d;
+  --color-brand-content: #2e5c7d;
+  --codebgcolor: red;
+  --codetextcolor: red;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6998b4;
+  --color-brand-content: #6998b4;
+  --codebgcolor: green;
+  --codetextcolor: green;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6998b4;
+  --color-brand-content: #6998b4;
+  --codebgcolor: green;
+  --codetextcolor: green;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">anomaly_lib  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/notebooks.html">Notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package API</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">anomaly_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of anomaly_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="anomaly_lib.html">anomaly_lib package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of anomaly_lib package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">anomaly_lib.deep_learning package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html">anomaly_lib.machine_learning package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html">anomaly_lib.statistical package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="anomaly-lib-deep-learning-package">
+<h1>anomaly_lib.deep_learning package<a class="headerlink" href="#anomaly-lib-deep-learning-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-anomaly_lib.deep_learning.alad">
+<span id="anomaly-lib-deep-learning-alad-module"></span><h2>anomaly_lib.deep_learning.alad module<a class="headerlink" href="#module-anomaly_lib.deep_learning.alad" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.alad.ALAD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.alad.</span></span><span class="sig-name descname"><span class="pre">ALAD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.alad.ALAD" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.alad.ALAD.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.alad.ALAD.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit detector. Adjusts the ALAD model using the training data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The outlier scores of the training data [0,1].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.alad.ALAD.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.alad.ALAD.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Loads the ALAD model from the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model is located.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.alad.ALAD.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.alad.ALAD.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict whether a particular sample is an outlier or not.
+Adjusts the ALAD model using the test data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Predict probability of outlier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.alad.ALAD.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.alad.ALAD.save_model" title="Link to this definition">#</a></dt>
+<dd><p>Saves the ALAD model to the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.alad.ALAD.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.alad.ALAD.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd><p>Sets the hyperparameters of the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>hyperparameter (dict): A dictionary containing the hyperparameters of the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.anogan">
+<span id="anomaly-lib-deep-learning-anogan-module"></span><h2>anomaly_lib.deep_learning.anogan module<a class="headerlink" href="#module-anomaly_lib.deep_learning.anogan" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.anogan.AnoGAN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.anogan.</span></span><span class="sig-name descname"><span class="pre">AnoGAN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.anogan.AnoGAN" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.anogan.AnoGAN.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.anogan.AnoGAN.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit detector. It fits the AnoGAN model using the training data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The outlier scores of the training data [0,1].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.anogan.AnoGAN.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.anogan.AnoGAN.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Loads the AnoGAN model from the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model is located.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.anogan.AnoGAN.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.anogan.AnoGAN.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict whether a particular sample is an outlier or not.
+Adjusts the AnoGAN model using the test data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Predict probability of outlier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.anogan.AnoGAN.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.anogan.AnoGAN.save_model" title="Link to this definition">#</a></dt>
+<dd><p>Saves the AnoGAN model to the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.anogan.AnoGAN.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.anogan.AnoGAN.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd><p>Sets the hyperparameters of the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>hyperparameter (dict): A dictionary containing the hyperparameters of the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.auto_encoder">
+<span id="anomaly-lib-deep-learning-auto-encoder-module"></span><h2>anomaly_lib.deep_learning.auto_encoder module<a class="headerlink" href="#module-anomaly_lib.deep_learning.auto_encoder" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.auto_encoder.AutoEncoder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.auto_encoder.</span></span><span class="sig-name descname"><span class="pre">AutoEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.auto_encoder.AutoEncoder.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit detector. Adjusts the AutoEncoder model using the training data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The outlier scores of the training data [0,1].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.auto_encoder.AutoEncoder.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Loads the AutoEncoder model from the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model is located.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.auto_encoder.AutoEncoder.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict whether a particular sample is an outlier or not.
+Adjusts the AutoEncoder model using the test data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Predict probability of outlier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.auto_encoder.AutoEncoder.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.save_model" title="Link to this definition">#</a></dt>
+<dd><p>Saves the AutoEncoder model to the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.auto_encoder.AutoEncoder.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd><p>Sets the hyperparameters of the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>hyperparameter (dict): A dictionary containing the hyperparameters of the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.deep_svdd">
+<span id="anomaly-lib-deep-learning-deep-svdd-module"></span><h2>anomaly_lib.deep_learning.deep_svdd module<a class="headerlink" href="#module-anomaly_lib.deep_learning.deep_svdd" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.deep_svdd.DeepSVDD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.deep_svdd.</span></span><span class="sig-name descname"><span class="pre">DeepSVDD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.deep_svdd.DeepSVDD.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit detector. It adjusts the DeepSVDD model using the training data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The outlier scores of the training data [0,1].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.deep_svdd.DeepSVDD.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Loads the DeepSVDD model from the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model is located.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.deep_svdd.DeepSVDD.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict whether a particular sample is an outlier or not.
+Adjusts the DeepSVDD model using the test data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Predict probability of outlier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.deep_svdd.DeepSVDD.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.save_model" title="Link to this definition">#</a></dt>
+<dd><p>Saves the DeepSVDD model to the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.deep_svdd.DeepSVDD.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd><p>Sets the hyperparameters of the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>hyperparameter (dict): A dictionary containing the hyperparameters of the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.layers">
+<span id="anomaly-lib-deep-learning-layers-module"></span><h2>anomaly_lib.deep_learning.layers module<a class="headerlink" href="#module-anomaly_lib.deep_learning.layers" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.Layer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.layers.</span></span><span class="sig-name descname"><span class="pre">Layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_hyperparameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.Layer" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.Layer.check_hyperparameters">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_hyperparameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_hyperparameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.Layer.check_hyperparameters" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.Layer.check_input_parameters">
+<span class="sig-name descname"><span class="pre">check_input_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuples_layer_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_hyperparameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.Layer.check_input_parameters" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.Layer.check_layers">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_layers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuples_layer_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.Layer.check_layers" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.Layer.get_layer">
+<span class="sig-name descname"><span class="pre">get_layer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.Layer.get_layer" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.Layer.layer">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">layer</span></span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.Layer.layer" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.Layer.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_hyperparameters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.Layer.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.layers.</span></span><span class="sig-name descname"><span class="pre">LayerType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_GRU">
+<span class="sig-name descname"><span class="pre">BIDIRECTIONAL_GRU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.gru.GRU'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'keras.src.layers.rnn.bidirectional.Bidirectional'&gt;)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_GRU" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_LSTM">
+<span class="sig-name descname"><span class="pre">BIDIRECTIONAL_LSTM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.lstm.LSTM'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'keras.src.layers.rnn.bidirectional.Bidirectional'&gt;)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_LSTM" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.CNN">
+<span class="sig-name descname"><span class="pre">CNN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.convolutional.conv1d.Conv1D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.CNN" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.CNNLSTM1D">
+<span class="sig-name descname"><span class="pre">CNNLSTM1D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.conv_lstm1d.ConvLSTM1D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM1D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.CNNLSTM2D">
+<span class="sig-name descname"><span class="pre">CNNLSTM2D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.conv_lstm2d.ConvLSTM2D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM2D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.CNNLSTM3D">
+<span class="sig-name descname"><span class="pre">CNNLSTM3D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.conv_lstm3d.ConvLSTM3D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM3D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.DENSE">
+<span class="sig-name descname"><span class="pre">DENSE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.core.dense.Dense'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.DENSE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.DROPOUT">
+<span class="sig-name descname"><span class="pre">DROPOUT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.regularization.dropout.Dropout'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.DROPOUT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.GRU">
+<span class="sig-name descname"><span class="pre">GRU</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.gru.GRU'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.GRU" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.LSTM">
+<span class="sig-name descname"><span class="pre">LSTM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.lstm.LSTM'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.LSTM" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_1D">
+<span class="sig-name descname"><span class="pre">MAXPOOLING_1D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.pooling.max_pooling1d.MaxPooling1D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_1D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_2D">
+<span class="sig-name descname"><span class="pre">MAXPOOLING_2D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.pooling.max_pooling2d.MaxPooling2D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_2D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_3D">
+<span class="sig-name descname"><span class="pre">MAXPOOLING_3D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.pooling.max_pooling3d.MaxPooling3D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_3D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.TIMEDISTRIBUTED">
+<span class="sig-name descname"><span class="pre">TIMEDISTRIBUTED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.rnn.time_distributed.TimeDistributed'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.TIMEDISTRIBUTED" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_1D">
+<span class="sig-name descname"><span class="pre">UPSAMPLING_1D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.reshaping.up_sampling1d.UpSampling1D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_1D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_2D">
+<span class="sig-name descname"><span class="pre">UPSAMPLING_2D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.reshaping.up_sampling2d.UpSampling2D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_2D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_3D">
+<span class="sig-name descname"><span class="pre">UPSAMPLING_3D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'keras.src.layers.reshaping.up_sampling3d.UpSampling3D'&gt;,)</span></em><a class="headerlink" href="#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_3D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.mo_gaal">
+<span id="anomaly-lib-deep-learning-mo-gaal-module"></span><h2>anomaly_lib.deep_learning.mo_gaal module<a class="headerlink" href="#module-anomaly_lib.deep_learning.mo_gaal" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.mo_gaal.MO_GAAL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.mo_gaal.</span></span><span class="sig-name descname"><span class="pre">MO_GAAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.mo_gaal.MO_GAAL.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.fit" title="Link to this definition">#</a></dt>
+<dd><p>It fits the MO_GAAL model using the training data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The outlier scores of the training data [0,1].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.mo_gaal.MO_GAAL.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Carga el modelo MO_GAAL desde el archivo especificado.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Ruta del archivo donde se encuentra el modelo.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><p>model: El modelo MO_GAAL cargado desde el archivo.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.mo_gaal.MO_GAAL.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict whether a particular sample is an outlier or not.
+Adjusts the MO_GAAL model using the test data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.mo_gaal.MO_GAAL.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.save_model" title="Link to this definition">#</a></dt>
+<dd><p>Guarda el modelo MO_GAAL en el archivo especificado.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Ruta del archivo donde se guardará el modelo.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><p>path_model (str): La ruta del archivo donde se guardó el modelo.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.mo_gaal.MO_GAAL.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd><p>Establece los hiperparámetros del modelo.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>hyperparameter (dict): Un diccionario que contiene los hiperparámetros del modelo.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.so_gaal">
+<span id="anomaly-lib-deep-learning-so-gaal-module"></span><h2>anomaly_lib.deep_learning.so_gaal module<a class="headerlink" href="#module-anomaly_lib.deep_learning.so_gaal" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.so_gaal.SO_GAAL">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.so_gaal.</span></span><span class="sig-name descname"><span class="pre">SO_GAAL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.so_gaal.SO_GAAL.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit detector. Adjusts the SO_GAAL model using the training data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The outlier scores of the training data [0,1].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.so_gaal.SO_GAAL.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Loads the SO_GAAL model from the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model is located.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.so_gaal.SO_GAAL.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict whether a particular sample is an outlier or not.
+Adjusts the SO_GAAL model using the test data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Predict probability of outlier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.so_gaal.SO_GAAL.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.save_model" title="Link to this definition">#</a></dt>
+<dd><p>Saves the SO_GAAL model to the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): path of the file where the model will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.so_gaal.SO_GAAL.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd><p>Sets the hyperparameters of the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>hyperparameter (dict): A dictionary containing the hyperparameters of the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.topology">
+<span id="anomaly-lib-deep-learning-topology-module"></span><h2>anomaly_lib.deep_learning.topology module<a class="headerlink" href="#module-anomaly_lib.deep_learning.topology" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.topology.</span></span><span class="sig-name descname"><span class="pre">Topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology.compile_topology">
+<span class="sig-name descname"><span class="pre">compile_topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compile_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology.compile_topology" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology.define_topology">
+<span class="sig-name descname"><span class="pre">define_topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology.define_topology" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parameters_fit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology.fit" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology.get_topology">
+<span class="sig-name descname"><span class="pre">get_topology</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology.get_topology" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology.predict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology.predict_reconstruction_error">
+<span class="sig-name descname"><span class="pre">predict_reconstruction_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology.predict_reconstruction_error" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.topology.Topology.set_topology">
+<span class="sig-name descname"><span class="pre">set_topology</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.topology.Topology.set_topology" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning.vae">
+<span id="anomaly-lib-deep-learning-vae-module"></span><h2>anomaly_lib.deep_learning.vae module<a class="headerlink" href="#module-anomaly_lib.deep_learning.vae" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.vae.VAE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.deep_learning.vae.</span></span><span class="sig-name descname"><span class="pre">VAE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.vae.VAE" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="anomaly_lib.html#anomaly_lib.algorithmbase.AlgorithmBase" title="anomaly_lib.algorithmbase.AlgorithmBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.vae.VAE.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.vae.VAE.fit" title="Link to this definition">#</a></dt>
+<dd><p>Fit detector. Adjusts the VAE model using the training data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The outlier scores of the training data [0,1].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.vae.VAE.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.vae.VAE.load_model" title="Link to this definition">#</a></dt>
+<dd><p>Loads the VAE model from the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model is located.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.vae.VAE.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.vae.VAE.predict" title="Link to this definition">#</a></dt>
+<dd><p>Predict whether a particular sample is an outlier or not.
+Adjusts the VAE model using the test data.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Predict probability of outlier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.vae.VAE.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.vae.VAE.save_model" title="Link to this definition">#</a></dt>
+<dd><p>Saves the VAE model to the specified file.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>path_model (str): Path of the file where the model will be saved.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.deep_learning.vae.VAE.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.deep_learning.vae.VAE.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd><p>Sets the hyperparameters of the model.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>hyperparameter (dict): A dictionary containing the hyperparameters of the model.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.deep_learning">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-anomaly_lib.deep_learning" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="anomaly_lib.machine_learning.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">anomaly_lib.machine_learning package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="anomaly_lib.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">anomaly_lib package</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, -
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">anomaly_lib.deep_learning package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.alad">anomaly_lib.deep_learning.alad module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.alad.ALAD"><code class="docutils literal notranslate"><span class="pre">ALAD</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.alad.ALAD.fit"><code class="docutils literal notranslate"><span class="pre">ALAD.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.alad.ALAD.load_model"><code class="docutils literal notranslate"><span class="pre">ALAD.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.alad.ALAD.predict"><code class="docutils literal notranslate"><span class="pre">ALAD.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.alad.ALAD.save_model"><code class="docutils literal notranslate"><span class="pre">ALAD.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.alad.ALAD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">ALAD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.anogan">anomaly_lib.deep_learning.anogan module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.anogan.AnoGAN"><code class="docutils literal notranslate"><span class="pre">AnoGAN</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.anogan.AnoGAN.fit"><code class="docutils literal notranslate"><span class="pre">AnoGAN.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.anogan.AnoGAN.load_model"><code class="docutils literal notranslate"><span class="pre">AnoGAN.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.anogan.AnoGAN.predict"><code class="docutils literal notranslate"><span class="pre">AnoGAN.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.anogan.AnoGAN.save_model"><code class="docutils literal notranslate"><span class="pre">AnoGAN.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.anogan.AnoGAN.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">AnoGAN.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.auto_encoder">anomaly_lib.deep_learning.auto_encoder module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder"><code class="docutils literal notranslate"><span class="pre">AutoEncoder</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.fit"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.load_model"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.predict"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.save_model"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.deep_svdd">anomaly_lib.deep_learning.deep_svdd module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD"><code class="docutils literal notranslate"><span class="pre">DeepSVDD</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.fit"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.load_model"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.predict"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.save_model"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.layers">anomaly_lib.deep_learning.layers module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.Layer"><code class="docutils literal notranslate"><span class="pre">Layer</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.Layer.check_hyperparameters"><code class="docutils literal notranslate"><span class="pre">Layer.check_hyperparameters()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.Layer.check_input_parameters"><code class="docutils literal notranslate"><span class="pre">Layer.check_input_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.Layer.check_layers"><code class="docutils literal notranslate"><span class="pre">Layer.check_layers()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.Layer.get_layer"><code class="docutils literal notranslate"><span class="pre">Layer.get_layer()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.Layer.layer"><code class="docutils literal notranslate"><span class="pre">Layer.layer</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.Layer.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">Layer.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType"><code class="docutils literal notranslate"><span class="pre">LayerType</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_GRU"><code class="docutils literal notranslate"><span class="pre">LayerType.BIDIRECTIONAL_GRU</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_LSTM"><code class="docutils literal notranslate"><span class="pre">LayerType.BIDIRECTIONAL_LSTM</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.CNN"><code class="docutils literal notranslate"><span class="pre">LayerType.CNN</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM1D"><code class="docutils literal notranslate"><span class="pre">LayerType.CNNLSTM1D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM2D"><code class="docutils literal notranslate"><span class="pre">LayerType.CNNLSTM2D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM3D"><code class="docutils literal notranslate"><span class="pre">LayerType.CNNLSTM3D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.DENSE"><code class="docutils literal notranslate"><span class="pre">LayerType.DENSE</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.DROPOUT"><code class="docutils literal notranslate"><span class="pre">LayerType.DROPOUT</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.GRU"><code class="docutils literal notranslate"><span class="pre">LayerType.GRU</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.LSTM"><code class="docutils literal notranslate"><span class="pre">LayerType.LSTM</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_1D"><code class="docutils literal notranslate"><span class="pre">LayerType.MAXPOOLING_1D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_2D"><code class="docutils literal notranslate"><span class="pre">LayerType.MAXPOOLING_2D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_3D"><code class="docutils literal notranslate"><span class="pre">LayerType.MAXPOOLING_3D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.TIMEDISTRIBUTED"><code class="docutils literal notranslate"><span class="pre">LayerType.TIMEDISTRIBUTED</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_1D"><code class="docutils literal notranslate"><span class="pre">LayerType.UPSAMPLING_1D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_2D"><code class="docutils literal notranslate"><span class="pre">LayerType.UPSAMPLING_2D</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_3D"><code class="docutils literal notranslate"><span class="pre">LayerType.UPSAMPLING_3D</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.mo_gaal">anomaly_lib.deep_learning.mo_gaal module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL"><code class="docutils literal notranslate"><span class="pre">MO_GAAL</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.fit"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.load_model"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.predict"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.save_model"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.so_gaal">anomaly_lib.deep_learning.so_gaal module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL"><code class="docutils literal notranslate"><span class="pre">SO_GAAL</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.fit"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.load_model"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.predict"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.save_model"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.so_gaal.SO_GAAL.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.topology">anomaly_lib.deep_learning.topology module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology"><code class="docutils literal notranslate"><span class="pre">Topology</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology.compile_topology"><code class="docutils literal notranslate"><span class="pre">Topology.compile_topology()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology.define_topology"><code class="docutils literal notranslate"><span class="pre">Topology.define_topology()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology.fit"><code class="docutils literal notranslate"><span class="pre">Topology.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology.get_topology"><code class="docutils literal notranslate"><span class="pre">Topology.get_topology()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology.predict"><code class="docutils literal notranslate"><span class="pre">Topology.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology.predict_reconstruction_error"><code class="docutils literal notranslate"><span class="pre">Topology.predict_reconstruction_error()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.topology.Topology.set_topology"><code class="docutils literal notranslate"><span class="pre">Topology.set_topology()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning.vae">anomaly_lib.deep_learning.vae module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.vae.VAE"><code class="docutils literal notranslate"><span class="pre">VAE</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.vae.VAE.fit"><code class="docutils literal notranslate"><span class="pre">VAE.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.vae.VAE.load_model"><code class="docutils literal notranslate"><span class="pre">VAE.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.vae.VAE.predict"><code class="docutils literal notranslate"><span class="pre">VAE.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.vae.VAE.save_model"><code class="docutils literal notranslate"><span class="pre">VAE.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.deep_learning.vae.VAE.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">VAE.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.deep_learning">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

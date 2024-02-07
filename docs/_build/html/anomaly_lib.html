@@ -1,0 +1,1073 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="anomaly_lib.deep_learning package" href="anomaly_lib.deep_learning.html" /><link rel="prev" title="anomaly_lib" href="modules.html" />
+
+    <link rel="shortcut icon" href="_static/logo.png"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>anomaly_lib package - anomaly_lib documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #2e5c7d;
+  --color-brand-content: #2e5c7d;
+  --codebgcolor: red;
+  --codetextcolor: red;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6998b4;
+  --color-brand-content: #6998b4;
+  --codebgcolor: green;
+  --codetextcolor: green;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6998b4;
+  --color-brand-content: #6998b4;
+  --codebgcolor: green;
+  --codetextcolor: green;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">anomaly_lib  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/notebooks.html">Notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package API</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">anomaly_lib</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of anomaly_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">anomaly_lib package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of anomaly_lib package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html">anomaly_lib.deep_learning package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html">anomaly_lib.machine_learning package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html">anomaly_lib.statistical package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="anomaly-lib-package">
+<h1>anomaly_lib package<a class="headerlink" href="#anomaly-lib-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="anomaly_lib.deep_learning.html">anomaly_lib.deep_learning package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.alad">anomaly_lib.deep_learning.alad module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.alad.ALAD"><code class="docutils literal notranslate"><span class="pre">ALAD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.alad.ALAD.fit"><code class="docutils literal notranslate"><span class="pre">ALAD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.alad.ALAD.load_model"><code class="docutils literal notranslate"><span class="pre">ALAD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.alad.ALAD.predict"><code class="docutils literal notranslate"><span class="pre">ALAD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.alad.ALAD.save_model"><code class="docutils literal notranslate"><span class="pre">ALAD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.alad.ALAD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">ALAD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.anogan">anomaly_lib.deep_learning.anogan module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.anogan.AnoGAN"><code class="docutils literal notranslate"><span class="pre">AnoGAN</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.anogan.AnoGAN.fit"><code class="docutils literal notranslate"><span class="pre">AnoGAN.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.anogan.AnoGAN.load_model"><code class="docutils literal notranslate"><span class="pre">AnoGAN.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.anogan.AnoGAN.predict"><code class="docutils literal notranslate"><span class="pre">AnoGAN.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.anogan.AnoGAN.save_model"><code class="docutils literal notranslate"><span class="pre">AnoGAN.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.anogan.AnoGAN.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">AnoGAN.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.auto_encoder">anomaly_lib.deep_learning.auto_encoder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.auto_encoder.AutoEncoder"><code class="docutils literal notranslate"><span class="pre">AutoEncoder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.fit"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.load_model"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.predict"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.save_model"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.auto_encoder.AutoEncoder.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">AutoEncoder.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.deep_svdd">anomaly_lib.deep_learning.deep_svdd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.deep_svdd.DeepSVDD"><code class="docutils literal notranslate"><span class="pre">DeepSVDD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.fit"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.load_model"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.predict"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.save_model"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.deep_svdd.DeepSVDD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">DeepSVDD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.layers">anomaly_lib.deep_learning.layers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.Layer"><code class="docutils literal notranslate"><span class="pre">Layer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.Layer.check_hyperparameters"><code class="docutils literal notranslate"><span class="pre">Layer.check_hyperparameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.Layer.check_input_parameters"><code class="docutils literal notranslate"><span class="pre">Layer.check_input_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.Layer.check_layers"><code class="docutils literal notranslate"><span class="pre">Layer.check_layers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.Layer.get_layer"><code class="docutils literal notranslate"><span class="pre">Layer.get_layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.Layer.layer"><code class="docutils literal notranslate"><span class="pre">Layer.layer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.Layer.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">Layer.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType"><code class="docutils literal notranslate"><span class="pre">LayerType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_GRU"><code class="docutils literal notranslate"><span class="pre">LayerType.BIDIRECTIONAL_GRU</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.BIDIRECTIONAL_LSTM"><code class="docutils literal notranslate"><span class="pre">LayerType.BIDIRECTIONAL_LSTM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.CNN"><code class="docutils literal notranslate"><span class="pre">LayerType.CNN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM1D"><code class="docutils literal notranslate"><span class="pre">LayerType.CNNLSTM1D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM2D"><code class="docutils literal notranslate"><span class="pre">LayerType.CNNLSTM2D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.CNNLSTM3D"><code class="docutils literal notranslate"><span class="pre">LayerType.CNNLSTM3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.DENSE"><code class="docutils literal notranslate"><span class="pre">LayerType.DENSE</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.DROPOUT"><code class="docutils literal notranslate"><span class="pre">LayerType.DROPOUT</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.GRU"><code class="docutils literal notranslate"><span class="pre">LayerType.GRU</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.LSTM"><code class="docutils literal notranslate"><span class="pre">LayerType.LSTM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_1D"><code class="docutils literal notranslate"><span class="pre">LayerType.MAXPOOLING_1D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_2D"><code class="docutils literal notranslate"><span class="pre">LayerType.MAXPOOLING_2D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.MAXPOOLING_3D"><code class="docutils literal notranslate"><span class="pre">LayerType.MAXPOOLING_3D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.TIMEDISTRIBUTED"><code class="docutils literal notranslate"><span class="pre">LayerType.TIMEDISTRIBUTED</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_1D"><code class="docutils literal notranslate"><span class="pre">LayerType.UPSAMPLING_1D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_2D"><code class="docutils literal notranslate"><span class="pre">LayerType.UPSAMPLING_2D</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.layers.LayerType.UPSAMPLING_3D"><code class="docutils literal notranslate"><span class="pre">LayerType.UPSAMPLING_3D</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.mo_gaal">anomaly_lib.deep_learning.mo_gaal module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.mo_gaal.MO_GAAL"><code class="docutils literal notranslate"><span class="pre">MO_GAAL</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.fit"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.load_model"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.predict"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.save_model"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.mo_gaal.MO_GAAL.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">MO_GAAL.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.so_gaal">anomaly_lib.deep_learning.so_gaal module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.so_gaal.SO_GAAL"><code class="docutils literal notranslate"><span class="pre">SO_GAAL</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.so_gaal.SO_GAAL.fit"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.so_gaal.SO_GAAL.load_model"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.so_gaal.SO_GAAL.predict"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.so_gaal.SO_GAAL.save_model"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.so_gaal.SO_GAAL.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">SO_GAAL.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.topology">anomaly_lib.deep_learning.topology module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology"><code class="docutils literal notranslate"><span class="pre">Topology</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology.compile_topology"><code class="docutils literal notranslate"><span class="pre">Topology.compile_topology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology.define_topology"><code class="docutils literal notranslate"><span class="pre">Topology.define_topology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology.fit"><code class="docutils literal notranslate"><span class="pre">Topology.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology.get_topology"><code class="docutils literal notranslate"><span class="pre">Topology.get_topology()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology.predict"><code class="docutils literal notranslate"><span class="pre">Topology.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology.predict_reconstruction_error"><code class="docutils literal notranslate"><span class="pre">Topology.predict_reconstruction_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.topology.Topology.set_topology"><code class="docutils literal notranslate"><span class="pre">Topology.set_topology()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning.vae">anomaly_lib.deep_learning.vae module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.vae.VAE"><code class="docutils literal notranslate"><span class="pre">VAE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.vae.VAE.fit"><code class="docutils literal notranslate"><span class="pre">VAE.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.vae.VAE.load_model"><code class="docutils literal notranslate"><span class="pre">VAE.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.vae.VAE.predict"><code class="docutils literal notranslate"><span class="pre">VAE.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.vae.VAE.save_model"><code class="docutils literal notranslate"><span class="pre">VAE.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.vae.VAE.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">VAE.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.deep_learning.html#module-anomaly_lib.deep_learning">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anomaly_lib.machine_learning.html">anomaly_lib.machine_learning package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.decision_tree_classifier">anomaly_lib.machine_learning.decision_tree_classifier module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD"><code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifierClassOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD.fit"><code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifierClassOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD.load_model"><code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifierClassOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD.predict"><code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifierClassOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD.save_model"><code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifierClassOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">DecisionTreeClassifierClassOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.ecod">anomaly_lib.machine_learning.ecod module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ecod.ECOD"><code class="docutils literal notranslate"><span class="pre">ECOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ecod.ECOD.fit"><code class="docutils literal notranslate"><span class="pre">ECOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ecod.ECOD.load_model"><code class="docutils literal notranslate"><span class="pre">ECOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ecod.ECOD.predict"><code class="docutils literal notranslate"><span class="pre">ECOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ecod.ECOD.save_model"><code class="docutils literal notranslate"><span class="pre">ECOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ecod.ECOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">ECOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.iforest">anomaly_lib.machine_learning.iforest module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.iforest.IForest"><code class="docutils literal notranslate"><span class="pre">IForest</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.iforest.IForest.fit"><code class="docutils literal notranslate"><span class="pre">IForest.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.iforest.IForest.load_model"><code class="docutils literal notranslate"><span class="pre">IForest.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.iforest.IForest.predict"><code class="docutils literal notranslate"><span class="pre">IForest.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.iforest.IForest.save_model"><code class="docutils literal notranslate"><span class="pre">IForest.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.iforest.IForest.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">IForest.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.knn">anomaly_lib.machine_learning.knn module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.knn.KNN"><code class="docutils literal notranslate"><span class="pre">KNN</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.knn.KNN.fit"><code class="docutils literal notranslate"><span class="pre">KNN.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.knn.KNN.load_model"><code class="docutils literal notranslate"><span class="pre">KNN.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.knn.KNN.predict"><code class="docutils literal notranslate"><span class="pre">KNN.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.knn.KNN.save_model"><code class="docutils literal notranslate"><span class="pre">KNN.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.knn.KNN.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">KNN.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.lof">anomaly_lib.machine_learning.lof module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.lof.LOF"><code class="docutils literal notranslate"><span class="pre">LOF</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.lof.LOF.fit"><code class="docutils literal notranslate"><span class="pre">LOF.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.lof.LOF.load_model"><code class="docutils literal notranslate"><span class="pre">LOF.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.lof.LOF.predict"><code class="docutils literal notranslate"><span class="pre">LOF.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.lof.LOF.save_model"><code class="docutils literal notranslate"><span class="pre">LOF.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.lof.LOF.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">LOF.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.mlp_classifier">anomaly_lib.machine_learning.mlp_classifier module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.mlp_classifier.MLPClassOD"><code class="docutils literal notranslate"><span class="pre">MLPClassOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.mlp_classifier.MLPClassOD.fit"><code class="docutils literal notranslate"><span class="pre">MLPClassOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.mlp_classifier.MLPClassOD.load_model"><code class="docutils literal notranslate"><span class="pre">MLPClassOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.mlp_classifier.MLPClassOD.predict"><code class="docutils literal notranslate"><span class="pre">MLPClassOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.mlp_classifier.MLPClassOD.save_model"><code class="docutils literal notranslate"><span class="pre">MLPClassOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.mlp_classifier.MLPClassOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">MLPClassOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.multinomial_nb">anomaly_lib.machine_learning.multinomial_nb module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD"><code class="docutils literal notranslate"><span class="pre">MultinomialNBClassOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD.fit"><code class="docutils literal notranslate"><span class="pre">MultinomialNBClassOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD.load_model"><code class="docutils literal notranslate"><span class="pre">MultinomialNBClassOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD.predict"><code class="docutils literal notranslate"><span class="pre">MultinomialNBClassOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD.save_model"><code class="docutils literal notranslate"><span class="pre">MultinomialNBClassOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">MultinomialNBClassOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.naive_bayes">anomaly_lib.machine_learning.naive_bayes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD"><code class="docutils literal notranslate"><span class="pre">GaussianNBClassOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD.fit"><code class="docutils literal notranslate"><span class="pre">GaussianNBClassOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD.load_model"><code class="docutils literal notranslate"><span class="pre">GaussianNBClassOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD.predict"><code class="docutils literal notranslate"><span class="pre">GaussianNBClassOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD.save_model"><code class="docutils literal notranslate"><span class="pre">GaussianNBClassOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">GaussianNBClassOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.ocsvm">anomaly_lib.machine_learning.ocsvm module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ocsvm.OCSVM"><code class="docutils literal notranslate"><span class="pre">OCSVM</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ocsvm.OCSVM.fit"><code class="docutils literal notranslate"><span class="pre">OCSVM.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ocsvm.OCSVM.load_model"><code class="docutils literal notranslate"><span class="pre">OCSVM.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ocsvm.OCSVM.predict"><code class="docutils literal notranslate"><span class="pre">OCSVM.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ocsvm.OCSVM.save_model"><code class="docutils literal notranslate"><span class="pre">OCSVM.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ocsvm.OCSVM.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">OCSVM.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.random_forest_classifier">anomaly_lib.machine_learning.random_forest_classifier module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD"><code class="docutils literal notranslate"><span class="pre">RandomForestClassOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD.fit"><code class="docutils literal notranslate"><span class="pre">RandomForestClassOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD.load_model"><code class="docutils literal notranslate"><span class="pre">RandomForestClassOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD.predict"><code class="docutils literal notranslate"><span class="pre">RandomForestClassOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD.save_model"><code class="docutils literal notranslate"><span class="pre">RandomForestClassOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">RandomForestClassOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning.svm">anomaly_lib.machine_learning.svm module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.svm.SVMClassOD"><code class="docutils literal notranslate"><span class="pre">SVMClassOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.svm.SVMClassOD.fit"><code class="docutils literal notranslate"><span class="pre">SVMClassOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.svm.SVMClassOD.load_model"><code class="docutils literal notranslate"><span class="pre">SVMClassOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.svm.SVMClassOD.predict"><code class="docutils literal notranslate"><span class="pre">SVMClassOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.svm.SVMClassOD.save_model"><code class="docutils literal notranslate"><span class="pre">SVMClassOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.svm.SVMClassOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">SVMClassOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.machine_learning.html#module-anomaly_lib.machine_learning">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anomaly_lib.statistical.html">anomaly_lib.statistical package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.abod">anomaly_lib.statistical.abod module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.abod.ABOD"><code class="docutils literal notranslate"><span class="pre">ABOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.abod.ABOD.fit"><code class="docutils literal notranslate"><span class="pre">ABOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.abod.ABOD.load_model"><code class="docutils literal notranslate"><span class="pre">ABOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.abod.ABOD.predict"><code class="docutils literal notranslate"><span class="pre">ABOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.abod.ABOD.save_model"><code class="docutils literal notranslate"><span class="pre">ABOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.abod.ABOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">ABOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.arima">anomaly_lib.statistical.arima module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.arima.ARIMA"><code class="docutils literal notranslate"><span class="pre">ARIMA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.arima.ARIMA.fit"><code class="docutils literal notranslate"><span class="pre">ARIMA.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.arima.ARIMA.load_model"><code class="docutils literal notranslate"><span class="pre">ARIMA.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.arima.ARIMA.predict"><code class="docutils literal notranslate"><span class="pre">ARIMA.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.arima.ARIMA.save_model"><code class="docutils literal notranslate"><span class="pre">ARIMA.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.arima.ARIMA.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">ARIMA.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.cblof">anomaly_lib.statistical.cblof module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cblof.CBLOF"><code class="docutils literal notranslate"><span class="pre">CBLOF</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cblof.CBLOF.fit"><code class="docutils literal notranslate"><span class="pre">CBLOF.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cblof.CBLOF.load_model"><code class="docutils literal notranslate"><span class="pre">CBLOF.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cblof.CBLOF.predict"><code class="docutils literal notranslate"><span class="pre">CBLOF.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cblof.CBLOF.save_model"><code class="docutils literal notranslate"><span class="pre">CBLOF.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cblof.CBLOF.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">CBLOF.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.cd">anomaly_lib.statistical.cd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cd.CD"><code class="docutils literal notranslate"><span class="pre">CD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cd.CD.fit"><code class="docutils literal notranslate"><span class="pre">CD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cd.CD.load_model"><code class="docutils literal notranslate"><span class="pre">CD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cd.CD.predict"><code class="docutils literal notranslate"><span class="pre">CD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cd.CD.save_model"><code class="docutils literal notranslate"><span class="pre">CD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cd.CD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">CD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.cof">anomaly_lib.statistical.cof module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cof.COF"><code class="docutils literal notranslate"><span class="pre">COF</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cof.COF.fit"><code class="docutils literal notranslate"><span class="pre">COF.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cof.COF.load_model"><code class="docutils literal notranslate"><span class="pre">COF.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cof.COF.predict"><code class="docutils literal notranslate"><span class="pre">COF.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cof.COF.save_model"><code class="docutils literal notranslate"><span class="pre">COF.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cof.COF.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">COF.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.copod">anomaly_lib.statistical.copod module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.copod.COPOD"><code class="docutils literal notranslate"><span class="pre">COPOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.copod.COPOD.fit"><code class="docutils literal notranslate"><span class="pre">COPOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.copod.COPOD.load_model"><code class="docutils literal notranslate"><span class="pre">COPOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.copod.COPOD.predict"><code class="docutils literal notranslate"><span class="pre">COPOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.copod.COPOD.save_model"><code class="docutils literal notranslate"><span class="pre">COPOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.copod.COPOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">COPOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.feature_bagging">anomaly_lib.statistical.feature_bagging module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.feature_bagging.FeatureBagging"><code class="docutils literal notranslate"><span class="pre">FeatureBagging</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.feature_bagging.FeatureBagging.fit"><code class="docutils literal notranslate"><span class="pre">FeatureBagging.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.feature_bagging.FeatureBagging.load_model"><code class="docutils literal notranslate"><span class="pre">FeatureBagging.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.feature_bagging.FeatureBagging.predict"><code class="docutils literal notranslate"><span class="pre">FeatureBagging.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.feature_bagging.FeatureBagging.save_model"><code class="docutils literal notranslate"><span class="pre">FeatureBagging.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.feature_bagging.FeatureBagging.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">FeatureBagging.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.gmm">anomaly_lib.statistical.gmm module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.gmm.GMM"><code class="docutils literal notranslate"><span class="pre">GMM</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.gmm.GMM.fit"><code class="docutils literal notranslate"><span class="pre">GMM.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.gmm.GMM.load_model"><code class="docutils literal notranslate"><span class="pre">GMM.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.gmm.GMM.predict"><code class="docutils literal notranslate"><span class="pre">GMM.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.gmm.GMM.save_model"><code class="docutils literal notranslate"><span class="pre">GMM.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.gmm.GMM.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">GMM.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.hbos">anomaly_lib.statistical.hbos module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.hbos.HBOS"><code class="docutils literal notranslate"><span class="pre">HBOS</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.hbos.HBOS.fit"><code class="docutils literal notranslate"><span class="pre">HBOS.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.hbos.HBOS.load_model"><code class="docutils literal notranslate"><span class="pre">HBOS.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.hbos.HBOS.predict"><code class="docutils literal notranslate"><span class="pre">HBOS.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.hbos.HBOS.save_model"><code class="docutils literal notranslate"><span class="pre">HBOS.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.hbos.HBOS.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">HBOS.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.holt_winters">anomaly_lib.statistical.holt_winters module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.holt_winters.HoltWinters"><code class="docutils literal notranslate"><span class="pre">HoltWinters</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.holt_winters.HoltWinters.fit"><code class="docutils literal notranslate"><span class="pre">HoltWinters.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.holt_winters.HoltWinters.load_model"><code class="docutils literal notranslate"><span class="pre">HoltWinters.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.holt_winters.HoltWinters.predict"><code class="docutils literal notranslate"><span class="pre">HoltWinters.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.holt_winters.HoltWinters.save_model"><code class="docutils literal notranslate"><span class="pre">HoltWinters.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.holt_winters.HoltWinters.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">HoltWinters.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.inne">anomaly_lib.statistical.inne module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.inne.INNE"><code class="docutils literal notranslate"><span class="pre">INNE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.inne.INNE.fit"><code class="docutils literal notranslate"><span class="pre">INNE.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.inne.INNE.load_model"><code class="docutils literal notranslate"><span class="pre">INNE.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.inne.INNE.predict"><code class="docutils literal notranslate"><span class="pre">INNE.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.inne.INNE.save_model"><code class="docutils literal notranslate"><span class="pre">INNE.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.inne.INNE.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">INNE.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.kde">anomaly_lib.statistical.kde module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kde.KDE"><code class="docutils literal notranslate"><span class="pre">KDE</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kde.KDE.fit"><code class="docutils literal notranslate"><span class="pre">KDE.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kde.KDE.load_model"><code class="docutils literal notranslate"><span class="pre">KDE.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kde.KDE.predict"><code class="docutils literal notranslate"><span class="pre">KDE.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kde.KDE.save_model"><code class="docutils literal notranslate"><span class="pre">KDE.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kde.KDE.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">KDE.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.kpca">anomaly_lib.statistical.kpca module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kpca.KPCA"><code class="docutils literal notranslate"><span class="pre">KPCA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kpca.KPCA.fit"><code class="docutils literal notranslate"><span class="pre">KPCA.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kpca.KPCA.load_model"><code class="docutils literal notranslate"><span class="pre">KPCA.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kpca.KPCA.predict"><code class="docutils literal notranslate"><span class="pre">KPCA.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kpca.KPCA.save_model"><code class="docutils literal notranslate"><span class="pre">KPCA.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kpca.KPCA.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">KPCA.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.lmdd">anomaly_lib.statistical.lmdd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lmdd.LMDD"><code class="docutils literal notranslate"><span class="pre">LMDD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lmdd.LMDD.fit"><code class="docutils literal notranslate"><span class="pre">LMDD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lmdd.LMDD.load_model"><code class="docutils literal notranslate"><span class="pre">LMDD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lmdd.LMDD.predict"><code class="docutils literal notranslate"><span class="pre">LMDD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lmdd.LMDD.save_model"><code class="docutils literal notranslate"><span class="pre">LMDD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lmdd.LMDD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">LMDD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.loci">anomaly_lib.statistical.loci module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loci.LOCI"><code class="docutils literal notranslate"><span class="pre">LOCI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loci.LOCI.fit"><code class="docutils literal notranslate"><span class="pre">LOCI.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loci.LOCI.load_model"><code class="docutils literal notranslate"><span class="pre">LOCI.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loci.LOCI.predict"><code class="docutils literal notranslate"><span class="pre">LOCI.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loci.LOCI.save_model"><code class="docutils literal notranslate"><span class="pre">LOCI.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loci.LOCI.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">LOCI.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.loda">anomaly_lib.statistical.loda module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loda.LODA"><code class="docutils literal notranslate"><span class="pre">LODA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loda.LODA.fit"><code class="docutils literal notranslate"><span class="pre">LODA.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loda.LODA.load_model"><code class="docutils literal notranslate"><span class="pre">LODA.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loda.LODA.predict"><code class="docutils literal notranslate"><span class="pre">LODA.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loda.LODA.save_model"><code class="docutils literal notranslate"><span class="pre">LODA.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loda.LODA.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">LODA.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.lscp">anomaly_lib.statistical.lscp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lscp.LSCP"><code class="docutils literal notranslate"><span class="pre">LSCP</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lscp.LSCP.fit"><code class="docutils literal notranslate"><span class="pre">LSCP.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lscp.LSCP.load_model"><code class="docutils literal notranslate"><span class="pre">LSCP.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lscp.LSCP.predict"><code class="docutils literal notranslate"><span class="pre">LSCP.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lscp.LSCP.save_model"><code class="docutils literal notranslate"><span class="pre">LSCP.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lscp.LSCP.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">LSCP.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.lunar">anomaly_lib.statistical.lunar module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lunar.LUNAR"><code class="docutils literal notranslate"><span class="pre">LUNAR</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lunar.LUNAR.fit"><code class="docutils literal notranslate"><span class="pre">LUNAR.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lunar.LUNAR.load_model"><code class="docutils literal notranslate"><span class="pre">LUNAR.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lunar.LUNAR.predict"><code class="docutils literal notranslate"><span class="pre">LUNAR.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lunar.LUNAR.save_model"><code class="docutils literal notranslate"><span class="pre">LUNAR.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lunar.LUNAR.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">LUNAR.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.mad">anomaly_lib.statistical.mad module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mad.MAD"><code class="docutils literal notranslate"><span class="pre">MAD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mad.MAD.fit"><code class="docutils literal notranslate"><span class="pre">MAD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mad.MAD.load_model"><code class="docutils literal notranslate"><span class="pre">MAD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mad.MAD.predict"><code class="docutils literal notranslate"><span class="pre">MAD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mad.MAD.save_model"><code class="docutils literal notranslate"><span class="pre">MAD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mad.MAD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">MAD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.matrixprofile">anomaly_lib.statistical.matrixprofile module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.matrixprofile.MatrixProfile"><code class="docutils literal notranslate"><span class="pre">MatrixProfile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.matrixprofile.MatrixProfile.fit"><code class="docutils literal notranslate"><span class="pre">MatrixProfile.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.matrixprofile.MatrixProfile.load_model"><code class="docutils literal notranslate"><span class="pre">MatrixProfile.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.matrixprofile.MatrixProfile.predict"><code class="docutils literal notranslate"><span class="pre">MatrixProfile.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.matrixprofile.MatrixProfile.save_model"><code class="docutils literal notranslate"><span class="pre">MatrixProfile.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.matrixprofile.MatrixProfile.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">MatrixProfile.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.mcd">anomaly_lib.statistical.mcd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mcd.MCD"><code class="docutils literal notranslate"><span class="pre">MCD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mcd.MCD.fit"><code class="docutils literal notranslate"><span class="pre">MCD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mcd.MCD.load_model"><code class="docutils literal notranslate"><span class="pre">MCD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mcd.MCD.predict"><code class="docutils literal notranslate"><span class="pre">MCD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mcd.MCD.save_model"><code class="docutils literal notranslate"><span class="pre">MCD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mcd.MCD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">MCD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.pca">anomaly_lib.statistical.pca module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.pca.PCA"><code class="docutils literal notranslate"><span class="pre">PCA</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.pca.PCA.fit"><code class="docutils literal notranslate"><span class="pre">PCA.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.pca.PCA.load_model"><code class="docutils literal notranslate"><span class="pre">PCA.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.pca.PCA.predict"><code class="docutils literal notranslate"><span class="pre">PCA.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.pca.PCA.save_model"><code class="docutils literal notranslate"><span class="pre">PCA.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.pca.PCA.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">PCA.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.qmcd">anomaly_lib.statistical.qmcd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.qmcd.QMCD"><code class="docutils literal notranslate"><span class="pre">QMCD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.qmcd.QMCD.fit"><code class="docutils literal notranslate"><span class="pre">QMCD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.qmcd.QMCD.load_model"><code class="docutils literal notranslate"><span class="pre">QMCD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.qmcd.QMCD.predict"><code class="docutils literal notranslate"><span class="pre">QMCD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.qmcd.QMCD.save_model"><code class="docutils literal notranslate"><span class="pre">QMCD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.qmcd.QMCD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">QMCD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.rgraph">anomaly_lib.statistical.rgraph module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rgraph.RGraph"><code class="docutils literal notranslate"><span class="pre">RGraph</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rgraph.RGraph.fit"><code class="docutils literal notranslate"><span class="pre">RGraph.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rgraph.RGraph.load_model"><code class="docutils literal notranslate"><span class="pre">RGraph.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rgraph.RGraph.predict"><code class="docutils literal notranslate"><span class="pre">RGraph.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rgraph.RGraph.save_model"><code class="docutils literal notranslate"><span class="pre">RGraph.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rgraph.RGraph.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">RGraph.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.rod">anomaly_lib.statistical.rod module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rod.ROD"><code class="docutils literal notranslate"><span class="pre">ROD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rod.ROD.fit"><code class="docutils literal notranslate"><span class="pre">ROD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rod.ROD.load_model"><code class="docutils literal notranslate"><span class="pre">ROD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rod.ROD.predict"><code class="docutils literal notranslate"><span class="pre">ROD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rod.ROD.save_model"><code class="docutils literal notranslate"><span class="pre">ROD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rod.ROD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">ROD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.sampling">anomaly_lib.statistical.sampling module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sampling.Sampling"><code class="docutils literal notranslate"><span class="pre">Sampling</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sampling.Sampling.fit"><code class="docutils literal notranslate"><span class="pre">Sampling.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sampling.Sampling.load_model"><code class="docutils literal notranslate"><span class="pre">Sampling.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sampling.Sampling.predict"><code class="docutils literal notranslate"><span class="pre">Sampling.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sampling.Sampling.save_model"><code class="docutils literal notranslate"><span class="pre">Sampling.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sampling.Sampling.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">Sampling.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.sarimax">anomaly_lib.statistical.sarimax module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sarimax.SARIMAX"><code class="docutils literal notranslate"><span class="pre">SARIMAX</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sarimax.SARIMAX.fit"><code class="docutils literal notranslate"><span class="pre">SARIMAX.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sarimax.SARIMAX.load_model"><code class="docutils literal notranslate"><span class="pre">SARIMAX.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sarimax.SARIMAX.predict"><code class="docutils literal notranslate"><span class="pre">SARIMAX.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sarimax.SARIMAX.save_model"><code class="docutils literal notranslate"><span class="pre">SARIMAX.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sarimax.SARIMAX.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">SARIMAX.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.singleExponentialSmoothing">anomaly_lib.statistical.singleExponentialSmoothing module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing"><code class="docutils literal notranslate"><span class="pre">SingleExponentialSmoothing</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing.fit"><code class="docutils literal notranslate"><span class="pre">SingleExponentialSmoothing.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing.load_model"><code class="docutils literal notranslate"><span class="pre">SingleExponentialSmoothing.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing.predict"><code class="docutils literal notranslate"><span class="pre">SingleExponentialSmoothing.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing.save_model"><code class="docutils literal notranslate"><span class="pre">SingleExponentialSmoothing.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">SingleExponentialSmoothing.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.sod">anomaly_lib.statistical.sod module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sod.SOD"><code class="docutils literal notranslate"><span class="pre">SOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sod.SOD.fit"><code class="docutils literal notranslate"><span class="pre">SOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sod.SOD.load_model"><code class="docutils literal notranslate"><span class="pre">SOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sod.SOD.predict"><code class="docutils literal notranslate"><span class="pre">SOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sod.SOD.save_model"><code class="docutils literal notranslate"><span class="pre">SOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sod.SOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">SOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.sos">anomaly_lib.statistical.sos module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sos.SOS"><code class="docutils literal notranslate"><span class="pre">SOS</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sos.SOS.fit"><code class="docutils literal notranslate"><span class="pre">SOS.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sos.SOS.load_model"><code class="docutils literal notranslate"><span class="pre">SOS.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sos.SOS.predict"><code class="docutils literal notranslate"><span class="pre">SOS.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sos.SOS.save_model"><code class="docutils literal notranslate"><span class="pre">SOS.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sos.SOS.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">SOS.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.varmax">anomaly_lib.statistical.varmax module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.varmax.VARMAX"><code class="docutils literal notranslate"><span class="pre">VARMAX</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.varmax.VARMAX.fit"><code class="docutils literal notranslate"><span class="pre">VARMAX.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.varmax.VARMAX.load_model"><code class="docutils literal notranslate"><span class="pre">VARMAX.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.varmax.VARMAX.predict"><code class="docutils literal notranslate"><span class="pre">VARMAX.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.varmax.VARMAX.save_model"><code class="docutils literal notranslate"><span class="pre">VARMAX.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.varmax.VARMAX.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">VARMAX.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical.xgbod">anomaly_lib.statistical.xgbod module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.xgbod.XGBOD"><code class="docutils literal notranslate"><span class="pre">XGBOD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.xgbod.XGBOD.fit"><code class="docutils literal notranslate"><span class="pre">XGBOD.fit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.xgbod.XGBOD.load_model"><code class="docutils literal notranslate"><span class="pre">XGBOD.load_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.xgbod.XGBOD.predict"><code class="docutils literal notranslate"><span class="pre">XGBOD.predict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.xgbod.XGBOD.save_model"><code class="docutils literal notranslate"><span class="pre">XGBOD.save_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.xgbod.XGBOD.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">XGBOD.set_hyperparameter()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="anomaly_lib.statistical.html#module-anomaly_lib.statistical">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-anomaly_lib.algorithmbase">
+<span id="anomaly-lib-algorithmbase-module"></span><h2>anomaly_lib.algorithmbase module<a class="headerlink" href="#module-anomaly_lib.algorithmbase" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.algorithmbase.</span></span><span class="sig-name descname"><span class="pre">AlgorithmBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.fit" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.get_hyperparameter">
+<span class="sig-name descname"><span class="pre">get_hyperparameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_hyperparameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.get_probabilidad_anom">
+<span class="sig-name descname"><span class="pre">get_probabilidad_anom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_probabilidad_anom" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.get_x_test">
+<span class="sig-name descname"><span class="pre">get_x_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_x_test" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.get_x_train">
+<span class="sig-name descname"><span class="pre">get_x_train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_x_train" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.get_y_test">
+<span class="sig-name descname"><span class="pre">get_y_test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_y_test" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.get_y_train">
+<span class="sig-name descname"><span class="pre">get_y_train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_y_train" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.load_model">
+<span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.load_model" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.predict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.save_model">
+<span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.save_model" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.set_hyperparameter">
+<span class="sig-name descname"><span class="pre">set_hyperparameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hyperparameter</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_hyperparameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.set_x_test">
+<span class="sig-name descname"><span class="pre">set_x_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_x_test" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.set_x_train">
+<span class="sig-name descname"><span class="pre">set_x_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_train</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_x_train" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.set_y_test">
+<span class="sig-name descname"><span class="pre">set_y_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_test</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_y_test" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.algorithmbase.AlgorithmBase.set_y_train">
+<span class="sig-name descname"><span class="pre">set_y_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y_train</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_y_train" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib.utils">
+<span id="anomaly-lib-utils-module"></span><h2>anomaly_lib.utils module<a class="headerlink" href="#module-anomaly_lib.utils" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="anomaly_lib.utils.ParameterManagement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.utils.</span></span><span class="sig-name descname"><span class="pre">ParameterManagement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.utils.ParameterManagement" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.utils.ParameterManagement.check_hyperparameter_type">
+<span class="sig-name descname"><span class="pre">check_hyperparameter_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#anomaly_lib.utils.ParameterManagement.check_hyperparameter_type" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.utils.ParameterManagement.complete_parameters">
+<span class="sig-name descname"><span class="pre">complete_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#anomaly_lib.utils.ParameterManagement.complete_parameters" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="anomaly_lib.utils.ParameterManagement.get_parameter_function">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_parameter_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#anomaly_lib.utils.ParameterManagement.get_parameter_function" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="anomaly_lib.utils.SupervisedInputDataError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">anomaly_lib.utils.</span></span><span class="sig-name descname"><span class="pre">SupervisedInputDataError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mensaje</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'En</span> <span class="pre">algoritmos</span> <span class="pre">supervisados</span> <span class="pre">es</span> <span class="pre">necesario</span> <span class="pre">proporcionar</span> <span class="pre">los</span> <span class="pre">datos</span> <span class="pre">de</span> <span class="pre">entrada</span> <span class="pre">y</span> <span class="pre">las</span> <span class="pre">etiquetas</span> <span class="pre">a</span> <span class="pre">predecir'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anomaly_lib.utils.SupervisedInputDataError" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-anomaly_lib">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-anomaly_lib" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="anomaly_lib.deep_learning.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">anomaly_lib.deep_learning package</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="modules.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">anomaly_lib</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, -
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">anomaly_lib package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-anomaly_lib.algorithmbase">anomaly_lib.algorithmbase module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.fit"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.fit()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_hyperparameter"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.get_hyperparameter()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_probabilidad_anom"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.get_probabilidad_anom()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_x_test"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.get_x_test()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_x_train"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.get_x_train()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_y_test"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.get_y_test()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.get_y_train"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.get_y_train()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.load_model"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.load_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.predict"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.predict()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.save_model"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.save_model()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_hyperparameter"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.set_hyperparameter()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_x_test"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.set_x_test()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_x_train"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.set_x_train()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_y_test"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.set_y_test()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.algorithmbase.AlgorithmBase.set_y_train"><code class="docutils literal notranslate"><span class="pre">AlgorithmBase.set_y_train()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib.utils">anomaly_lib.utils module</a><ul>
+<li><a class="reference internal" href="#anomaly_lib.utils.ParameterManagement"><code class="docutils literal notranslate"><span class="pre">ParameterManagement</span></code></a><ul>
+<li><a class="reference internal" href="#anomaly_lib.utils.ParameterManagement.check_hyperparameter_type"><code class="docutils literal notranslate"><span class="pre">ParameterManagement.check_hyperparameter_type()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.utils.ParameterManagement.complete_parameters"><code class="docutils literal notranslate"><span class="pre">ParameterManagement.complete_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#anomaly_lib.utils.ParameterManagement.get_parameter_function"><code class="docutils literal notranslate"><span class="pre">ParameterManagement.get_parameter_function()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#anomaly_lib.utils.SupervisedInputDataError"><code class="docutils literal notranslate"><span class="pre">SupervisedInputDataError</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-anomaly_lib">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>

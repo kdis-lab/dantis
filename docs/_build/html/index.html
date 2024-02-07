@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Quickstart" href="usage/quickstart.html" />
+
+    <link rel="shortcut icon" href="_static/logo.png"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+        <title>anomaly_lib documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #2e5c7d;
+  --color-brand-content: #2e5c7d;
+  --codebgcolor: red;
+  --codetextcolor: red;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6998b4;
+  --color-brand-content: #6998b4;
+  --codebgcolor: green;
+  --codetextcolor: green;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #6998b4;
+  --color-brand-content: #6998b4;
+  --codebgcolor: green;
+  --codetextcolor: green;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="#"><div class="brand">anomaly_lib  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/logo.png" alt="Logo"/>
+  </div>
+  
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/notebooks.html">Notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package API</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modules.html">anomaly_lib</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of anomaly_lib</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="anomaly_lib.html">anomaly_lib package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of anomaly_lib package</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.deep_learning.html">anomaly_lib.deep_learning package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.machine_learning.html">anomaly_lib.machine_learning package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="anomaly_lib.statistical.html">anomaly_lib.statistical package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="name-library-siglas">
+<h1>NAME_LIBRARY (SIGLAS)<a class="headerlink" href="#name-library-siglas" title="Link to this heading">#</a></h1>
+<p>SIGLAS es una librería para el desarrollo de modelos de detección de anomalías. Permite la unificación de más de 50 algoritmos de la literatura distribuidos en diferentes librerías, además de algunos propios.</p>
+<p>In detail, the package provide:</p>
+<section id="deep-learning">
+<h2><strong>Deep Learning</strong>:<a class="headerlink" href="#deep-learning" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>ALAD <a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.alad.ALAD" title="anomaly_lib.deep_learning.alad.ALAD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.deep_learning.alad.ALAD</span></code></a></p></li>
+<li><p>AnoGAN <a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.anogan.AnoGAN" title="anomaly_lib.deep_learning.anogan.AnoGAN"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.deep_learning.anogan.AnoGAN</span></code></a></p></li>
+<li><p>AutoEncoder <a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.auto_encoder.AutoEncoder" title="anomaly_lib.deep_learning.auto_encoder.AutoEncoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.deep_learning.auto_encoder.AutoEncoder</span></code></a></p></li>
+<li><p>DeepSVDD <a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.deep_svdd.DeepSVDD" title="anomaly_lib.deep_learning.deep_svdd.DeepSVDD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.deep_learning.deep_svdd.DeepSVDD</span></code></a></p></li>
+<li><p>MO_GAAL <a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.mo_gaal.MO_GAAL" title="anomaly_lib.deep_learning.mo_gaal.MO_GAAL"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.deep_learning.mo_gaal.MO_GAAL</span></code></a></p></li>
+<li><p>SO_GAAL <a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.so_gaal.SO_GAAL" title="anomaly_lib.deep_learning.so_gaal.SO_GAAL"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.deep_learning.so_gaal.SO_GAAL</span></code></a></p></li>
+<li><p>VAE <a class="reference internal" href="anomaly_lib.deep_learning.html#anomaly_lib.deep_learning.vae.VAE" title="anomaly_lib.deep_learning.vae.VAE"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.deep_learning.vae.VAE</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="machine-learning">
+<h2><strong>Machine Learning</strong>:<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>DecisionTreeClassifierClassOD <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD" title="anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.decision_tree_classifier.DecisionTreeClassifierClassOD</span></code></a></p></li>
+<li><p>ECOD <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ecod.ECOD" title="anomaly_lib.machine_learning.ecod.ECOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.ecod.ECOD</span></code></a></p></li>
+<li><p>IForest <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.iforest.IForest" title="anomaly_lib.machine_learning.iforest.IForest"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.iforest.IForest</span></code></a></p></li>
+<li><p>KNN <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.knn.KNN" title="anomaly_lib.machine_learning.knn.KNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.knn.KNN</span></code></a></p></li>
+<li><p>LOF <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.lof.LOF" title="anomaly_lib.machine_learning.lof.LOF"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.lof.LOF</span></code></a></p></li>
+<li><p>MLPClassOD <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.mlp_classifier.MLPClassOD" title="anomaly_lib.machine_learning.mlp_classifier.MLPClassOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.mlp_classifier.MLPClassOD</span></code></a></p></li>
+<li><p>MultinomialNBClassOD <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD" title="anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.multinomial_nb.MultinomialNBClassOD</span></code></a></p></li>
+<li><p>GaussianNBClassOD <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD" title="anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.naive_bayes.GaussianNBClassOD</span></code></a></p></li>
+<li><p>OCSVM <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.ocsvm.OCSVM" title="anomaly_lib.machine_learning.ocsvm.OCSVM"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.ocsvm.OCSVM</span></code></a></p></li>
+<li><p>RandomForestClassOD <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD" title="anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.random_forest_classifier.RandomForestClassOD</span></code></a></p></li>
+<li><p>SVMClassOD <a class="reference internal" href="anomaly_lib.machine_learning.html#anomaly_lib.machine_learning.svm.SVMClassOD" title="anomaly_lib.machine_learning.svm.SVMClassOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.machine_learning.svm.SVMClassOD</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="statistical">
+<h2><strong>Statistical</strong>:<a class="headerlink" href="#statistical" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>ABOD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.abod.ABOD" title="anomaly_lib.statistical.abod.ABOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.abod.ABOD</span></code></a></p></li>
+<li><p>CBLOF <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cblof.CBLOF" title="anomaly_lib.statistical.cblof.CBLOF"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.cblof.CBLOF</span></code></a></p></li>
+<li><p>CD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cd.CD" title="anomaly_lib.statistical.cd.CD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.cd.CD</span></code></a></p></li>
+<li><p>COF <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.cof.COF" title="anomaly_lib.statistical.cof.COF"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.cof.COF</span></code></a></p></li>
+<li><p>LUNAR <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lunar.LUNAR" title="anomaly_lib.statistical.lunar.LUNAR"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.lunar.LUNAR</span></code></a></p></li>
+<li><p>COPOD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.copod.COPOD" title="anomaly_lib.statistical.copod.COPOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.copod.COPOD</span></code></a></p></li>
+<li><p>FeatureBagging <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.feature_bagging.FeatureBagging" title="anomaly_lib.statistical.feature_bagging.FeatureBagging"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.feature_bagging.FeatureBagging</span></code></a></p></li>
+<li><p>GMM <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.gmm.GMM" title="anomaly_lib.statistical.gmm.GMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.gmm.GMM</span></code></a></p></li>
+<li><p>HBOS <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.hbos.HBOS" title="anomaly_lib.statistical.hbos.HBOS"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.hbos.HBOS</span></code></a></p></li>
+<li><p>INNE <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.inne.INNE" title="anomaly_lib.statistical.inne.INNE"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.inne.INNE</span></code></a></p></li>
+<li><p>KDE <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kde.KDE" title="anomaly_lib.statistical.kde.KDE"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.kde.KDE</span></code></a></p></li>
+<li><p>KPCA <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.kpca.KPCA" title="anomaly_lib.statistical.kpca.KPCA"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.kpca.KPCA</span></code></a></p></li>
+<li><p>LMDD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lmdd.LMDD" title="anomaly_lib.statistical.lmdd.LMDD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.lmdd.LMDD</span></code></a></p></li>
+<li><p>LOCI <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loci.LOCI" title="anomaly_lib.statistical.loci.LOCI"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.loci.LOCI</span></code></a></p></li>
+<li><p>LODA <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.loda.LODA" title="anomaly_lib.statistical.loda.LODA"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.loda.LODA</span></code></a></p></li>
+<li><p>LSCP <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.lscp.LSCP" title="anomaly_lib.statistical.lscp.LSCP"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.lscp.LSCP</span></code></a></p></li>
+<li><p>MAD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mad.MAD" title="anomaly_lib.statistical.mad.MAD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.mad.MAD</span></code></a></p></li>
+<li><p>MCD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.mcd.MCD" title="anomaly_lib.statistical.mcd.MCD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.mcd.MCD</span></code></a></p></li>
+<li><p>PCA <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.pca.PCA" title="anomaly_lib.statistical.pca.PCA"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.pca.PCA</span></code></a></p></li>
+<li><p>QMCD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.qmcd.QMCD" title="anomaly_lib.statistical.qmcd.QMCD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.qmcd.QMCD</span></code></a></p></li>
+<li><p>RGraph <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rgraph.RGraph" title="anomaly_lib.statistical.rgraph.RGraph"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.rgraph.RGraph</span></code></a></p></li>
+<li><p>ROD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.rod.ROD" title="anomaly_lib.statistical.rod.ROD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.rod.ROD</span></code></a></p></li>
+<li><p>Sampling <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sampling.Sampling" title="anomaly_lib.statistical.sampling.Sampling"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.sampling.Sampling</span></code></a></p></li>
+<li><p>SOD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sod.SOD" title="anomaly_lib.statistical.sod.SOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.sod.SOD</span></code></a></p></li>
+<li><p>SOS <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sos.SOS" title="anomaly_lib.statistical.sos.SOS"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.sos.SOS</span></code></a></p></li>
+<li><p>XGBOD <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.xgbod.XGBOD" title="anomaly_lib.statistical.xgbod.XGBOD"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.xgbod.XGBOD</span></code></a></p></li>
+<li><p>MatrixProfile <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.matrixprofile.MatrixProfile" title="anomaly_lib.statistical.matrixprofile.MatrixProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.matrixprofile.MatrixProfile</span></code></a></p></li>
+<li><p>ARIMA <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.arima.ARIMA" title="anomaly_lib.statistical.arima.ARIMA"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.arima.ARIMA</span></code></a></p></li>
+<li><p>SARIMAX <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.sarimax.SARIMAX" title="anomaly_lib.statistical.sarimax.SARIMAX"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.sarimax.SARIMAX</span></code></a></p></li>
+<li><p>VARMAX <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.varmax.VARMAX" title="anomaly_lib.statistical.varmax.VARMAX"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.varmax.VARMAX</span></code></a></p></li>
+<li><p>HoltWinters <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.holt_winters.HoltWinters" title="anomaly_lib.statistical.holt_winters.HoltWinters"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.holt_winters.HoltWinters</span></code></a></p></li>
+<li><p>SingleExponentialSmoothing <a class="reference internal" href="anomaly_lib.statistical.html#anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing" title="anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing"><code class="xref py py-class docutils literal notranslate"><span class="pre">anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="usage/quickstart.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Quickstart</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2024, -
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">NAME_LIBRARY (SIGLAS)</a><ul>
+<li><a class="reference internal" href="#deep-learning"><strong>Deep Learning</strong>:</a></li>
+<li><a class="reference internal" href="#machine-learning"><strong>Machine Learning</strong>:</a></li>
+<li><a class="reference internal" href="#statistical"><strong>Statistical</strong>:</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    </body>
+</html>
