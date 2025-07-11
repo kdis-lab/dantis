@@ -1,0 +1,46 @@
+{
+"activation_hidden_gen": {
+    "type": "str",
+    "options": ["tanh", "relu", "sigmoid", "leaky_relu", "elu", "selu"]
+}, 
+"activation_hidden_disc": {
+    "type": "str",
+    "options": ["tanh", "relu", "sigmoid", "leaky_relu", "elu", "selu"]
+},
+"output_activation": {
+    "type": "str",
+    "options": ["None", "sigmoid", "softmax", "tanh"]
+},
+"output_activation_name": {
+    "type": "str",
+    "options": ["None", "sigmoid", "softmax", "tanh"]
+},
+"verbose": {
+    "type": "int", 
+    "options": ["0", "1", "2"]
+},
+"device": { 
+    "type": "str", 
+    "options": ["None", "cpu", "cuda"]
+}, 
+"hidden_activation_name": {
+    "type": "str",
+    "options": ["relu", "sigmoid", "tanh", "linear", "softmax", "softplus", "softsign"]
+}, 
+"optimizer_name": {
+    "type": "str",
+    "options": ["adam", "sgd", "rmsprop", "adagrad"]
+}, 
+"compile_mode": {
+    "type": "str",
+    "options": ["default", "eager", "graph", "mixed_float16"]
+}, 
+"hidden_activation": {
+    "type": "str",
+    "options": ["relu", "sigmoid", "tanh", "linear", "softmax", "softplus", "softsign"]
+}, 
+"optimizer": {
+    "type": "str",
+    "options": ["adam", "sgd", "rmsprop", "adagrad"]
+}
+}

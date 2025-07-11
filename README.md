@@ -1,14 +1,109 @@
-# Hi, anomaly_lib is a library for anomaly detection in time series👋
+
+<p align="center">
+  <img width="200" src="docs/source/_static/logo-DANTIS.png" alt="DANTIS logo" style="border-radius: 30px;"/>
+</p>
 
 ![GitHub Followers](https://img.shields.io/github/followers/kdis-lab?style=social)
-
-## Anomaly Library (X)
-
-A time series anomaly detection library featuring cutting-edge algorithms and advanced functionalities.It allows the unification of more than 50 algorithms from the literature distributed across different libraries, in addition to some of its own.
-
-In detail, the package provides:
+[![PyPI version](https://img.shields.io/pypi/v/dantis.svg)](https://pypi.org/project/dantis/)
+[![License: MIT](https://img.shields.io/pypi/l/dantis.svg)](https://github.com/kdis-lab/anomaly_lib/blob/main/LICENSE)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000.svg)](https://github.com/psf/black)
 
 
+--- 
+
+DANTIS brings together **50+ anomaly detection algorithms**—from classical statistical methods and machine learning to deep learning—under a **unified scikit-learn–style API**. It consolidates models from diverse libraries and includes proprietary algorithms developed by our team.
+
+
+## Installation
+```bash
+pip install dantis              # From PyPI (recommended)
+```
+
+## Quick start
+```python
+from dantis.machine_learning import DecisionTreeClassifier
+from dantis.deep_learning import ALAD
+from sklearn.metrics import accuracy_score
+import pandas as pd
+
+# Load your time series data
+df = pd.read_csv("anomaly_datasets/anomaly_dataset_1.csv")
+
+X = df.drop(columns=["is_anomaly"])
+y = df["is_anomaly"]
+
+# Split data chronologically for time series (no shuffling)
+split_idx = int(len(df) * 0.8)
+X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
+y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
+
+decision_tree_model = DecisionTreeClassifier()
+decision_tree_model.fit(X_train, y_train)
+
+
+
+y_pred = decision_tree_model.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
+print(f"DecisionTree Accuracy: {acc:.3f}")
+
+alad_model = ALAD()
+alad_model.fit(X_train, y_train)
+
+y_pred = alad_model.predict(X_test)
+acc = accuracy_score(y_test, y_pred)
+print(f"ALAD Accuracy: {acc:.3f}")
+```
+
+
+
+## Key features
+
+* **Wide algorithm coverage** – 50+ detectors across deep learning, machine learning, and statistical methods.
+* **Consistent API** – all detectors follow the scikit-learn `fit/predict` paradigm and expose `decision_scores_`, `predict_proba`, …
+* **Pipeline & preprocessing layer** – compose detectors with built-in scalers, transforms, and windowing utilities.
+* **Comprehensive evaluation** – metrics and visualisation helpers for rapid benchmarking.
+* **Extensibility** – subclass `AlgorithBase` and plug your own model into the ecosystem.
+
+## GUI: Desktop interface for model training & evaluation
+
+DANTIS includes a full-featured graphical interface to simplify the use of the library for users without programming experience. Inspired by tools like **Weka** and **KNIME**, this desktop application enables:
+
+- Training and testing of anomaly detection models
+- Preprocessing pipelines and parameter tuning
+- Quantitative comparison of models using the [StaTDS](https://github.com/kdis-lab/StaTDS) library
+
+<p align="center">
+  <img src="docs/source/_static/gui-overview.png" alt="DANTIS GUI" width="600"/>
+</p>
+
+
+
+## Developed in:
+![Python](https://img.shields.io/badge/Python-yellow?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)
+![PyQT5](https://img.shields.io/badge/PyQt5-5.15.8-blue)
+
+## Documentación
+Documentation is currently available on [GitHub](https://github.com/kdis-lab/anomaly_lib).
+
+📚 A full documentation site with tutorials and API reference is being developed at **[https://dantis.readthedocs.io](https://dantis.readthedocs.io)**.
+
+
+## Funding & affiliations
+
+DANTIS has been developed within the research activities of the DaSCI Institute (Andalusian Inter-University Institute in Data Science and Computational Intelligence), by members of the research groups KDISLAB (Knowledge Discovery and Intelligent Systems, University of Córdoba) and SCI2S (Soft Computing and Intelligent Information Systems, University of Granada).
+
+This work has been supported by the following projects:
+- TED2021-132702B-C22 - Mantenimiento Predictivo basado en Detección de Anomalías: Framework y Mantenimiento de Camiones de Alto Tonelaje (PREMAD-Truck)
+
+We gratefully acknowledge this support.
+
+<p align="center">
+  <img src="docs/source/_static/logo-dasci.png" alt="DaSCI" height="90"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
+  <img src="docs/source/_static/logo-kdislab.png" alt="KDISLAB" height="60"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/source/_static/logo-sci2s.png" alt="SCI2S" height="70"/>
+</p>
 
 ### Available algorithms:
 
@@ -79,9 +174,7 @@ In detail, the package provides:
 | SingleExponentialSmoothing    | anomaly_lib.statistical.singleExponentialSmoothing.SingleExponentialSmoothing        |
 
 
-## Developed in:
-![Python](https://img.shields.io/badge/Python-yellow?style=for-the-badge&logo=python&logoColor=white&labelColor=101010)
+## License
 
-
-## Documentación
-You can find all documentation in [Web Docs](https://github.com/kdis-lab/anomaly_lib).
+`DANTIS` is distributed under the **MIT License**.
+See [`LICENSE`](LICENSE) for details.

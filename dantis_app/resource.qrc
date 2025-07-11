@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="Iconos">
+    <file>Iconos/busqueda.png</file>
+    <file>Iconos/cerrado.png</file>
+    <file>Iconos/datasets.png</file>
+    <file>Iconos/menu.png</file>
+    <file>Iconos/metricas.png</file>
+    <file>Iconos/modelos.png</file>
+    <file>Iconos/resultados.png</file>
+    <file>Iconos/validacion.png</file>
+  </qresource>
+</RCC>

@@ -22,29 +22,29 @@ install_requires = [
 
 setup(
     #  Project name.
-    #  $ pip install anomaly_lib
-    name='anomaly_lib',
+    #  $ pip install dantis
+    name='dantis',
 
     # Version
-    version='1.0',
+    version='0.0.1',
 
     # Description
-    description='Library for ...',
+    description='DANTIS brings together **50+ anomaly detection algorithms**—from classical statistical methods and machine learning to deep learning—under a **unified scikit-learn–style API**. It consolidates models from diverse libraries and includes proprietary algorithms developed by our team.',
 
     # Long description (README)
     long_description=long_description,
 
     # URL
-    url='https://github.com/kdis-lab/anomaly_lib',
+    url='https://github.com/kdis-lab/dantis',
 
     # Author
-    author='EN UNA SOLA LINEA',
+    author='DaSCI, KDIS Lab, SCI2S',
 
     # Author email
-    author_email='correos',
+    author_email='',
 
     # Keywords
-    keywords=['Anomaly Detection'],
+    keywords=['Anomaly Detection', 'Time Series', 'Machine Learning', 'Deep Learning', 'Scikit-learn', 'Data Science'],
 
     # Packages
     package_dir={"": "./"}, 
