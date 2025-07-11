@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="200" src="docs/source/_static/logo-DANTIS.png" alt="DANTIS logo" style="border-radius: 30px;"/>
+  <img width="200" src="docs/source/_static/logo-dantis.png" alt="DANTIS logo" style="border-radius: 30px;"/>
 </p>
 
 ![GitHub Followers](https://img.shields.io/github/followers/kdis-lab?style=social)
