@@ -1,37 +1,51 @@
-
-
 class MetricsController:
+    """
+    Controller class to manage metric selection via checkboxes and simulate metric values.
+
+    This class stores a list of selected metrics represented by checkbox names 
+    and provides methods to set and get these selections. It also includes a method 
+    to simulate metric values for testing or demonstration purposes.
+
+    Attributes
+    ----------
+    checkboxes : list of str
+        List containing the names of the selected metric checkboxes.
+
+    Methods
+    -------
+    setChecBoxesSelected(checboxes)
+        Set the current list of selected checkboxes.
+
+    getChecBoxes_selected()
+        Get the current list of selected checkboxes.
+
+    """
     def __init__(self):
+        """
+        Initialize a new MetricsController instance.
+
+        Sets up an empty list to hold selected checkboxes.
+        """
         self.checkboxes = []
 
     def setChecBoxesSelected(self, checboxes): 
+        """
+        Set the current list of selected checkboxes.
+
+        Parameters
+        ----------
+        checboxes : list of str
+            A list containing the names of the selected metric checkboxes.
+        """
         self.checkboxes = checboxes
 
     def getChecBoxes_selected (self):
-        return self.checkboxes
+        """
+        Get the current list of selected checkboxes.
 
-    """
-    def simular_valor_metrica(self, nombre):
-        if nombre in ['True Positive', 'True Negative', 'False positive', 'False negative']:
-            return random.randint(50, 500)
-        elif nombre == 'Accuracy':
-            return round(random.uniform(0.7, 0.99), 4)
-        elif nombre == 'Recall / Sensibilidad':
-            return round(random.uniform(0.5, 1.0), 4)
-        elif nombre == 'F1 Score':
-            return round(random.uniform(0.5, 1.0), 4)
-        elif nombre == 'Log-Loss':
-            return round(random.uniform(0.1, 1.0), 4)
-        elif nombre == 'Curva ROC / AUC':
-            return round(random.uniform(0.6, 1.0), 4)
-        elif nombre == 'Error Absoulto Medio (MAE)':
-            return round(random.uniform(0.1, 2.0), 4)
-        elif nombre == 'Error Cuadrático Medio (MSE)':
-            return round(random.uniform(0.2, 5.0), 4)
-        elif nombre == 'Raíz del Error Cuadrático Medio (RMSE)':
-            return round(random.uniform(0.4, 2.2), 4)
-        elif nombre == 'Coeficiente de determinación':
-            return round(random.uniform(0.5, 1.0), 4)
-        else:
-            return "N/A"
-    """
+        Returns
+        -------
+        list of str
+            The list of currently selected metric checkbox names.
+        """
+        return self.checkboxes

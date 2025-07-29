@@ -102,3 +102,9 @@
 	}
 /*= END
   ==================================================== */
+
+
+
+QScrollArea > QWidget#qt_scrollarea_viewport {
+    background-color: white;
+}

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="Iconos">
+    <file>Iconos/editar.png</file>
     <file>Iconos/busqueda.png</file>
     <file>Iconos/cerrado.png</file>
     <file>Iconos/datasets.png</file>

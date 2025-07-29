@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1263</width>
-    <height>793</height>
+    <width>1084</width>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,7 +51,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page_datasets">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -129,8 +129,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>990</width>
-                <height>685</height>
+                <width>55</width>
+                <height>16</height>
                </rect>
               </property>
              </widget>
@@ -1004,8 +1004,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>55</width>
-                <height>22</height>
+                <width>990</width>
+                <height>685</height>
                </rect>
               </property>
               <property name="minimumSize">
@@ -1342,6 +1342,18 @@
          </widget>
          <widget class="QWidget" name="page_results">
           <layout class="QGridLayout" name="gridLayout_6">
+           <item row="0" column="0">
+            <widget class="QLabel" name="add_results">
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Resultados obtenidos</string>
+             </property>
+            </widget>
+           </item>
            <item row="1" column="0" colspan="4">
             <layout class="QHBoxLayout" name="horizontalLayout_12">
              <property name="spacing">
@@ -1676,34 +1688,35 @@
              </item>
             </layout>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="add_results">
-             <property name="font">
-              <font>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Resultados obtenidos</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="3">
             <layout class="QVBoxLayout" name="verticalLayout_15">
              <item>
-              <widget class="QPushButton" name="download_data">
-               <property name="font">
-                <font>
-                 <pointsize>9</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Descargar</string>
-               </property>
-               <property name="checkable">
-                <bool>true</bool>
-               </property>
-              </widget>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QPushButton" name="download_data">
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Descargar datos entrenamiento</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="download_data_test">
+                 <property name="font">
+                  <font>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Descargar test estadísticos</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </item>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_22">
@@ -1761,8 +1774,8 @@
                   <string/>
                  </property>
                  <property name="icon">
-                  <iconset>
-                   <normaloff>../../../Downloads/editar.png</normaloff>../../../Downloads/editar.png</iconset>
+                  <iconset resource="resource.qrc">
+                   <normaloff>:/Iconos/Iconos/editar.png</normaloff>:/Iconos/Iconos/editar.png</iconset>
                  </property>
                  <property name="iconSize">
                   <size>

@@ -1,20 +1,79 @@
-from PyQt5.QtWidgets import QWidget, QSpinBox
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
-from PyQt5.QtCore import Qt, QMimeData
-from PyQt5.QtGui import QDrag
-from PyQt5.QtWidgets import QListWidget
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QHeaderView, QButtonGroup
 from PyQt5.QtWidgets import QSizePolicy
 from PyQt5.QtWidgets import QPushButton
 
 from core.utils import show_error
 from controller.validation_controller import ValidationController
+from view.widgets import DropListWidget, DropTableWidget
 
 class ViewValidation(QWidget):
+    """
+    GUI component responsible for configuring dataset validation strategies.
+
+    This view allows the user to choose between different validation types 
+    (Train/Test, Cross-Validation, Sliding Split) and configure parameters 
+    accordingly. It also enables dataset assignment to different roles 
+    (train, validation, test) via drag-and-drop widgets.
+
+    Parameters
+    ----------
+    main_window : QMainWindow
+        Reference to the main application window.
+    ui : object
+        The UI object containing widgets defined in the Qt Designer form.
+    DatasetController : DatasetController, optional
+        Controller managing dataset operations and metadata, by default None.
+
+    Attributes
+    ----------
+    validationController : ValidationController
+        Handles validation configuration logic and persistence.
+    datasetController : DatasetController
+        Reference to the dataset manager.
+    validation_config : dict
+        Stores the current validation configuration to be passed to the controller.
+
+    Methods
+    -------
+    init_ui()
+        Sets up UI components, button bindings, and custom drag-and-drop widgets.
+    on_delete_row_click()
+        Deletes a dataset row and returns its contents to the available dataset list.
+    initial_parameter_configuration()
+        Initializes the list of datasets based on the controller's stored data.
+    on_insert_row_click()
+        Inserts a new empty row into the validation table with a delete button.
+    on_radioButton_train_test_click()
+        Enables UI for train/test validation configuration.
+    on_radioButton_crossVal_click()
+        Enables UI for cross-validation configuration.
+    on_radioButton_sliding_click()
+        Enables UI for sliding split configuration.
+    on_next_val_click()
+        Triggers validation check and advances if data is valid.
+    _check_info_val()
+        Main method to verify the correctness of the selected validation strategy.
+    _validate_data()
+        Performs thorough validation of selected datasets and parameter settings.
+    on_radioButton_no_click()
+        Disables manual dataset assignment when "No" is selected.
+    on_radioButton_yes_click()
+        Enables manual dataset assignment when "Yes" is selected.
+    """
     def __init__(self, main_window, ui, DatasetController=None):
+        """
+        Initialize the ViewValidation component.
+
+        Parameters
+        ----------
+        main_window : QMainWindow
+            Main application window.
+        ui : object
+            User interface instance containing visual components.
+        DatasetController : DatasetController, optional
+            Dataset controller to retrieve and validate datasets.
+        """
         super().__init__()
         self.main_window = main_window
         self.ui = ui
@@ -24,6 +83,13 @@ class ViewValidation(QWidget):
         self.init_ui()
 
     def init_ui(self):
+        """
+        Sets up the user interface elements and binds UI events to handlers.
+
+        This method also replaces the original list and table widgets with
+        custom drag-and-drop versions (`DropListWidget`, `DropTableWidget`)
+        and synchronizes UI layouts and policies accordingly.
+        """
         self.group_validacion = QButtonGroup(self)
         self.group_validacion.addButton(self.ui.radioButton_train_test)
         self.group_validacion.addButton(self.ui.radioButton_crossVal)
@@ -44,48 +110,34 @@ class ViewValidation(QWidget):
         self.ui.radioButton_yes.clicked.connect(self.on_radioButton_yes_click)
         self.ui.pushButton_insertRow.clicked.connect(self.on_insert_row_click)
 
-        # Crear los widgets personalizados
         drop_list_widget = DropListWidget()
         drop_table_widget = DropTableWidget(drop_list_widget)
 
-        # Obtener el layout donde están los widgets originales
         layout = self.ui.horizontalLayout_listTabla
-
-        # Reemplazar widgets en el layout
         layout.replaceWidget(self.ui.listWidget_datasets, drop_list_widget)
         layout.replaceWidget(self.ui.tableWidget_TVT, drop_table_widget)
 
-        # Copiar columnas y encabezados del widget original a drop_table_widget
         self.old_table = self.ui.tableWidget_TVT
         drop_table_widget.setColumnCount(self.old_table.columnCount())
         drop_table_widget.setHorizontalHeaderLabels(
             [self.old_table.horizontalHeaderItem(i).text() for i in range(self.old_table.columnCount())]
         )
 
-        # Ajustar columnas para que tengan ancho uniforme
         header = drop_table_widget.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.Stretch)
 
-        # SizePolicy para listWidget: mínimo horizontal, expand vertical
         size_policy_list = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
         drop_list_widget.setSizePolicy(size_policy_list)
-
-        # SizePolicy para tableWidget: expand horizontal y vertical
         size_policy_table = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         drop_table_widget.setSizePolicy(size_policy_table)
-
-        # Ocultar widgets antiguos
         self.ui.listWidget_datasets.hide()
         self.ui.tableWidget_TVT.hide()
 
-        # Asignar los widgets nuevos para que el resto del código funcione igual
         self.ui.listWidget_datasets = drop_list_widget
         self.ui.tableWidget_TVT = drop_table_widget
 
-        # Configuraciones necesarias
         self.ui.listWidget_datasets.setDragEnabled(True)
         self.ui.tableWidget_TVT.setDragEnabled(True)
-
         self.ui.listWidget_datasets.setDisabled(True)
         self.ui.tableWidget_TVT.setDisabled(True)
 
@@ -98,31 +150,38 @@ class ViewValidation(QWidget):
                 widget_sliding.setDisabled(True)
 
     def on_delete_row_click(self):
+        """
+        Removes the row associated with the clicked delete button and
+        restores any dataset names to the list widget.
+        """
         button = self.sender()
         if button:
             for row in range(self.ui.tableWidget_TVT.rowCount()):
                 widget = self.ui.tableWidget_TVT.cellWidget(row, self.ui.tableWidget_TVT.columnCount() - 1)
                 if widget == button:
-                    # Devuelve datos a la lista
-                    for col in range(self.ui.tableWidget_TVT.columnCount() - 1):  # evitar la columna del botón
+                    for col in range(self.ui.tableWidget_TVT.columnCount() - 1):
                         item = self.ui.tableWidget_TVT.item(row, col)
                         if item:
                             self.ui.listWidget_datasets.addItem(item.text())
                     self.ui.tableWidget_TVT.removeRow(row)
                     break
 
-
     def initial_parameter_configuration(self):
+        """
+        Loads dataset names from the controller and populates the list widget.
+        """
         datasets = self.datasetController.get_data()
         names = [dataset.name for dataset in datasets.values()]
         self.ui.listWidget_datasets.clear()
         self.ui.listWidget_datasets.addItems(names)
 
     def on_insert_row_click(self):
+        """
+        Inserts an empty row into the table and adds a delete button to the last column.
+        """
         rowPosition = self.ui.tableWidget_TVT.rowCount()
         self.ui.tableWidget_TVT.insertRow(rowPosition)
 
-        # Crear botón de borrar
         btn_borrar = QPushButton("🗑️")
         btn_borrar.clicked.connect(self.on_delete_row_click)
 
@@ -130,27 +189,31 @@ class ViewValidation(QWidget):
 
 
     def on_radioButton_train_test_click(self):
-        # ACTIVAMOS ELEMENTOS PARA TRAIN/TEST
+        """
+        Enables spin boxes for Train/Test configuration and disables others.
+        """
+        # ACTIVATE ELEMENTS FOR TRAIN/TEST
         self.ui.spinBox_train.setDisabled(False)
         self.ui.spinBox_val.setDisabled(False)
         self.ui.spinBox_test.setDisabled(False)
 
-        # DESACTIVAMOS ELEMENTOS PARA CROSS VALIDATION
+        # DISABLE ELEMENTS FOR CROSS VALIDATION
         self.ui.spinBox_crossVal.setValue(self.ui.spinBox_crossVal.minimum())
         self.ui.spinBox_crossVal.setDisabled(True)
-
         self.ui.spinBox_crossval_percent.setValue(self.ui.spinBox_crossval_percent.minimum())
         self.ui.spinBox_crossval_percent.setDisabled(True)
 
-        # DESACTIVAMOS ELEMENTOS PARA SLIDING SPLIT
+        # DISABLE ELEMENTS FOR SLIDING SPLIT
         self.ui.spinBox_sliding.setValue(self.ui.spinBox_sliding.minimum())
         self.ui.spinBox_sliding.setDisabled(True)
-
         self.ui.spinBox_sliding_percent.setValue(self.ui.spinBox_sliding_percent.minimum())
         self.ui.spinBox_sliding_percent.setDisabled(True)
 
     def on_radioButton_crossVal_click(self):
-        # DESACTIVAMOS ELEMENTOS PARA TRAIN/TEST
+        """
+        Enables Cross-Validation spin boxes and disables others.
+        """
+        # DISABLE ELEMENTS FOR TRAIN/TEST
         self.ui.spinBox_train.setValue(self.ui.spinBox_train.minimum())
         self.ui.spinBox_train.setDisabled(True)
 
@@ -160,11 +223,11 @@ class ViewValidation(QWidget):
         self.ui.spinBox_test.setValue(self.ui.spinBox_test.minimum())
         self.ui.spinBox_test.setDisabled(True)
 
-        # ACTIVAMOS ELEMENTOS PARA CROSS VALIDATION
+        # ACTIVATE ELEMENTS FOR CROSS VALIDATION
         self.ui.spinBox_crossVal.setDisabled(False)
         self.ui.spinBox_crossval_percent.setDisabled(False)
 
-        # DESACTIVAMOS ELEMENTOS PARA SLIDING SPLIT
+        # DISABLE ELEMENTS FOR SLIDING SPLIT
         self.ui.spinBox_sliding.setValue(self.ui.spinBox_sliding.minimum())
         self.ui.spinBox_sliding.setDisabled(True)
 
@@ -172,7 +235,10 @@ class ViewValidation(QWidget):
         self.ui.spinBox_sliding_percent.setDisabled(True)
 
     def on_radioButton_sliding_click(self):
-        # DESACTIVAMOS ELEMENTOS PARA TRAIN/TEST
+        """
+        Enables Sliding Split spin boxes and disables others.
+        """
+        # DISABLE ELEMENTS FOR TRAIN/TEST
         self.ui.spinBox_train.setValue(self.ui.spinBox_train.minimum())
         self.ui.spinBox_train.setDisabled(True)
 
@@ -182,44 +248,53 @@ class ViewValidation(QWidget):
         self.ui.spinBox_test.setValue(self.ui.spinBox_test.minimum())
         self.ui.spinBox_test.setDisabled(True)
 
-        # DESACTIVAMOS ELEMENTOS PARA CROSS VALIDATION
+        # DISABLE ELEMENTS FOR CROSS VALIDATION
         self.ui.spinBox_crossVal.setValue(self.ui.spinBox_crossVal.minimum())
         self.ui.spinBox_crossVal.setDisabled(True)
 
         self.ui.spinBox_crossval_percent.setValue(self.ui.spinBox_crossval_percent.minimum())
         self.ui.spinBox_crossval_percent.setDisabled(True)
 
-        # ACTIVAMOS ELEMENTOS PARA SLIDING SPLIT
+        # ACTIVATE ELEMENTS FOR SLIDING SPLIT
         self.ui.spinBox_sliding.setDisabled(False)
         self.ui.spinBox_sliding_percent.setDisabled(False)
 
     def on_next_val_click(self): 
-        self.check_info_val()
-    
-    def check_info_val(self):
-        if self.validar_datos(): 
+        """
+        Initiates the validation check workflow.
+        """
+        self._check_info_val()
+
+    def _check_info_val(self):
+        """
+        Validates the user input and, if successful, proceeds to the model configuration stage.
+        """
+        if self._validate_data(): 
             self.ui.model_btn_2.setDisabled(False)
             self.ui.model_btn_1.setDisabled(False)
-
-            # Para cambiar a la página de los modelos
             self.ui.model_btn_2.setChecked(True)
 
-    def validar_datos(self): 
+    def _validate_data(self): 
+        """
+        Main validation logic for datasets and parameters.
+
+        Returns
+        -------
+        bool
+            True if validation passes, False otherwise.
+        """
         if self.ui.radioButton_yes.isChecked():
             rows = self.ui.tableWidget_TVT.rowCount()
             columns = self.ui.tableWidget_TVT.columnCount()
 
-            # Obtener los índices de columna por nombre
             column_names = {}
             for col in range(columns):
                 header_item = self.ui.tableWidget_TVT.horizontalHeaderItem(col)
                 if header_item is not None:
                     column_names[header_item.text().strip().lower()] = col
 
-            
-            # Asegurarnos de que las columnas necesarias existen
             if "train" not in column_names or "test" not in column_names:
-                print("Error: Las columnas 'train' y/o 'test' no existen en la tabla.")
+                logging.error("Las columnas 'train' y/o 'test' no existen en la tabla.")
             else:
                 train_col = column_names["train"]
                 val_col = column_names["validation"]
@@ -246,7 +321,6 @@ class ViewValidation(QWidget):
                             "val": val_text,
                             "test": test_text }
                         
-                # VALIDACIÓN DE CONSISTENCIA DE DATASETS
                 for row, datasets_dict in info_columns.items():
                     nombres_archivos = [datasets_dict['train'], datasets_dict['test']]
                     if datasets_dict['val']:
@@ -258,7 +332,6 @@ class ViewValidation(QWidget):
                         show_error(f"Error en la fila {row + 1}. Uno o más datasets especificados no están disponibles.")
                         return False
 
-                    # Usar el primero como referencia
                     ref_x_col = datasets_seleccionados[0].x_col
                     ref_y_col = datasets_seleccionados[0].y_col
 
@@ -269,7 +342,6 @@ class ViewValidation(QWidget):
                 
                 self.datasetController.set_split_data(info_columns)
 
-                    
         if self.ui.radioButton_train_test.isChecked():
             if (self.ui.spinBox_train.value() == 0) | (self.ui.spinBox_test.value() == 0): 
                 show_error("En la validación Train/Test debe rellenar los campos de 'Entrenamiento' y 'Testeo'. El campo opcional es 'Validación'.")
@@ -315,101 +387,15 @@ class ViewValidation(QWidget):
                 return True
 
     def on_radioButton_no_click(self):
+        """
+        Disables manual assignment widgets when 'No' is selected.
+        """
         self.ui.listWidget_datasets.setDisabled(True)
         self.ui.tableWidget_TVT.setDisabled(True)
 
     def on_radioButton_yes_click(self):
+        """
+        Enables manual assignment widgets when 'Yes' is selected.
+        """
         self.ui.listWidget_datasets.setDisabled(False)
         self.ui.tableWidget_TVT.setDisabled(False)
-
-        
-
-class DropListWidget(QListWidget):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setAcceptDrops(True)
-        self.setDragEnabled(True)
-        self.setDropIndicatorShown(True)
-        self.setDragDropMode(QListWidget.DragDrop)
-        self.setDefaultDropAction(Qt.MoveAction)
-
-    def startDrag(self, supportedActions):
-        self._drag_item = self.currentItem()
-        if self._drag_item:
-            drag = QDrag(self)
-            mimeData = QMimeData()
-            mimeData.setText(self._drag_item.text())
-            drag.setMimeData(mimeData)
-
-            result = drag.exec_(Qt.MoveAction)
-            if result == Qt.MoveAction and self._drag_item: 
-                # Eliminar solo si el drop fue exitoso y en otro widget
-                # Si quieres evitar eliminar cuando cae en sí mismo, puedes verificar destino
-                self.takeItem(self.row(self._drag_item))
-                self._drag_item = None
-
-    def dragEnterEvent(self, event):
-        if event.mimeData().hasText():
-            event.acceptProposedAction()
-
-    def dragMoveEvent(self, event):
-        event.acceptProposedAction()
-
-    def dropEvent(self, event):
-        if event.source() == self:
-            # Evitar drops sobre sí mismo
-            event.ignore()
-            return
-
-        if event.mimeData().hasText():
-            text = event.mimeData().text()
-            if not any(self.item(i).text() == text for i in range(self.count())):
-                self.addItem(text)
-            event.acceptProposedAction()
-
-class DropTableWidget(QTableWidget):
-    def __init__(self, list_widget: QListWidget, parent=None):
-        super().__init__(parent)
-        self.list_widget = list_widget
-        self.setAcceptDrops(True)
-        self.setDragEnabled(True)
-        self.setDropIndicatorShown(True)
-        self.setDragDropMode(QTableWidget.DragDrop)
-        self.setDefaultDropAction(Qt.MoveAction)
-
-    def startDrag(self, supportedActions):
-        item = self.currentItem()
-        if item:
-            mimeData = QMimeData()
-            mimeData.setText(item.text())
-
-            drag = QDrag(self)
-            drag.setMimeData(mimeData)
-
-            if drag.exec_(Qt.MoveAction) == Qt.MoveAction:
-                self.setItem(self.currentRow(), self.currentColumn(), None)
-
-    def dragEnterEvent(self, event):
-        if event.mimeData().hasText():
-            event.acceptProposedAction()
-
-    def dragMoveEvent(self, event):
-        event.accept()
-
-    def dropEvent(self, event):
-        if event.mimeData().hasText():
-            text = event.mimeData().text()
-            pos = event.pos()
-            row = self.rowAt(pos.y())
-            col = self.columnAt(pos.x())
-
-            if row == -1 or col == -1:
-                return
-
-            existing_item = self.item(row, col)
-            if existing_item:
-                # Devuelve el anterior valor a la lista
-                self.list_widget.addItem(existing_item.text())
-
-            self.setItem(row, col, QTableWidgetItem(text))
-            event.acceptProposedAction()

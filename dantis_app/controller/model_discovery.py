@@ -2,6 +2,7 @@ import importlib
 import pkgutil
 import inspect
 import numpy as np
+import logging
 
 # --------------------------------------------
 # TODO: Temporal fix to allow imports from parent directory 
@@ -9,14 +10,29 @@ import numpy as np
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-# --------------------------------------------
 
 import dantis
 from dantis.algorithmbase import AlgorithmBase
-
+# --------------------------------------------
 
 def _serialize_value(value):
-    """Serialize a value to make it JSON-compatible."""
+    """
+    Serializes a Python object into a JSON-compatible format.
+
+    This function converts various types of objects—such as classes, callables, model instances,
+    lists, dictionaries, and numpy arrays—into formats suitable for JSON serialization.
+    Useful for exporting model configurations or hyperparameters.
+
+    Parameters
+    ----------
+    value : any
+        The object to be serialized.
+
+    Returns
+    -------
+    any
+        A JSON-compatible representation of the input object.
+    """
     if value is inspect._empty:
         return "empty"
     elif isinstance(value, type):
@@ -37,34 +53,47 @@ def _serialize_value(value):
         return value.tolist()
     return value
 
-
 def _serialize_hyperparameters(hyperparameters):
-    """Recursively serialize a dictionary of hyperparameters."""
-    return {k: _serialize_value(v) for k, v in hyperparameters.items()}
+    """
+    Recursively serializes a dictionary of hyperparameters.
 
+    Each value in the hyperparameter dictionary is passed through `_serialize_value` 
+    to ensure the final dictionary is fully JSON-compatible.
+
+    Parameters
+    ----------
+    hyperparameters : dict
+        Dictionary of hyperparameters to be serialized.
+
+    Returns
+    -------
+    dict
+        A JSON-compatible dictionary of hyperparameters.
+    """
+    return {k: _serialize_value(v) for k, v in hyperparameters.items()}
 
 def discover_model_classes(package):
     """
-    Discover all classes in a given package that inherit from AlgorithmBase.
+    Discover all model classes in a given package that inherit from AlgorithmBase.
 
-    This function recursively walks through all modules in the specified package,
-    imports them, and inspects their contents to find classes that are subclasses
-    of AlgorithmBase (excluding AlgorithmBase itself). The discovered classes are
-    grouped by model type, which is inferred from the module path.
+    This function recursively inspects all modules in the specified package and identifies
+    classes that:
+    - Are subclasses of `AlgorithmBase`
+    - Are defined in the same module (not imported)
+    - Are not the `AlgorithmBase` class itself
+
+    The discovered classes are categorized by their model type, inferred from the module name.
 
     Parameters
     ----------
     package : module
-        The Python package to search for model classes. Must have a __path__ attribute.
+        The Python package to search. Must have a `__path__` attribute (e.g., a package, not a module).
 
-        A dictionary mapping model type (str) to a list of class references (type).
-        The model type is determined by the second part of the module's dotted path,
-        or set to 'classical' if not available.
+    Returns
+    -------
+    dict[str, list[type]]
+        A dictionary mapping model type names to lists of class objects.
 
-    Notes
-    -----
-    - Only classes defined in their respective modules (not imported) are considered.
-    - If a module cannot be imported, an error message is printed and the module is skipped.
     """
 
     discovered = {}
@@ -86,27 +115,50 @@ def discover_model_classes(package):
                 discovered.setdefault(model_type, []).extend(valid_classes)
 
         except Exception as e:
-            print(f"[ERROR] No se pudo importar {modname}: {e}")
+            logging.error(f"No se pudo importar {modname}: {e}")
 
     return discovered
 
-
 def extract_model_names_by_type(package):
     """
-    Retorna nombres de modelos organizados por tipo de algoritmo (basado en módulo).
+    Extracts model class names grouped by algorithm type.
+
+    Based on the discovery of subclasses of `AlgorithmBase`, this function returns only
+    the names (strings) of valid model classes, excluding utility classes like "Topology".
+
+    Parameters
+    ----------
+    package : module
+        The package to search for model classes (e.g., `dantis`).
+
+    Returns
+    -------
+    dict[str, list[str]]
+        A dictionary mapping model types to lists of class names.
     """
     classes_by_type = discover_model_classes(package)
-    print(f"[INFO] Descubiertas {len(classes_by_type)} tipos de modelos en el paquete '{package.__name__}'.")
-    print(classes_by_type.keys())
     return {
         model_type: [cls.__name__ for cls in class_list if cls.__name__ != "Topology"]
         for model_type, class_list in classes_by_type.items()
     }
 
-
 def extract_default_hyperparameters(package):
     """
-    Instancia cada clase y extrae sus hiperparámetros por defecto.
+    Extracts default hyperparameters for each model class in a package.
+
+    For each class that inherits from `AlgorithmBase`, this function either:
+    - Uses the class method `get_default_hyperparameters()`, if available.
+    - Instantiates the class with an empty config and reads the `_hyperparameter` attribute.
+
+    Parameters
+    ----------
+    package : module
+        The package to inspect for model classes.
+
+    Returns
+    -------
+    dict[str, dict]
+        A dictionary mapping class names to their serialized default hyperparameters.
     """
     params_by_model = {}
 
@@ -123,21 +175,45 @@ def extract_default_hyperparameters(package):
 
             params_by_model[cls.__name__] = _serialize_hyperparameters(hparams)
             
-            """
-            try:
-                if hasattr(cls, "get_default_hyperparameters"):
-                    hparams = cls.get_default_hyperparameters()
-                else:
-                    instance = cls({})
-                    hparams = instance._hyperparameter
-
-                params_by_model[cls.__name__] = _serialize_hyperparameters(hparams)
-            except Exception as err:
-                print(f"[WARN] No se pudo instanciar '{cls.__name__}': {err}")
-            """
     return params_by_model
 
 def instantiate_model_by_name(class_name, config=None, x=None, y=None, x_test=None, y_test=None):
+    """
+    Instantiates a model class by its name from a given package.
+
+    Searches the given package recursively for a class that matches `class_name`
+    and is defined in its own module. Upon finding it, instantiates the class with 
+    the given configuration.
+
+    If input data (`x`, `y`, etc.) is not provided, defaults are used to avoid errors
+    during construction, though the data is not passed into the constructor.
+
+    Parameters
+    ----------
+    class_name : str
+        Name of the class to instantiate.
+
+    config : dict, optional
+        Dictionary of hyperparameters to configure the model.
+
+    x : array-like, optional
+        Feature data. Default is a dummy array.
+
+    y : array-like, optional
+        Target data. Default is a dummy array.
+
+    x_test : array-like, optional
+        Test features.
+
+    y_test : array-like, optional
+        Test targets.
+
+    Returns
+    -------
+    object or None
+        An instance of the model class if found; otherwise, None.
+    """
+    import dantis
     package = dantis
     config = config or {}
     x = x if x is not None else np.array([1, 2])
@@ -150,27 +226,10 @@ def instantiate_model_by_name(class_name, config=None, x=None, y=None, x_test=No
             module = importlib.import_module(modname)
             for name, cls in inspect.getmembers(module, inspect.isclass):
                 if name == class_name and cls.__module__ == modname:
-                    # Instanciar pasando test si la clase lo acepta
-                    # Comprobamos si el constructor acepta esos parámetros:
                     params = inspect.signature(cls.__init__).parameters
                     return cls(config)
         except Exception as e:
-            print(f"[ERROR] No se pudo importar {modname}: {e}")
+            logging.error(f"No se pudo importar {modname}: {e}")
 
-    print(f"[WARN] Clase '{class_name}' no encontrada en el paquete.")
+    logging.warning(f"Clase '{class_name}' no encontrada en el paquete.")
     return None
-
-# Prueba
-if __name__ == "__main__":
-    result = extract_model_names_by_type(dantis)
-    for model_type, classes in result.items():
-        print(f"\n{model_type}")
-        for cls_name in classes:
-            print(f"  - {cls_name}")
-
-    params_by_model = extract_default_hyperparameters(dantis)
-    for model, params in params_by_model.items():
-        print(f"\n{model}:")
-        for k, v in params.items():
-            print(f"  {k}: {v}")
-
