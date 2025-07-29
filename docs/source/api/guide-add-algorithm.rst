@@ -16,8 +16,8 @@ The algorithm class must inherit from ``AlgorithmBase``:
 
 .. code-block:: python
 
-    from .. import algorithmbase
-    from .. import utils
+    from dantis import algorithmbase
+    from dantis import utils
     from pyod.models import my_new_algo
 
     class MyNewAlgo(algorithmbase.AlgorithmBase):
