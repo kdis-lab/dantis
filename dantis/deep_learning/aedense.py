@@ -40,13 +40,7 @@ class AEDense(algorithmbase.AlgorithmBase):
         Sets the hyperparameters for the model.
     _create_model()
         Internal method to build the autoencoder architecture based on the current hyperparameters.
-    Notes
-    -----
-    - The model expects input data of shape `(n_samples, input_shape[0], input_shape[1])`.
-    - The anomaly score is typically based on the reconstruction error of the autoencoder.
-    - The architecture consists of Flatten → Dense (encoder) → Dense (latent) → Dense (decoder) → Reshape.
     """
-
 
     def __init__(self, hyperparameter: dict):
         """

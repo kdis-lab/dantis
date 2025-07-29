@@ -1,5 +1,6 @@
 import numpy as np
 import joblib
+import logging
 
 class AlgorithmBase:
     """
@@ -169,6 +170,9 @@ class AlgorithmBase:
         np.ndarray
             Anomaly scores.
         """
+        if len(np.unique(x)) == 1:
+            logging.warning("All values are equals, return the same input")
+            return x
         return self.decision_function(x)
 
     def save_model(self, path_model: str):
