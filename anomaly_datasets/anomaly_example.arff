@@ -1,7 +1,7 @@
 % Example ARFF for time-series anomaly detection
 @relation anomaly_timeseries
 
-@attribute timestamp date "yyyy-MM-dd HH:mm:ss"
+@attribute timestamp string
 @attribute series_id string
 @attribute value numeric
 @attribute is_anomaly {0,1}
