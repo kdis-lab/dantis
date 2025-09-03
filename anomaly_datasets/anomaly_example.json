@@ -1,0 +1,3002 @@
+[
+  {
+    "timestamp": "2020-01-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0496714153011232,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0862063841560162,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2638309808929496,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-04 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4483974894551574,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.366741205089523,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4568909433320347,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7235557340459698,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7220334508469501,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.671524694592318,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8387027795210941,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7962102952605267,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8456321298105227,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9571040186568432,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-14 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7729237810076853,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.813430929376397,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-16 00:00:00",
+    "series_id": "series_001",
+    "value": 2.2767262902477867,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-01-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8981917271003913,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-18 00:00:00",
+    "series_id": "series_001",
+    "value": 1.02264484056884,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-19 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8822193225853585,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-20 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8038318985599476,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-21 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0541870814362184,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-22 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8384994959856332,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-23 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8126467809581134,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-24 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6001514715076265,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-25 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6174705262317869,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-26 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6055431633973776,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-27 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3959302857366314,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-28 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4600516766414839,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-29 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2696320160882833,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2044331026476566,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-01-31 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0749949736506253,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2206006663903106,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-02 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0661245120735918,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2700437173011065,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1798680305697487,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-05 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4794272436743796,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.428092111371649,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7320770478933516,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7506820977636022,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-09 00:00:00",
+    "series_id": "series_001",
+    "value": -0.673732591368353,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-10 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6881710947065667,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-11 00:00:00",
+    "series_id": "series_001",
+    "value": -0.805835611476433,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8872361233400076,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.949696028472145,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-14 00:00:00",
+    "series_id": "series_001",
+    "value": -1.1021271933437031,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-15 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0513757283252054,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-16 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0407465156540263,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8942833665074941,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-18 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9609150321955364,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-19 00:00:00",
+    "series_id": "series_001",
+    "value": 2.8671380865346947,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-02-20 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9236254806449664,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-21 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9604115247680236,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-22 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9462166375805598,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.765164835861582,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-24 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6627510014673108,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-25 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6045586263050389,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-26 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7064450760849337,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-27 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5720362654751655,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-28 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4211520729159939,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-02-29 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2653300963678949,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-01 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3157678680828616,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-02 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1886951757746684,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1813349195612124,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0901849715525333,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2105300954200975,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3634464621867936,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3168809415617905,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5174436375759212,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5420782096080878,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5251516958620173,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7036369535984247,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.892438622604478,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7987801537305438,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-14 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0145058341393232,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6431380349044511,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-16 00:00:00",
+    "series_id": "series_001",
+    "value": 1.025294034351805,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9803387736099536,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-18 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9605164509933094,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-19 00:00:00",
+    "series_id": "series_001",
+    "value": 1.008440792283497,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-20 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7993310051419444,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-21 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9649313486846448,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-22 00:00:00",
+    "series_id": "series_001",
+    "value": 1.001520142929313,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-23 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0828199115450532,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-24 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8430451396826516,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-25 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7648873461968174,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-26 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7379413509051093,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-27 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8141314439812256,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-28 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6826916851873794,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-29 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5175471161136328,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5368331121160662,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-03-31 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4053268907459165,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3986276603671485,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1346746730442326,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0731752896998916,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0332705648302754,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-05 00:00:00",
+    "series_id": "series_001",
+    "value": -0.240472089153189,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1636252197445339,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2643098708435369,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3841688362384886,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-09 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4985446741311226,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-10 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7022628832261063,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-11 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6828051436438505,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7485991331682431,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8609765412988104,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-14 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8554662627244403,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-15 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8491014800028183,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-16 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7421335663966198,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9452029184410206,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-18 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9591570585712872,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-19 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0047277219965942,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-20 00:00:00",
+    "series_id": "series_001",
+    "value": -1.191526816811826,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-21 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9946394390516414,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-22 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9683520375867914,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7006631939185725,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-24 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9293359330905592,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-25 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8339276645459666,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-26 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8128679028184361,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-27 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8634592130919658,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-28 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5620142132996103,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-29 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5240238579396289,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-04-30 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4370234525047654,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-01 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5187972392363741,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-02 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1950187514054226,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3795593590992341,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0823632776119279,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1777368057553891,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0402077611747692,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1017804010729203,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2663504862827367,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3014409733449904,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2885963395286782,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5379424229470153,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5069514881329263,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.736485566169489,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-14 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6662152390375274,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9745768148113902,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-16 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7944619237046605,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.885029420164156,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-18 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0338341593724634,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-19 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8550878320595304,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-20 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0167993101701671,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-21 00:00:00",
+    "series_id": "series_001",
+    "value": 1.1306745778261833,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-22 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8350876400683708,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-23 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0001850601669435,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-24 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9837473048272806,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-25 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0023706906197585,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-26 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7576515085183013,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-27 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6976176698870965,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-28 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8218512867932627,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-29 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7316284096117425,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6522104727759315,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-05-31 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5807457469595204,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3915598590115509,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3916389041308573,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3028761625380803,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-04 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1045447866757918,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2632030110027957,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0238857970134278,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2425151794070452,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1563790410236557,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-09 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4159247535389085,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-10 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3329756425722652,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2253475118395962,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-06-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6669238626584493,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5667248205812859,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-14 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6933394849644957,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-15 00:00:00",
+    "series_id": "series_001",
+    "value": -0.716597225910274,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-16 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6652962352037423,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9271097590788842,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-18 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0164856363741004,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-19 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0591635604557368,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-20 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0711603445276068,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-21 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0067295001263108,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-22 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9643222598778732,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9601704577988278,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-24 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8846135607901047,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-25 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9358200391378428,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-26 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7521542328838288,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-27 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8753571883386237,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-28 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5197426085081226,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-29 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6641180984644992,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-06-30 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7400359961487083,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-01 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6824809383060536,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-02 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4424437250497728,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4234140474251789,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2360211211215533,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-05 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1633668457468912,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1191293473659891,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.096559663159773,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0632796692845498,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1427540538714657,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3703659238856832,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4005996214904901,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3452766403844048,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5731154718637049,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-14 00:00:00",
+    "series_id": "series_001",
+    "value": 0.674700373034247,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6217722798249602,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-16 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7923958139900923,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8419145728041535,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-18 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7724796085001823,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-19 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9643424142236774,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-20 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0171140773123497,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-21 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0921718524949695,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-22 00:00:00",
+    "series_id": "series_001",
+    "value": 1.1022081585966086,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-23 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8620223401083729,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-24 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8989384875422457,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-25 00:00:00",
+    "series_id": "series_001",
+    "value": 1.027197531082498,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-26 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0002577204943028,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-27 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9640501227212606,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-28 00:00:00",
+    "series_id": "series_001",
+    "value": 1.252330329811798,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-29 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8699599811849414,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8640867476623484,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-07-31 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7760605027691898,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6691013986124896,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4896785139725187,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5091169369618507,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-04 00:00:00",
+    "series_id": "series_001",
+    "value": -1.2881219529448924,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-08-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2214557205667945,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0983910071477572,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.055430621992993,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1785509800781674,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-09 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3392686531181274,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-10 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1820131116895386,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-11 00:00:00",
+    "series_id": "series_001",
+    "value": -0.507493372432462,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4855244255024122,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4171484153545707,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-14 00:00:00",
+    "series_id": "series_001",
+    "value": 3.0702134503027767,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-08-15 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7925840919268514,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-16 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8258011901178731,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7482056135843838,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-18 00:00:00",
+    "series_id": "series_001",
+    "value": -0.942909076001849,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-19 00:00:00",
+    "series_id": "series_001",
+    "value": -0.893207259309975,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-20 00:00:00",
+    "series_id": "series_001",
+    "value": -0.946099086833418,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-21 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0420827379559,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-22 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7789945088817791,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.936497827948408,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-24 00:00:00",
+    "series_id": "series_001",
+    "value": -1.1988741846111588,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-25 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9641894836505492,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-26 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0256290233626792,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-27 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8411975649461965,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-28 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9633896955282834,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-29 00:00:00",
+    "series_id": "series_001",
+    "value": -0.844438565555778,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-30 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7229374200439389,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-08-31 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6195729580205592,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-01 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7518065618595756,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-02 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5845176775119777,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5123245608744564,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-04 00:00:00",
+    "series_id": "series_001",
+    "value": -1.8558389620030296,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-09-05 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1027323086945579,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.141326197968611,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.208635389172055,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1093446648519916,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3297034120275897,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.319485035596611,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.160882985375514,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3578399237692198,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6223222739397134,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-14 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5092600060275377,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.702986019369251,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-16 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8080376723338251,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7025224917402921,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-18 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8459268933490568,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-19 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5758707667177457,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-20 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8366482829154026,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-21 00:00:00",
+    "series_id": "series_001",
+    "value": 0.943499117295472,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-22 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8639282086521519,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-23 00:00:00",
+    "series_id": "series_001",
+    "value": 1.1619798218507469,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-24 00:00:00",
+    "series_id": "series_001",
+    "value": 1.434161758543799,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-09-25 00:00:00",
+    "series_id": "series_001",
+    "value": 0.944741231543333,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-26 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9818948092068556,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-27 00:00:00",
+    "series_id": "series_001",
+    "value": 1.083304210431289,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-28 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7565252343203834,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-29 00:00:00",
+    "series_id": "series_001",
+    "value": 0.968332724020327,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-09-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7963973624435966,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.632601926720525,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7050111652946238,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6001459062853497,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-04 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4358365616708385,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4134824580399955,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2745369721253555,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2278455338859472,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1839605285797667,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1764215946189604,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-10 00:00:00",
+    "series_id": "series_001",
+    "value": 4.445198780338679,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-10-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0317360997187314,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4742354237016137,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3888654413123268,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-14 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4057667755069559,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-15 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5227501504032372,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-16 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6938441623266739,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7267755311443196,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-18 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8225704671467399,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-19 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8917566829116644,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-20 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7990552095930051,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-21 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8906408851418515,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-22 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0286675971973342,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8928266535738456,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-24 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9656076493231576,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-25 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9186073671910168,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-26 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9304560173348936,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-27 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0598780220304098,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-28 00:00:00",
+    "series_id": "series_001",
+    "value": -1.006755466668199,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-29 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8402293101716624,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-30 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8089643404211391,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-10-31 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8184066100950226,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-01 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7427097357538373,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-02 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5572336501256984,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6678432126905459,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4715560998295752,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-05 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4587855143257853,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3682352055020321,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1410145743207147,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.070258917361346,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0281749713826976,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1775298953542245,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1487690951109292,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3130793645347954,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3096161391219906,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-14 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4654009631155541,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5079679567627229,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-16 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6134534433950196,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7399844429060266,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-18 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6685352917302612,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-19 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0219573302787015,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-20 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7663251394824011,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-21 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7910195211541612,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-22 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0646076456616194,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-23 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0548029395228788,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-24 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0551014470215043,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-25 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0626184258928928,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-26 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9956240526414024,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-27 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8941880376080071,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-28 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9686883281714954,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-29 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8609445310430218,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-11-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.984409438641262,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8215313807333053,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6946381538191218,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6782035106398229,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-04 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6776635065533282,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4996422811069947,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3878592863859001,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4038009110929966,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3094733525061753,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1369680760978847,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0413616842004973,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0115861681042452,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2563950433371441,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3511813642497384,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-14 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3790167611075143,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-15 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4221729385680754,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-16 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4593723536253895,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4276421853150094,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-18 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5683565171956492,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-19 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7424990296283089,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-20 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7935013959958127,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-21 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9490062007318943,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-22 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8992436094597589,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9658948005927264,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-24 00:00:00",
+    "series_id": "series_001",
+    "value": -0.934993706961376,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-25 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0705219436458642,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-26 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9464881599267094,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-27 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8457569812331184,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-28 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9437505529016436,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2020-12-29 00:00:00",
+    "series_id": "series_001",
+    "value": -0.930104258384423,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-30 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8721859949240335,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2020-12-31 00:00:00",
+    "series_id": "series_001",
+    "value": -0.942805543334592,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-01 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8327018794090919,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-02 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7977012811634885,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7250273545635029,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7405591265849896,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-05 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5826166926690357,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4512082057807403,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2668080252109105,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2227773632769001,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-09 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0069711053739929,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-10 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2003790675024681,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.063473157825408,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0946990428515919,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3947028127947756,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-14 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1924875685282059,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2841982460734162,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-16 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3993908152761448,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3334922848855485,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-18 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5743819971719395,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-19 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6258304113692701,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-20 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7845295363094296,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-21 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8636929234200277,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-22 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0688400900762718,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-23 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0191308853656011,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-24 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8999934316856798,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-25 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8918304074408246,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-26 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0450040089267238,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-27 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8679392774118514,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-28 00:00:00",
+    "series_id": "series_001",
+    "value": 1.1772276334455745,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-29 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0961725750561433,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9056444861214829,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-01-31 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7460262483249264,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-01 00:00:00",
+    "series_id": "series_001",
+    "value": 1.008302090959179,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8082791814899047,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8821097737960889,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-04 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5298730155871882,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-05 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5534508931998783,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5318320371452164,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4485950669910254,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3070267491769917,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3189230778259883,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.051906307795536,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0448689514630089,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0290179316681676,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.0893462291482398,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-14 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1679588750782787,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-15 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4475160332084189,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-16 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5810335552144235,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3881349833155617,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-18 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5657763991414353,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-19 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7509525086227976,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-20 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5913022255876483,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-21 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7976756752036032,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-22 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7460210328773774,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9032396013465054,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-24 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7408285732342003,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-25 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7987821256325118,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-26 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0168513987450938,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-27 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9024856453965736,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-02-28 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9327647632596948,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-01 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8480941593887634,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-02 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0592237993714426,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8622425904174575,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7837835643782824,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-05 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0153537567954662,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8992380257805979,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.91843386418739,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6678820290129108,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-09 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4891880732380784,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-10 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3250803292104507,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-11 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3775120532821966,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1278040475703352,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.331503942005086,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-14 00:00:00",
+    "series_id": "series_001",
+    "value": -0.2647191580489969,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0001240012346761,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-16 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1440880333983485,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-17 00:00:00",
+    "series_id": "series_001",
+    "value": 0.2013545636776406,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-18 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0947696468339951,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-19 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3864669678063921,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-20 00:00:00",
+    "series_id": "series_001",
+    "value": 0.3548308043824489,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-21 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6372756200791869,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-22 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6862776251406804,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-23 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6284224715341665,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-24 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7365693866874288,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-25 00:00:00",
+    "series_id": "series_001",
+    "value": 0.7396757975314887,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-26 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8884875150884476,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-27 00:00:00",
+    "series_id": "series_001",
+    "value": 1.030451993568428,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-28 00:00:00",
+    "series_id": "series_001",
+    "value": 0.867168457131319,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-29 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0372609669379471,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-30 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9450459381738128,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-03-31 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9199874227837026,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-01 00:00:00",
+    "series_id": "series_001",
+    "value": 0.9797502291646432,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-02 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8681716394688831,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-03 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8878257640988569,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-04 00:00:00",
+    "series_id": "series_001",
+    "value": 0.785435900704197,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-05 00:00:00",
+    "series_id": "series_001",
+    "value": 1.0546482454572654,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-06 00:00:00",
+    "series_id": "series_001",
+    "value": 0.8060451485091696,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-07 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6688386575852463,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-08 00:00:00",
+    "series_id": "series_001",
+    "value": 0.6890900652886212,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-09 00:00:00",
+    "series_id": "series_001",
+    "value": 0.5786420332745476,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-10 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4840431814565707,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-11 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4787446569854536,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-12 00:00:00",
+    "series_id": "series_001",
+    "value": 0.4000800848762466,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-13 00:00:00",
+    "series_id": "series_001",
+    "value": 0.1750269442291838,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-14 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0719549742123435,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-15 00:00:00",
+    "series_id": "series_001",
+    "value": 0.0021918905959017,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-16 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3006327068051632,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-17 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3213907067182691,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-18 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1309110791134924,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-19 00:00:00",
+    "series_id": "series_001",
+    "value": -0.1981441658356899,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-20 00:00:00",
+    "series_id": "series_001",
+    "value": -0.478949059112654,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-21 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4832394186792769,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-22 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5911936495025727,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-23 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3896112057452455,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-24 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6537252975869899,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-25 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8389769325312416,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-26 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9739535414575812,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-27 00:00:00",
+    "series_id": "series_001",
+    "value": -1.0824465931747769,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-28 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9356107995658264,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-29 00:00:00",
+    "series_id": "series_001",
+    "value": -1.056157542417981,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-04-30 00:00:00",
+    "series_id": "series_001",
+    "value": -1.1374768139922486,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-01 00:00:00",
+    "series_id": "series_001",
+    "value": -1.064653620009876,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-02 00:00:00",
+    "series_id": "series_001",
+    "value": -1.1028643345037492,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-03 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8107299228817182,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-04 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8661891513709066,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-05 00:00:00",
+    "series_id": "series_001",
+    "value": -0.9204856258532412,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-06 00:00:00",
+    "series_id": "series_001",
+    "value": -0.7278031237839127,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-07 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8153841247352873,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-08 00:00:00",
+    "series_id": "series_001",
+    "value": -0.8483154722060504,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-09 00:00:00",
+    "series_id": "series_001",
+    "value": -0.3425862121414567,
+    "is_anomaly": 1
+  },
+  {
+    "timestamp": "2021-05-10 00:00:00",
+    "series_id": "series_001",
+    "value": -0.5641780682480277,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-11 00:00:00",
+    "series_id": "series_001",
+    "value": -0.6400553636392039,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-12 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4682459702114827,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-13 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4451489106498146,
+    "is_anomaly": 0
+  },
+  {
+    "timestamp": "2021-05-14 00:00:00",
+    "series_id": "series_001",
+    "value": -0.4006548268003624,
+    "is_anomaly": 0
+  }
+]
