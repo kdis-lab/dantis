@@ -29,7 +29,7 @@ class DialogAddDataset(QDialog):
         self.ui = ui
         self.datasetController = datasetController
         self.datasets_widgets = []
-        self.github_repo_url = "https://api.github.com/repos/Elenitaalva/Datasets/contents"
+        self.github_repo_url = "https://api.github.com/repos/kdis-lab/dantis/contents/anomaly_datasets"
         self.datasets_predefinidos = load_predefined_datasets_name(self.github_repo_url)
         self.setWindowTitle("Añadir Dataset")        
         self.init_widgets()
@@ -46,6 +46,7 @@ class DialogAddDataset(QDialog):
         self.radio_local = QRadioButton("Local")
         self.radio_url = QRadioButton("URL")
         self.radio_predefined.setChecked(True)
+        
 
         self.predefined_label = QLabel("\nSelecciona un dataset predefinido:")
         self.predefined_button = QComboBox()
@@ -64,6 +65,8 @@ class DialogAddDataset(QDialog):
 
         self.accept_button = QPushButton("Aceptar")
         self.cancel_button = QPushButton("Cancelar")
+
+        self.toggle_input_method()
 
     def init_layout(self):
         """
@@ -140,10 +143,15 @@ class DialogAddDataset(QDialog):
         
     def load_local_file(self):
         """
-        Open file dialog to select local CSV files and show preview.
+        Open file dialog to select local files and show preview.
         """
         file_dialog = QFileDialog()
-        file_paths, _ = file_dialog.getOpenFileNames(self, "Seleccionar archivos", "", "Archivos CSV (*.csv);;Todos los archivos (*)")
+        file_paths, _ = file_dialog.getOpenFileNames(
+            self,
+            "Seleccionar archivos",
+            "",
+            "Todos los archivos (*.*);;Archivos CSV (*.csv);;Archivos JSON (*.json);;Archivos Excel (*.xls *.xlsx);;Archivos Parquet (*.parquet);;Archivos ARFF (*.arff)"
+        )
         
         if file_paths:
             self.file_path = file_paths
@@ -156,7 +164,7 @@ class DialogAddDataset(QDialog):
         """
         value = self.predefined_button.currentText()
         if value:
-            self.file_path = f"https://raw.githubusercontent.com/Elenitaalva/Datasets/main/{value}"
+            self.file_path = f"https://raw.githubusercontent.com/kdis-lab/dantis/master/anomaly_datasets/{value}"
             self.preview_text.setText(value)
 
     def load_url_file(self): 
@@ -302,7 +310,7 @@ class DialogAddDataset(QDialog):
         Add new datasets to scrollArea layout.
         """
         self.clear_scrollArea3()
-        # Recorremos todos los datasets actuales en el controller
+
         for id in self.datasetController.get_data():
             self.create_dataset_layout(id)
 
@@ -320,7 +328,6 @@ class DialogAddDataset(QDialog):
         if self.datasetController.delete(dataset_id):
             container_widget.setParent(None)
 
-            # Limpiar datasets_widgets eliminando el que corresponde
             self.datasets_widgets = [
                 grupo for grupo in self.datasets_widgets
                 if self.datasetController.get_y_col(dataset_id) != grupo["y_combo"].currentText()
@@ -331,7 +338,6 @@ class DialogAddDataset(QDialog):
         else:
             print("Error al eliminar dataset con ID:", dataset_id)
     
-
     def _add_to_scroll_area(self, widget):
         """
         Add a widget to the scroll area.

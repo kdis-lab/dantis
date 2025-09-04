@@ -4,7 +4,6 @@ import pandas as pd
 import traceback
 from core.utils import strip_extension
 from controller.results_formatter import format_results
-import logging
 
 class TrainingWorker(QObject):
     """
@@ -164,8 +163,9 @@ class TrainingWorker(QObject):
         Converts accumulated result data into pandas DataFrames per metric.
         """
         for metric in self.metrics:
-            df = pd.DataFrame(self.results_generated[metric])
-            self.results_generated[metric] = df.set_index("Datasets")
+            if self.results_generated[metric]:
+                df = pd.DataFrame(self.results_generated[metric])
+                self.results_generated[metric] = df.set_index("Datasets")
 
     def _update_results(self, model_name, dataset, results):
         """
@@ -184,7 +184,7 @@ class TrainingWorker(QObject):
         if isinstance(dataset, dict) and 'train' in dataset and 'test' in dataset:
             name = self._build_dataset_name(dataset)
         else: 
-            name = strip_extension(dataset.name)
+            name = dataset.name
         for metric in self.metrics:
             valor = results["test"]["metrics"].get(metric)
             self.results_generated[metric][model_name].append(valor if valor is not None else None)
@@ -201,7 +201,6 @@ class TrainingWorker(QObject):
         dict
             Dictionary containing pandas DataFrames of metrics per model.
         """
-        logging.debug("Resultados generados:", self.results_generated)
         return self.results_generated
 
     def process_dataset(self, model_id, model_name, hyperparams, model_path=None):

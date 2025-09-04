@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QWidget, QFileDialog
-from PyQt5.QtCore import QThread, QUrl, Qt
+from PyQt5.QtWidgets import QWidget, QFileDialog, QSplitter, QVBoxLayout, QApplication
+from PyQt5.QtCore import QThread, QUrl, Qt, QEvent, QTimer 
 from PyQt5.QtGui import QTextTableFormat, QTextCursor, QImage, QTextImageFormat
 from PyQt5.QtGui import QImage, QTextImageFormat, QTextCursor, QTextTableFormat, QTextDocument
 
@@ -7,7 +7,7 @@ import pandas as pd
 import random, os
 import matplotlib.pyplot as plt
 from io import BytesIO
-import logging
+import numbers
 
 from controller.statds_statistical_controller import StatisticalTestController
 from core.utils import show_error, verify_info
@@ -99,6 +99,13 @@ class ViewResults(QWidget):
         self.statistic = StatisticalTestController()
         self.save_results = {}
         self.statistical_results = {}
+        self._inserted_figures = {}
+        self._image_cache = {}
+
+        self._resize_timer = QTimer(self)
+        self._resize_timer.setSingleShot(True)
+        self._resize_timer.timeout.connect(self._resize_images_in_textedit)
+
         self.init_ui()
 
     def init_ui(self):
@@ -106,6 +113,8 @@ class ViewResults(QWidget):
         Connects UI buttons and actions to their corresponding slot functions.
         Handles button click bindings for training and statistics.
         """
+        self.add_splitter_between_vertical_layouts()
+        self.ui.test_generate_tests.installEventFilter(self)
         self.ui.generate_results.clicked.connect(self.on_generate_results_click)
         self.ui.generate_tests.clicked.connect(self.on_generate_statistical_tests_click)
         self.ui.download_data.clicked.connect(lambda: download_data_click(self.save_results))
@@ -119,9 +128,92 @@ class ViewResults(QWidget):
 
         self.enable_buttons(True)
 
-        ruta_por_defecto = os.path.expanduser("~")
-        self.ui.lineEdit_root.setText(ruta_por_defecto)
-        self.modelsController.set_path(ruta_por_defecto)
+        default_route = os.path.expanduser("~")
+        self.ui.lineEdit_root.setText(default_route)
+        self.modelsController.set_path(default_route)
+
+    def eventFilter(self, source, event):
+        if source == self.ui.test_generate_tests and event.type() == QEvent.Resize:
+            self._resize_timer.start(200)
+        return super().eventFilter(source, event)
+
+
+    def _resize_images_in_textedit(self):
+        if not hasattr(self, "_inserted_figures"):
+            return
+
+
+        text_edit = self.ui.test_generate_tests
+        widget_width = text_edit.viewport().width()
+
+
+        MIN_WIDTH = 400
+        MAX_WIDTH = 1000
+        target_width = max(MIN_WIDTH, min(widget_width, MAX_WIDTH))
+
+
+        for img_name, original_qimage in self._inserted_figures.items():
+            if img_name in self._image_cache and target_width in self._image_cache[img_name]:
+                scaled = self._image_cache[img_name][target_width]
+            else:
+                scaled = original_qimage.scaledToWidth(
+                target_width, Qt.SmoothTransformation
+                )
+                self._image_cache.setdefault(img_name, {})[target_width] = scaled
+
+            doc = text_edit.document()
+            doc.addResource(QTextDocument.ImageResource, QUrl(img_name), scaled)
+
+    def add_splitter_between_vertical_layouts(self):
+        """
+        Replace horizontalLayout_12 with a QSplitter that allows resizing
+        between the two vertical layouts (verticalLayout_12 and verticalLayout_11).
+        """
+        # Create the splitter (horizontal = left/right)
+        splitter = QSplitter(Qt.Horizontal)
+        splitter.setOpaqueResize(False)
+
+        # --- Left container ---
+        left_container = QWidget()
+        left_layout = QVBoxLayout(left_container)
+
+        while self.ui.verticalLayout_12.count():
+            item = self.ui.verticalLayout_12.takeAt(0)
+            if item.widget():
+                left_layout.addWidget(item.widget())
+            elif item.layout():
+                left_layout.addLayout(item.layout())
+            elif item.spacerItem():
+                left_layout.addItem(item.spacerItem())
+
+        # --- Right container ---
+        right_container = QWidget()
+        right_layout = QVBoxLayout(right_container)
+
+        while self.ui.verticalLayout_11.count():
+            item = self.ui.verticalLayout_11.takeAt(0)
+            if item.widget():
+                right_layout.addWidget(item.widget())
+            elif item.layout():
+                right_layout.addLayout(item.layout())
+            elif item.spacerItem():
+                right_layout.addItem(item.spacerItem())
+
+        # Add both containers to the splitter
+        splitter.addWidget(left_container)
+        splitter.addWidget(right_container)
+
+        # Optional: set initial relative sizes (e.g., 50/50)
+        splitter.setSizes([300, 300])
+
+        # Remove the old contents of horizontalLayout_12
+        while self.ui.horizontalLayout_12.count():
+            item = self.ui.horizontalLayout_12.takeAt(0)
+            if item.widget():
+                item.widget().setParent(None)
+
+        # Add the splitter into the original horizontal layout
+        self.ui.horizontalLayout_12.addWidget(splitter)
 
     def set_save_results (self, results): 
         """
@@ -161,6 +253,7 @@ class ViewResults(QWidget):
         self.ui.postHoc_comboBox.setEnabled(enable)
         self.ui.generate_tests.setEnabled(enable)
         self.ui.alpha_comboBox.setEnabled(enable)
+        self.ui.generate_results.setEnabled(enable)
 
     def check_columns_and_rows(self):
         """
@@ -201,8 +294,6 @@ class ViewResults(QWidget):
         Handles the action of generating model results.
         Launches the training process and appends output to the result display area.
         """
-        self.enable_buttons(False)
-
         if self.ui.radioButton_yes.isChecked():
            if not self.check_columns_and_rows(): 
                show_error("Comprueba la tabla de validación debido a que se ha eliminado uno de los datasets. No se puede ejecutar el entrenamiento.")
@@ -213,6 +304,8 @@ class ViewResults(QWidget):
             show_error("Debe de introducir un valor mayor a 0 en el campo threshold para poder generar resultados para los modelos.")
             return
         
+        self.enable_buttons(False)
+
         (datasets, x_cols, y_cols,
          models, metrics, val_opts) = self.training_orchestrator.collect_training_info()
 
@@ -281,13 +374,12 @@ class ViewResults(QWidget):
         cursor = self.ui.text_generate_results.textCursor()
         cursor.movePosition(QTextCursor.End)
         self.ui.text_generate_results.setTextCursor(cursor)
-                
+
     def on_generate_statistical_tests_click(self):
         """
         Executes statistical analysis over the collected model results.
         Displays tables and visual results in the QTextEdit widget.
         """
-        logging.debug("Generando resultados estadísticos...")
         results = self.worker.get_results()
         num_datasets = len(self.datasetController.get_all_datasets())
         num_models = len(self.modelsController.get_models())
@@ -295,6 +387,14 @@ class ViewResults(QWidget):
         if  self.validate_data_statistical(num_datasets, num_models):
             show_error("Debe introducir al menos 8 datasets y 2 algoritmos para poder ejecutar los test estadísticos.") 
             return
+
+        all_empty = all(len(v) == 0 for v in results.values())
+        if all_empty:
+            show_error("Ninguno de los datasets contienen resultados válidos.")
+            return
+
+        self.enable_buttons(False)
+        QApplication.processEvents()
 
         test_selected = self.ui.test_comboBox.currentText()
         post_hoc_selected = self.ui.postHoc_comboBox.currentText()
@@ -304,6 +404,85 @@ class ViewResults(QWidget):
         text_edit.clear()
         document = text_edit.document()
 
+        if not hasattr(self, "_inserted_figures"):
+            self._inserted_figures = {}
+
+        def _end_cursor():
+            c = QTextCursor(document)
+            c.movePosition(QTextCursor.End)
+            return c
+
+        def _space(c, n=1):
+            for _ in range(n):
+                c.insertBlock()
+
+        def _make_table_format():
+            fmt = QTextTableFormat()
+            fmt.setBorder(1)
+            fmt.setCellPadding(4)
+            fmt.setCellSpacing(2)
+            return fmt
+
+        def _insert_heading(text):
+            c = _end_cursor()
+            _space(c, 1)
+            c.insertText(text)
+            _space(c, 1)
+
+        def _insert_matrix_table(df, datasets, models):
+            c = _end_cursor()
+            table_format = _make_table_format()
+            filas = len(datasets) + 1
+            columnas = len(models) + 1
+            table = c.insertTable(filas, columnas, table_format)
+
+            for col in range(1, columnas):
+                model_name = str(models[col - 1])
+                table.cellAt(0, col).firstCursorPosition().insertText(model_name)
+
+            for fila in range(1, filas):
+                dataset_name = str(datasets[fila - 1])
+                table.cellAt(fila, 0).firstCursorPosition().insertText(dataset_name)
+                for col in range(1, columnas):
+                    valor = df.iloc[fila - 1, col - 1]
+                    texto = f"{valor:.2f}" if pd.notnull(valor) and isinstance(valor, numbers.Number) else "N/A"
+                    table.cellAt(fila, col).firstCursorPosition().insertText(texto)
+
+        def _insert_dataframe_table(dataframe):
+            c = _end_cursor()
+            table_format = _make_table_format()
+            rows, cols = dataframe.shape
+            table = c.insertTable(rows + 1, cols, table_format)
+
+            for col in range(cols):
+                table.cellAt(0, col).firstCursorPosition().insertText(str(dataframe.columns[col]))
+
+            for fila in range(rows):
+                for col in range(cols):
+                    value = dataframe.iat[fila, col]
+                    text = f"{value:.4f}" if isinstance(value, float) else str(value)
+                    table.cellAt(fila + 1, col).firstCursorPosition().insertText(text)
+
+        def _insert_figure_from_matplotlib(figure):
+            img_name = f"stat_fig_{random.randint(1000,9999)}.png"
+            buffer = BytesIO()
+            figure.savefig(buffer, format="png", dpi=100, bbox_inches="tight")
+            buffer.seek(0)
+            image = QImage()
+            image.loadFromData(buffer.read())
+            buffer.close()
+            if not image.isNull():
+                image_format = QTextImageFormat()
+                image_format.setName(img_name)
+                document.addResource(QTextDocument.ImageResource, QUrl(img_name), image)
+                c = _end_cursor()
+                c.insertImage(image_format)
+                if not hasattr(self, "_inserted_figures"):
+                    self._inserted_figures = {}
+                self._inserted_figures[img_name] = image
+            plt.close(figure)
+            plt.clf()
+        # ----------------------------------------------------------- #
         for metric_selected, df in results.items():
             datasets = df.index.tolist()
             models = df.columns.tolist()
@@ -317,154 +496,80 @@ class ViewResults(QWidget):
                 "test_selected": test_selected,
                 "alpha": alpha_value,
                 "post_hoc_selected": post_hoc_selected,
-                "test_results": {}, 
+                "test_results": {},
             }
 
-            cursor = QTextCursor(document)
-            cursor.movePosition(QTextCursor.End)
-            cursor.insertBlock()
-            cursor.insertText(f"📊 Resultados para la métrica '{metric_selected}'\n")
-            cursor.insertBlock()
+            _insert_heading(f"📊 Resultados para la métrica '{metric_selected}'\n")
+            _insert_matrix_table(df, datasets, models)
 
-            table_format = QTextTableFormat()
-            table_format.setBorder(1)
-            table_format.setCellPadding(4)
-            table_format.setCellSpacing(2)
-
-            table = cursor.insertTable(filas, columnas, table_format)
-
-            for col in range(1, columnas):
-                model_name = str(models[col - 1])
-                celda = table.cellAt(0, col)
-                celda_cursor = celda.firstCursorPosition()
-                celda_cursor.insertText(model_name)
-
-            for fila in range(1, filas):
-                dataset_name = str(datasets[fila - 1])
-                table.cellAt(fila, 0).firstCursorPosition().insertText(dataset_name)
-
-                for col in range(1, columnas):
-                    valor = df.iloc[fila - 1, col - 1]
-                    texto = f"{valor:.2f}" if pd.notnull(valor) else "N/A"
-                    table.cellAt(fila, col).firstCursorPosition().insertText(texto)
-
-            cursor.movePosition(QTextCursor.End)
-            cursor.insertBlock()
-            cursor.insertBlock()
+            c = _end_cursor()
+            _space(c, 2)
 
             a = self.statistic.run_test(test_selected, df, alpha=alpha_value, post_hoc_selected=post_hoc_selected)
 
             if isinstance(a, list):
                 result_entry["test_results"] = {}
-
                 data_to_table = a[0]
                 result_entry["test_results"] = data_to_table.to_dict()
 
-                cursor.insertBlock()
-                cursor.insertText(f"📊 Resultados Test estadístico '{test_selected}'\n")
-                cursor.insertBlock()
-                
-                rows, cols = data_to_table.shape
-                table = cursor.insertTable(rows + 1, cols, table_format)
+                _insert_heading(f"📊 Resultados Test estadístico '{test_selected}'\n")
+                _insert_dataframe_table(data_to_table)
 
-                for col in range(cols):
-                    table.cellAt(0, col).firstCursorPosition().insertText(str(data_to_table.columns[col]))
+                c = _end_cursor()
+                _space(c, 2)
 
-                for fila in range(rows):
-                    for col in range(cols):
-                        value = data_to_table.iat[fila, col]
-                        text = f"{value:.4f}" if isinstance(value, float) else str(value)
-                        table.cellAt(fila + 1, col).firstCursorPosition().insertText(text)
+                if "anova" in test_selected.lower():
+                    table_data = a[1]
+                    result_entry["post_hoc_results"] = table_data.to_dict()
+                    _insert_dataframe_table(table_data)
 
-                cursor = QTextCursor(document)
-                cursor.movePosition(QTextCursor.End)
+                    c = _end_cursor()
+                    _space(c, 2)
+                    c.insertText("⚠️ No se generarán resultados del post-hoc porque el test seleccionado no es un test de rangos.\n")
+                    continue
 
-                cursor.insertBlock()
-                cursor.insertBlock()
-                cursor.insertText(f"📊 Resultados Test estadístico '{post_hoc_selected}'\n")
-                cursor.insertBlock()
+                if not ("Friedman" in test_selected or "Quade" in test_selected):
+                    c.insertText("⚠️ No se generarán resultados del post-hoc porque el test seleccionado no es un test de rangos.\n")
+                    self.statistical_results[metric_selected] = result_entry
 
-                table_format = QTextTableFormat()
-                table_format.setBorder(1)
-                table_format.setCellPadding(4)
-                table_format.setCellSpacing(2)
-            
+                _space(c, 1)
+                c.insertText(f"📊 Resultados Test estadístico '{post_hoc_selected}'\n")
+                _space(c, 1)
+
                 if post_hoc_selected != "Nemenyi":
-                    data_to_table = a[1]
-                    result_entry["post_hoc_results"] = data_to_table.to_dict()
-
-                    rows, cols = data_to_table.shape
-                    table = cursor.insertTable(rows + 1, cols, table_format)
-
-                    for col in range(cols):
-                        table.cellAt(0, col).firstCursorPosition().insertText(str(data_to_table.columns[col]))
-
-                    for fila in range(rows):
-                        for col in range(cols):
-                            value = data_to_table.iat[fila, col]
-                            text = f"{value:.4f}" if isinstance(value, float) else str(value)
-                            table.cellAt(fila + 1, col).firstCursorPosition().insertText(text)
-                    
-                    cursor = QTextCursor(document)
-                    cursor.movePosition(QTextCursor.End)
-
-                cursor.insertBlock()
-                cursor.insertBlock()
-                cursor.insertBlock()
+                    table_data = a[1]
+                    result_entry["post_hoc_results"] = table_data.to_dict()
+                    _insert_dataframe_table(table_data)
+                    c = _end_cursor()
 
                 figure = a[-1]
                 result_entry["_figures"] = [figure]
-                buffer = BytesIO()
-                figure.savefig(buffer, format='png', bbox_inches='tight')
-                buffer.seek(0)
+                _insert_figure_from_matplotlib(figure)
 
-                image = QImage()
-                image.loadFromData(buffer.read())
-                buffer.close()
-
-                if not image.isNull():
-                    if post_hoc_selected == "Nemenyi":
-                        image = image.scaledToWidth(750, Qt.SmoothTransformation)
-
-                    image_format = QTextImageFormat()
-                    img_name = f"stat_fig_{random.randint(1000,9999)}.png"
-                    document.addResource(QTextDocument.ImageResource, QUrl(img_name), image)
-                    image_format.setName(img_name)
-                    cursor.insertImage(image_format)
-                    cursor.insertBlock()
-                plt.close(figure)
-                plt.clf()
-                
             elif isinstance(a, pd.DataFrame):
                 result_entry["test_results"] = a.to_dict()
+                a.reset_index(inplace=True)
 
-                cursor.insertBlock()
-                cursor.insertText(f"📊 Resultados Test estadístico '{test_selected}'\n")
-                cursor.insertBlock()
+                _insert_heading(f"📊 Resultados Test estadístico '{test_selected}'\n")
+                _insert_dataframe_table(a)
 
-                rows, cols = a.shape
-                table = cursor.insertTable(rows + 1, cols, table_format)
+                c = _end_cursor()
+                _space(c, 3)
 
-                for col in range(cols):
-                    table.cellAt(0, col).firstCursorPosition().insertText(str(a.columns[col]))
-
-                for fila in range(rows):
-                    for col in range(cols):
-                        value = a.iat[fila, col]
-                        text = f"{value:.4f}" if isinstance(value, float) else str(value)
-                        table.cellAt(fila + 1, col).firstCursorPosition().insertText(text)
-
-                cursor.insertBlock()
             else:
                 result_entry["test_results"] = str(a)
-                cursor.insertBlock()
-                cursor.insertText(f"📊 Resultados Test estadístico '{test_selected}'\n")
-                cursor.insertText(str(a))
-                cursor.insertBlock()
+                c = _end_cursor()
+                _space(c, 1)
+                c.insertText(f"📊 Resultados Test estadístico '{test_selected}'\n")
+                c.insertText(str(a))
+                _space(c, 2)
 
             self.statistical_results[metric_selected] = result_entry
-            cursor.insertBlock()
-            cursor.insertBlock()
+            c = _end_cursor()
+            _space(c, 2)
+
+        self.enable_buttons(True)
+
 
     def validate_data_statistical(self, num_datasets, num_models):
         """

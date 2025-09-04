@@ -1,8 +1,6 @@
 import time
 import random
 import numpy as np
-import logging
-
 from controller.model_discovery import (
     extract_model_names_by_type,
     extract_default_hyperparameters,
@@ -247,8 +245,8 @@ class ModelController:
             (folds, (X_test, y_test)) for training and testing.
         """
         def extract_xy(ds):
-            X = ds.data[list(x_cols.keys())].to_numpy()
-            y = ds.data[y_cols].to_numpy() if y_cols else None
+            X = ds.data[list(x_cols.keys())].to_numpy(dtype=float)
+            y = ds.data[y_cols].to_numpy(dtype=float) if y_cols else None
             return X, y
 
         if isinstance(dataset, dict):
@@ -257,10 +255,8 @@ class ModelController:
             X_test, y_test = extract_xy(dataset['test'])
             folds = [((X_train, y_train), (X_val, y_val))]
         else:
-            X = dataset.data[list(x_cols.keys())].to_numpy()
-            y = dataset.data[y_cols].to_numpy() if y_cols else None
+            X, y = extract_xy(dataset)
             val_type = validation_options.get('type')
-
             if val_type == "train/test":
                 validation = validation_options["validation"] / 100
                 test = validation_options["test"] / 100
@@ -319,27 +315,21 @@ class ModelController:
         """
         results = {} 
         fold_results = []
-
         for i, ((X_train, y_train), (X_val, y_val)) in enumerate(folds):
             model_instance = self._get_or_train_model(model_name, hyperparameters, model_path, X_train, y_train)
-
             if model_instance is None:
                 results = {
                     "dataset_id": id_dataset,
                     "error": "Valores insuficientes para entrenamiento"
                 }
                 return results
-                
-            # --- Evaluation in validation (if any) ---
             if X_val is not None and y_val is not None and len(X_val) > 0:
                 scores = model_instance.predict(X_val)
                 predicted_labels = (scores >= threshold).astype(int)
-
                 if y_col[id_dataset] is not None:
                     metric_results = self.evaluate_metrics(y_val, predicted_labels, metrics)
                 else:
                     metric_results = {"info": "Unsupervised mode - no true labels"}
-
                 fold_results.append({
                     "fold": i,
                     "scores": scores.tolist(),
@@ -352,7 +342,6 @@ class ModelController:
                     "info": "Sin validación",
                     "metrics": None
                 })
-
         # --- Test evaluation ---
         if X_test is not None and len(X_test) > 0:
             test_scores = model_instance.predict(X_test)
@@ -378,7 +367,6 @@ class ModelController:
                 "metrics": test_metrics
             }
         }
-
         # --- Save model ---
         results["model_path"] = self._save_model(model_instance, model_name, id_dataset)
         return results
@@ -421,8 +409,8 @@ class ModelController:
                 model.load_model(path)
                 return model
             except Exception as e:
-                logging.warning(f"Fallo al cargar modelo desde {path}: {str(e)}")
-                logging.debug("Entrenando modelo desde cero...")
+                print(f"[WARNING] Fallo al cargar modelo desde {path}: {str(e)}")
+                print("[INFO] Entrenando modelo desde cero...")
 
         if len(np.unique(y_train)) == 1:
             return None  
@@ -484,23 +472,21 @@ class ModelController:
         """
         if len(y_true) == 0 or len(np.unique(y_true)) < 1:
             return {metric: "Unavailable (requires ground truth)" for metric in metric_list}
-
         n_classes = len(np.unique(np.concatenate([y_true, y_pred])))
         avg = "binary" if n_classes == 2 else "macro"
-
+        
         metric_funcs = {
             "Accuracy": lambda yt, yp: accuracy_score(yt, yp),
             "Precision": lambda yt, yp: precision_score(yt, yp, average=avg),
-            "Recall": lambda yt, yp: recall_score(yt, yp, average=avg),
+            "Recall": lambda yt, yp: recall_score(yt, yp, average=avg, zero_division=0),
             "F1 Score": lambda yt, yp: f1_score(yt, yp, average=avg),
             "True positive": lambda yt, yp: ((yt == 1) & (yp == 1)).sum(),
             "False positive": lambda yt, yp: ((yt == 0) & (yp == 1)).sum(),
             "True negative": lambda yt, yp: ((yt == 0) & (yp == 0)).sum(),
             "False negative": lambda yt, yp: ((yt == 1) & (yp == 0)).sum(),
             "Log-Loss": lambda yt, yp: log_loss(yt, yp),
-            "Curva ROC / AUC": lambda yt, yp: roc_auc_score(yt, yp),
+            "Curva ROC-AUC": lambda yt, yp: roc_auc_score(yt, yp),
         }
-
         results = {}
         for metric in metric_list:
             func = metric_funcs.get(metric)
@@ -508,7 +494,6 @@ class ModelController:
                 results[metric] = func(y_true, y_pred) if func else "Unsupported metric"
             except Exception as e:
                 results[metric] = f"Error: {e}"
-
         return results
 
 class EvaluationController:

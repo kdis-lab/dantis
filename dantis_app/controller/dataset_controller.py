@@ -2,15 +2,13 @@ import requests
 import os
 import pandas as pd
 import io
-from scipy.io import arff
-import arff as liac_arff 
+import arff
 from dataclasses import dataclass, field
 import uuid
 import pandas as pd
 from dataclasses import dataclass, field
 from typing import Optional, Dict
-import logging
-
+from urllib.parse import urlparse
 
 @dataclass
 class DatasetInfo:
@@ -141,18 +139,20 @@ def _load_file(path_or_url: str, is_remote=False) -> pd.DataFrame:
     elif ext == ".parquet":
         return pd.read_parquet(path_or_url) if not is_remote else pd.read_parquet(io.BytesIO(response.content))
     elif ext == ".arff":
-        if not is_remote:
-            data, meta = arff.loadarff(path_or_url)
-        else:
+        if is_remote and response:
             text = response.content.decode("utf-8", errors="ignore")
-            data, meta = arff.loadarff(io.StringIO(text))
-        return pd.DataFrame(data)
+            arff_data = arff.load(io.StringIO(text))
+        else:
+            with open(path_or_url, 'r', encoding='utf-8', errors='ignore') as f:
+                arff_data = arff.load(f)
+        attributes = [attr[0] for attr in arff_data['attributes']]
+        return pd.DataFrame(arff_data['data'], columns=attributes)
     else:
         raise ValueError(f"Formato no soportado: {ext}")
 
 def load_predefined_datasets_name(github_repo_url):
     """
-    Loads the list of available dataset filenames (CSV) from a GitHub repository URL.
+    Loads the list of available dataset filenames from a GitHub repository URL.
 
     Parameters
     ----------
@@ -162,25 +162,19 @@ def load_predefined_datasets_name(github_repo_url):
     Returns
     -------
     list of str
-        List of CSV dataset filenames.
+        List all dataset filenames in the repository.
     """
     try:
         response = requests.get(github_repo_url)
 
         if response.status_code == 200:
-            datasets = response.json()  
-            datasets_list = []
-
-            for file in datasets:
-                if file["name"].endswith(".csv"):
-                    datasets_list.append(file["name"])
-
-            return datasets_list
+            datasets = response.json() 
+            return [file.get("name", "") for file in datasets]
         else:
-            logging.error(f"Failed to get datasets: HTTP {response.status_code}")
+            print(f"Failed to get datasets: HTTP {response.status_code}")
             return []
     except Exception as e:
-        logging.error(f"Error processing request: {e}")
+        print(f"Error processing request: {e}")
         return []
 
 class DatasetController:
@@ -285,7 +279,13 @@ class DatasetController:
         DatasetInfo
             Registered dataset info.
         """
-        data = _load_file(file_path, is_remote=False)
+        is_remote = False
+        def is_remote_path(path):
+            return urlparse(path).scheme in ('http', 'https')
+
+        is_remote = is_remote_path(file_path)
+
+        data = _load_file(file_path, is_remote)
         return self._register_dataset(name=os.path.basename(file_path), path=file_path, data=data)
 
     def _load_data_url(self, url: str):

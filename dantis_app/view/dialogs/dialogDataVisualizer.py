@@ -327,7 +327,7 @@ class PlotCanvas(FigureCanvas):
         self.axes.legend()
         self.axes.grid(True)
 
-        if isinstance(x.iloc[0], pd.Timestamp):
+        if not x.empty and isinstance(x.iloc[0], pd.Timestamp):
             self.axes.xaxis.set_major_formatter(DateFormatter('%Y-%m-%d'))
             self.fig.autofmt_xdate(rotation=45)
 

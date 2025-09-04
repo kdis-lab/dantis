@@ -13,6 +13,24 @@
   <property name="windowTitle">
    <string>Librería DANTIS (Detection ANomalies in TIme Series)</string>
   </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>true</bool>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -51,7 +69,7 @@
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>4</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="page_datasets">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -129,8 +147,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>55</width>
-                <height>16</height>
+                <width>811</width>
+                <height>694</height>
                </rect>
               </property>
              </widget>
@@ -1004,8 +1022,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>990</width>
-                <height>685</height>
+                <width>811</width>
+                <height>694</height>
                </rect>
               </property>
               <property name="minimumSize">
@@ -1331,7 +1349,7 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>Curva ROC / AUC</string>
+                 <string>Curva ROC-AUC</string>
                 </property>
                </widget>
               </item>
@@ -1518,13 +1536,6 @@
                 </widget>
                </item>
               </layout>
-             </item>
-             <item>
-              <widget class="Line" name="line">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-              </widget>
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_11">

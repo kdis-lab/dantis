@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import io, base64
+import inspect
 from typing import Dict, Callable, Union, Any
 
 from statds.parametrics import t_test_paired, t_test_unpaired, anova_cases, anova_within_cases
@@ -12,7 +13,6 @@ from statds.no_parametrics import (
 )
 from statds.normality import shapiro_wilk_normality, d_agostino_pearson, kolmogorov_smirnov
 from statds.homoscedasticity import levene_test, bartlett_test
-
 
 class StatisticalTestController:
     """
@@ -205,6 +205,7 @@ class StatisticalTestController:
 
         for col1, col2 in combinations(columns, 2):
             pair_data = data[[col1, col2]]
+            pair_data = pair_data.apply(pd.to_numeric, errors="coerce").dropna()
             result = func(pair_data, alpha)
 
             if isinstance(result, tuple):
@@ -215,7 +216,6 @@ class StatisticalTestController:
 
         df = pd.concat([pd.DataFrame(r) for r in results], ignore_index=True)
         df.set_index("Algorithms", inplace=True)
-        df.reset_index(inplace=True)
         return df
 
     def _handle_group_test(self, test_name: str, func: Callable, data: pd.DataFrame,
@@ -248,8 +248,24 @@ class StatisticalTestController:
         data_ = data.reset_index()
         columns = list(data.columns) if isinstance(data, pd.DataFrame) else list(data.keys())
         data_ = data_[["Datasets"] + columns]
+        data_subset = data_[columns].apply(pd.to_numeric, errors="coerce").dropna()
+        
+        if "anova" in func.__name__ :
+            results = func(data_subset, alpha)
 
-        rankings, stat, pval, crit_val, hyp = func(data_, alpha, minimize=minimize)
+            if not isinstance(results, (list, tuple)):
+                raise ValueError(f"anova_cases debe devolver una tupla/lista, pero devolvió {type(results)}")
+
+            _, anova_results, stat, pval, crit_val, hyp = results
+            result_df = self._format_group_test_result(test_name, None, stat, pval, crit_val, hyp)
+            return [result_df, anova_results]
+        else:
+            params = inspect.signature(func).parameters
+            if "minimize" in params:
+                rankings, stat, pval, crit_val, hyp = func(data_subset, alpha, minimize=minimize)
+            else:
+                rankings, stat, pval, crit_val, hyp = func(data_subset, alpha)
+
         result_df = self._format_group_test_result(test_name, rankings, stat, pval, crit_val, hyp)
 
         if post_hoc_selected and ("Friedman" in test_name or "Quade" in test_name):

@@ -14,7 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1080, 793)
+        MainWindow.resize(1084, 802)
+        MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
+        MainWindow.setAnimated(True)
+        MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)
+        MainWindow.setDockNestingEnabled(True)
+        MainWindow.setDockOptions(QtWidgets.QMainWindow.AllowNestedDocks|QtWidgets.QMainWindow.AnimatedDocks)
+        MainWindow.setUnifiedTitleAndToolBarOnMac(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -63,7 +69,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollArea_3.setObjectName("scrollArea_3")
         self.scrollAreaWidgetContents_3 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 55, 16))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 811, 694))
         self.scrollAreaWidgetContents_3.setObjectName("scrollAreaWidgetContents_3")
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_2.addWidget(self.scrollArea_3, 6, 0, 1, 1)
@@ -447,7 +453,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 990, 685))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 811, 694))
         self.scrollAreaWidgetContents.setMinimumSize(QtCore.QSize(0, 0))
         self.scrollAreaWidgetContents.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.scrollAreaWidgetContents.setMouseTracking(False)
@@ -709,11 +715,6 @@ class Ui_MainWindow(object):
         self.text_generate_results.setObjectName("text_generate_results")
         self.verticalLayout_12.addWidget(self.text_generate_results)
         self.horizontalLayout_12.addLayout(self.verticalLayout_12)
-        self.line = QtWidgets.QFrame(self.page_results)
-        self.line.setFrameShape(QtWidgets.QFrame.VLine)
-        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
-        self.line.setObjectName("line")
-        self.horizontalLayout_12.addWidget(self.line)
         self.verticalLayout_11 = QtWidgets.QVBoxLayout()
         self.verticalLayout_11.setObjectName("verticalLayout_11")
         self.label_5 = QtWidgets.QLabel(self.page_results)
@@ -1037,7 +1038,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(3)
         self.exit_btn_1.clicked.connect(MainWindow.close) # type: ignore
         self.menu_btn_1.clicked.connect(self.icon_only_widget.hide) # type: ignore
         self.menu_btn_1.clicked.connect(self.full_menu_widget.show) # type: ignore
@@ -1123,7 +1124,7 @@ class Ui_MainWindow(object):
         self.checkBox_Recall.setText(_translate("MainWindow", "Recall"))
         self.checkBox_F1.setText(_translate("MainWindow", "F1 Score"))
         self.checkBox_LogLoss.setText(_translate("MainWindow", "Log-Loss"))
-        self.checkBox_ROC.setText(_translate("MainWindow", "Curva ROC / AUC"))
+        self.checkBox_ROC.setText(_translate("MainWindow", "Curva ROC-AUC"))
         self.add_results.setText(_translate("MainWindow", "Resultados obtenidos"))
         self.label_6.setText(_translate("MainWindow", "Entrenamiento de los modelos"))
         self.generate_results.setText(_translate("MainWindow", "Generar resultados"))
