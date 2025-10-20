@@ -178,3 +178,7 @@ We gratefully acknowledge this support.
 
 `DANTIS` is distributed under the **MIT License**.
 See [`LICENSE`](LICENSE) for details.
+
+## Acknowledgments
+This research was supported in part by the PID2023-148396NB-I00 and TED2021-132702B-C22 projects of Spanish Ministry of Science and Innovation and the European Regional Development Fund, by the ProyExcel-0069 project of the Andalusian University, Research and Innovation Department.
+
