@@ -182,3 +182,62 @@ See [`LICENSE`](LICENSE) for details.
 ## Acknowledgments
 This research was supported in part by the PID2023-148396NB-I00 and TED2021-132702B-C22 projects of Spanish Ministry of Science and Innovation and the European Regional Development Fund, by the ProyExcel-0069 project of the Andalusian University, Research and Innovation Department.
 
+## Supported Datasets
+
+DANTIS provides unified loaders for a wide range of Time Series Anomaly Detection (TSAD) datasets, consolidating resources from major benchmarks like TSB-AD, NAB, and UCR.
+
+| Dataset | Real/Synth | Type | Domain | License | Access |
+| --- | --- | --- | --- | --- | --- |
+| **[CalIt2](https://archive.ics.uci.edu/ml/datasets/CalIt2+Building+People+Counts)** | Real | MTS | Urban events | Unknown | Direct |
+| **[CAP](https://physionet.org/content/capslpdb/1.0.0/)** | Real | MTS | Medical | Unknown | PhysioNet (Auth) |
+| **[CATSv2](https://www.google.com/search?q=https://doi.org/10.5281/zenodo.3678238)** | Unknown | UTS | Simulated System | CC BY 4.0 | Direct |
+| **[CICIDS2017](https://www.unb.ca/cic/datasets/ids-2017.html)** | Real | MTS | Server/Network | Unknown | Direct |
+| **[Credit Card](https://www.openml.org/search?type=data&sort=runs&id=1597)** | Real | MTS | Fraud Detection | None | OpenML |
+| **[Daphnet](https://archive.ics.uci.edu/ml/datasets/Daphnet+Freezing+of+Gait)** | Real | UTS | Medical | CC BY 4.0 | Direct |
+| **[DMDS](https://iair.mchtr.pw.edu.pl/Damadics)** | Real | MTS | ICS | Unknown | Direct |
+| **[Dodgers Loop](https://archive.ics.uci.edu/ml/datasets/dodgers+loop+sensor)** | Real | UTS | Urban Traffic | Unknown | Direct |
+| **[Engine Dataset](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/)** | Real | MTS | ICS | Unknown | Direct |
+| **[Exathlon](https://github.com/exathlonbenchmark/exathlon)** | Real | MTS | Server Monitoring | Apache-2.0 | GitHub |
+| **[GECCO IoT](https://zenodo.org/record/3884398)** | Real | MTS | IoT | CC BY 4.0 | Direct |
+| **[Genesis](https://www.kaggle.com/inIT-OWL/genesis-demonstrator-data-for-machine-learning)** | Real | MTS | ICS | CC BY-NC-SA 4.0 | Kaggle (Auth) |
+| **[GHL](https://kas.pr/ics-research/dataset_ghl_1)** | Synth | MTS | ICS | None | Direct |
+| **[IOPS](https://github.com/iopsai/iops)** | Real | UTS | Business | None | GitHub |
+| **[Ionosphere](https://search.r-project.org/CRAN/refmans/fdm2id/html/ionosphere.html)** | Real | MTS | Astronomy | Unknown | Direct |
+| **[KDDCUP99](https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html)** | Real | MTS | Computer Networks | Unknown | Direct |
+| **[Kitsune](https://archive.ics.uci.edu/ml/datasets/Kitsune+Network+Attack+Dataset)** | Real | MTS | Computer Networks | Unknown | Direct |
+| **[KPI AIOPS](https://competition.aiops-challenge.com/home/competition)** | Real | UTS | Business | Unknown | Competition |
+| **[MBD](https://github.com/QAZASDEDC/TopoMAD)** | Real | MTS | Server Monitoring | Unknown | GitHub |
+| **[Metro](https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume)** | Real | MTS | Urban Traffic | Unknown | Direct |
+| **[MGAB](https://github.com/MarkusThill/MGAB/)** | Synth | UTS | Medical | CC0-1.0 | GitHub |
+| **[MIT-BIH Arrhythmia](https://physionet.org/content/mitdb/1.0.0/)** | Real | MTS | Medical/ECG | ODC-By 1.0 | PhysioNet (Auth) |
+| **[MIT-BIH-LTDB](https://doi.org/10.13026/C2KS3F)** | Real | UTS | Medical/ECG | ODC-By 1.0 | PhysioNet (Auth) |
+| **[MIT-BIH-SVDB](https://doi.org/10.13026/C2V30W)** | Real | MTS | Medical/ECG | ODC-By 1.0 | PhysioNet (Auth) |
+| **[MMS](https://github.com/QAZASDEDC/TopoMAD)** | Real | MTS | Server Monitoring | Unknown | GitHub |
+| **[MSL](https://github.com/khundman/telemanom)** | Real | MTS | Aerospace | Caltech | GitHub |
+| **[NAB (subsets)](https://github.com/numenta/NAB)** | Real/Synth | UTS | Multiple | GPL | GitHub |
+| **[NASA Shuttle](https://cs.fit.edu/~pkc/nasa/data/)** | Real | MTS | Aerospace | Unknown | Direct |
+| **[NEK](https://www.google.com/search?q=https://github.com/mribrahim/TSA)** | Unknown | Unknown | Network | None | Verify Source |
+| **[NeurIPS-TS](https://github.com/datamllab/tods/tree/benchmark/benchmark/synthetic)** | Synth | UTS | Multiple | Unknown | GitHub |
+| **[NormA](https://helios2.mi.parisdescartes.fr/~themisp/norma/)** | Real/Synth | UTS | Multiple | Unknown | Direct |
+| **[NYC Bike](https://ride.citibikenyc.com/system-data)** | Real | Both | Urban Transport | Unknown | Direct |
+| **[NYC Taxi](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)** | Real | Both | Urban Transport | Unknown | Direct |
+| **[OPPORTUNITY](https://archive.ics.uci.edu/ml/datasets/OPPORTUNITY+Activity+Recognition)** | Real | MTS | Activity Recog. | CC BY 4.0 | Direct |
+| **[Power Demand](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/)** | Real | UTS | ICS | None | Direct |
+| **[PSM](https://github.com/eBay/RANSynCoders)** | Real | MTS | Server Metrics | CC BY 4.0 | GitHub |
+| **[PUMP](https://www.kaggle.com/datasets/nphantawee/pump-sensor-data)** | Real | MTS | ICS | Unknown | Kaggle (Auth) |
+| **[SED](https://data.nasa.gov/)** | Unknown | Unknown | Industrial | None | Verify Source |
+| **[SMAP](https://github.com/khundman/telemanom)** | Real | MTS | Environmental | Caltech | GitHub |
+| **[SMD](https://github.com/NetManAIOps/OmniAnomaly/)** | Real | MTS | Server Monitoring | MIT | GitHub |
+| **[SWAN-SF](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/EBCFKM)** | Real | MTS | Astronomy | Unknown | Direct |
+| **[SWaT](http://itrust.sutd.edu.sg/research/testbeds/secure-water-treatment-swat/)** | Real | MTS | ICS/Water | Request | Request Form |
+| **[SensoreScope](https://doi.org/10.5281/zenodo.2654726)** | Real | UTS | IoT | Unknown | Direct |
+| **[Space Shuttle](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/)** | Real | UTS | Aerospace | Unknown | Direct |
+| **[Stock](https://www.google.com/search?q=https://github.com/mribrahim/TSA)** | Unknown | Unknown | Finance | None | Verify Source |
+| **[TODS](https://github.com/datamllab/tods)** | Synth | Unknown | Multiple | Apache-2.0 | GitHub |
+| **[UCR](https://www.cs.ucr.edu/~eamonn/time_series_data_2018/)** | Real/Synth | Both | Multiple | None | Direct |
+| **[WADI](http://itrust.sutd.edu.sg/testbeds/water-distribution-wadi/)** | Real | MTS | ICS/Water | Unknown | Request Form |
+| **[WSD](https://www.google.com/search?q=https://github.com/mribrahim/TSA)** | Unknown | Unknown | Web Services | None | Verify Source |
+| **[WaterLog](https://www.google.com/search?q=https://github.com/mribrahim/TSA)** | Real | MTS | ICS | Unknown | Direct |
+| **[Yahoo](https://webscope.sandbox.yahoo.com/catalog.php?datatype=s&did=70)** | Real/Synth | UTS | Multiple | Yahoo Terms | Request (Auth) |
+
+> **Note:** **MTS** = Multivariate Time Series, **UTS** = Univariate Time Series. Access types marked as "Auth" or "Request" may require creating an account or filling out a form on the provider's website. DANTIS provides helper functions to facilitate the loading of these datasets once acquired.
