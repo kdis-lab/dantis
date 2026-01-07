@@ -11,8 +11,6 @@ This module delegates the HOT-SAX logic to the `saxpy` package and provides
 an `HOTSAX` wrapper compatible with `AlgorithmBase`.
 """
 
-from __future__ import annotations
-
 import numpy as np
 from typing import Optional, Dict, Any
 
