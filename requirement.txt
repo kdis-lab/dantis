@@ -19,3 +19,6 @@ pytorch-lightning==2.5.2
 wfdb==4.3.0
 xgboost==3.0.2
 PyQt5==5.15.11
+saxpy
+pomegranate
+fuzzy-c-means
