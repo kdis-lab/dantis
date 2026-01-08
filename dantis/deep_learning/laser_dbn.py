@@ -1,5 +1,6 @@
 from typing import Optional, Dict, Any
 import pomegranate as pg
+from pomegranate.distributions import Categorical
 import numpy as np
 from sklearn.base import BaseEstimator, OutlierMixin
 from sklearn.preprocessing import KBinsDiscretizer
@@ -27,9 +28,16 @@ class _DynamicBN(BaseEstimator, OutlierMixin):
         self.discretizer = KBinsDiscretizer(n_bins=discretizer_n_bins, encode='ordinal', strategy='uniform')
         self.bayesian_network: Optional[Union[pg.BayesianNetwork, str]] = None
 
-    def _get_distribution(self, X: np.ndarray) -> pg.DiscreteDistribution:
-        distributed = {str(k): float(v) / len(X) for k, v in Counter(X).items()}
-        return pg.DiscreteDistribution(distributed)
+    def _get_distribution(X: np.ndarray) -> tuple[Categorical, Dict[str, int]]:
+        counts = Counter(map(str, X))
+        symbols = sorted(counts.keys())  # deterministic order
+        symbol_to_idx = {s: i for i, s in enumerate(symbols)}
+
+        total = float(len(X))
+        probs = np.array([[counts[s] / total for s in symbols]], dtype=np.float64)
+
+        dist = Categorical(probs=probs)
+        return dist, symbol_to_idx
 
     def _preprocess_data(self, X: np.ndarray, fit: bool) -> np.ndarray:
         X = self.discretizer.fit_transform(X).astype(int) if fit else self.discretizer.transform(X).astype(int)
