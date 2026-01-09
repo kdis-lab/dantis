@@ -17,7 +17,10 @@ install_requires = [
     "tensorflow>=2.13",
     "torch>=2.1.2",
     "stumpy>=1.12.0",
-    "statsmodels>=0.13.5"
+    "statsmodels>=0.13.5",
+    "saxpy==1.0.1",
+    "pomegranate==1.1.2",
+    "fuzzy-c-means>=1.7.2"
 ]
 
 setup(
