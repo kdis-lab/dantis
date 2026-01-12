@@ -5,7 +5,7 @@
 
 ![GitHub Followers](https://img.shields.io/github/followers/kdis-lab?style=social)
 [![PyPI version](https://img.shields.io/pypi/v/dantis.svg)](https://pypi.org/project/dantis/)
-[![License: MIT](https://img.shields.io/pypi/l/dantis.svg)](https://github.com/kdis-lab/anomaly_lib/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/pypi/l/dantis.svg)](https://github.com/kdis-lab/dantis/blob/main/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000.svg)](https://github.com/psf/black)
 
 
