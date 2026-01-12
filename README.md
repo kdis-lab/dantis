@@ -1,11 +1,11 @@
 
 <p align="center">
-  <img width="200" src="docs/source/_static/logo-dantis.png" alt="DANTIS logo" style="border-radius: 30px;"/>
+  <img width="200" src="https://github.com/kdis-lab/dantis/blob/master/docs/source/_static/logo-dantis.png?raw=true" alt="DANTIS logo" style="border-radius: 30px;"/>
 </p>
 
 ![GitHub Followers](https://img.shields.io/github/followers/kdis-lab?style=social)
 [![PyPI version](https://img.shields.io/pypi/v/dantis.svg)](https://pypi.org/project/dantis/)
-[![License: MIT](https://img.shields.io/pypi/l/dantis.svg)](https://github.com/kdis-lab/anomaly_lib/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/pypi/l/dantis.svg)](https://github.com/kdis-lab/dantis/blob/main/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000.svg)](https://github.com/psf/black)
 
 
@@ -73,7 +73,7 @@ DANTIS includes a full-featured graphical interface to simplify the use of the l
 - Quantitative comparison of models using the [StaTDS](https://github.com/kdis-lab/StaTDS) library
 
 <p align="center">
-  <img src="docs/source/_static/gui-overview.png" alt="DANTIS GUI" width="600"/>
+  <img src="https://github.com/kdis-lab/dantis/blob/master/docs/source/_static/gui-overview.png?raw=true" alt="DANTIS GUI" width="600"/>
 </p>
 
 
@@ -98,11 +98,11 @@ This work has been supported by the following projects:
 We gratefully acknowledge this support.
 
 <p align="center">
-  <img src="docs/source/_static/logo-dasci.png" alt="DaSCI" height="90"/>
+  <img src="https://github.com/kdis-lab/dantis/blob/master/docs/source/_static/logo-dasci?raw=true" alt="DaSCI" height="90"/>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br>
-  <img src="docs/source/_static/logo-kdislab.png" alt="KDISLAB" height="60"/>
+  <img src="https://github.com/kdis-lab/dantis/blob/master/docs/source/_static/logo-kdislab.png?raw=true" alt="KDISLAB" height="60"/>
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/source/_static/logo-sci2s.png" alt="SCI2S" height="70"/>
+  <img src="https://github.com/kdis-lab/dantis/blob/master/docs/source/_static/logo-sci2s.png?raw=true" alt="SCI2S" height="70"/>
 </p>
 
 ### Available algorithms:

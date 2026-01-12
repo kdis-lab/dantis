@@ -35,18 +35,29 @@ class LSCP(algorithmbase.AlgorithmBase):
         Instantiate the LSCP model.
     """
 
-    def __init__(self, hyperparameter: dict):
-        """
-        Initialize the LSCP detector with given hyperparameters.
+    @classmethod
+    def get_default_hyperparameters(cls) -> dict:
+        try:
+            from pyod.models.lof import LOF
+            default_detectors = [LOF(), LOF()]
+        except Exception:
+            default_detectors = []
+        return {
+            "detector_list": default_detectors,
+            "contamination": 0.1,
+        }
 
-        Parameters
-        ----------
-        hyperparameter : dict
-            Hyperparameters for the LSCP algorithm.
+    def __init__(self, hyperparameter: dict | None = None):
+        """Initialize the LSCP detector.
+
+        Do not create the underlying PyOD model at construction time. This
+        avoids raising errors when tooling (like model discovery) instantiates
+        the class with an empty or partial hyperparameter dict.
         """
-        super().__init__(hyperparameter=hyperparameter)
+        hp = hyperparameter if hyperparameter is not None else self.get_default_hyperparameters()
+        super().__init__(hyperparameter=hp)
         self.check_hyperparams = True
-        self._create_model()
+        self._model = None
 
     def decision_function(self, x: np.ndarray):
         """

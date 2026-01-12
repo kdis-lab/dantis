@@ -1,14 +1,26 @@
 from .iforest import IForest
 from .lof import LOF
-from .ecod import ECOD
 from .knn import KNN
 from .ocsvm import OCSVM
 from .decisiontreeclassifier import DecisionTreeClassifier
-from .mlpclassifier import MLPClassifier
 from .multinomialnb import MultinomialNB
 from .naive_bayes import GaussianNB
 from .randomforestclassifier import RandomForestClassifier
 from .svm import SVM
+from .abod import ABOD
+from .pca import PCA
+from .kpca import KPCA
+from .cof import COF
+from .cblof import CBLOF
+from .loci import LOCI
+from .sod import SOD
+from .featurebagging import FeatureBagging
+from .lscp import LSCP
+from .xgbod import XGBOD
+from .rgraph import RGraph
+from .inne import INNE
 
-__all__ = [ "IForest", "LOF", "ECOD", "KNN", "OCSVM", "DecisionTreeClassifier", 
-            "MLPClassifier", "MultinomialNB", "GaussianNB", "RandomForestClassifier", "SVM"]
+__all__ = [ "IForest", "LOF", "KNN", "OCSVM", "DecisionTreeClassifier", 
+            "MultinomialNB", "GaussianNB", "RandomForestClassifier", "SVM",
+            "ABOD", "PCA", "KPCA", "COF", "CBLOF", "LOCI", "SOD",
+            "FeatureBagging", "LSCP", "XGBOD", "RGraph", "INNE"]
