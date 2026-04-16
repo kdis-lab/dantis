@@ -1,0 +1,208 @@
+{
+  "lof": {
+    "hyperparameters": {
+      "n_neighbors": 20
+    },
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "kmeans": {
+    "hyperparameters": {
+      "n_clusters": 20,
+      "anomaly_window_size": 20,
+      "stride": 1,
+      "n_jobs": 1,
+      "random_state": 42,
+      "contamination": 0.1
+    },
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "dbstream": {
+    "hyperparameters": {
+      "window_size": 20,
+      "normalize": true,
+      "clustering_threshold": 1.0,
+      "fading_factor": 0.01,
+      "cleanup_interval": 2.0,
+      "intersection_factor": 0.3,
+      "minimum_weight": 1.0,
+      "score_mode": "cluster_frequency",
+      "random_state": 42
+    },
+    "threshold": {
+      "mode": "percentile",
+      "percentile": 95.0
+    },
+    "score_direction": "higher"
+  },
+  "ocsvm": {
+    "hyperparameters": {},
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "rgraph": {
+    "hyperparameters": {},
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "iforest": {
+    "hyperparameters": {},
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "eif": {
+    "hyperparameters": {
+      "n_trees": 200,
+      "limit": 64,
+      "extension_level": 1,
+      "random_state": 42
+    },
+    "threshold": {
+      "mode": "percentile",
+      "percentile": 95.0
+    },
+    "score_direction": "higher"
+  },
+  "grammarviz": {
+    "hyperparameters": {
+      "window_size": 100,
+      "paa_size": 4,
+      "alphabet_size": 4,
+      "contamination": 0.05,
+      "sax_backend": "native",
+      "verbose": false
+    },
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.05
+    },
+    "score_direction": "higher"
+  },
+  "hotsax": {
+    "hyperparameters": {
+      "anomaly_window_size": 100,
+      "paa_transform_size": 3,
+      "alphabet_size": 3,
+      "normalization_threshold": 0.01,
+      "random_state": 42,
+      "num_discords": null,
+      "contamination": 0.1
+    },
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "mp_damp": {
+    "hyperparameters": {
+      "m": 50,
+      "sp_index": 200,
+      "preprocessing": true,
+      "with_prefix_handling": true
+    },
+    "threshold": {
+      "mode": "percentile",
+      "percentile": 95.0
+    },
+    "score_direction": "higher"
+  },
+  "hbos": {
+    "hyperparameters": {},
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "ssa": {
+    "hyperparameters": {
+      "window_size": 10,
+      "n_components": 2,
+      "contamination": 0.1,
+      "verbose": false
+    },
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  },
+  "arima": {
+    "hyperparameters": {
+      "order": [1, 0, 0],
+      "threshold": null
+    },
+    "threshold": {
+      "mode": "percentile",
+      "percentile": 95.0
+    },
+    "score_direction": "higher"
+  },
+  "deepant": {
+    "hyperparameters": {
+      "window_size": 45,
+      "prediction_window_size": 1,
+      "learning_rate": 1e-05,
+      "batch_size": 45,
+      "epochs": 1,
+      "split": 0.75,
+      "early_stopping_delta": 0.05,
+      "early_stopping_patience": 2,
+      "random_state": 42
+    },
+    "threshold": {
+      "mode": "percentile",
+      "percentile": 95.0
+    },
+    "score_direction": "higher"
+  },
+  "telemanom": {
+    "hyperparameters": {
+      "train": true,
+      "window_size": 30,
+      "prediction_window_size": 1,
+      "epochs": 1,
+      "patience": 2,
+      "min_delta": 0.0,
+      "lstm_batch_size": 32,
+      "validation_split": 0.1,
+      "layers": [64, 32],
+      "dropout": 0.2,
+      "loss_metric": "mae",
+      "optimizer": "adam",
+      "random_state": 42
+    },
+    "threshold": {
+      "mode": "percentile",
+      "percentile": 95.0
+    },
+    "score_direction": "higher"
+  },
+  "vae": {
+    "hyperparameters": {
+      "contamination": 0.1
+    },
+    "threshold": {
+      "mode": "contamination",
+      "contamination": 0.1
+    },
+    "score_direction": "higher"
+  }
+}

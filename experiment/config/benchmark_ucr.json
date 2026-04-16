@@ -1,0 +1,18 @@
+{
+  "collection_name": "UCR_Anomaly",
+  "dataset_dir": "experiment/datasets/UCR_Anomaly",
+  "output_dir": "experiment/results/ucr_benchmark",
+  "random_seed": 42,
+  "algorithms": [
+    "lof",
+    "iforest",
+    "hbos",
+    "hotsax",
+    "ssa",
+    "arima"
+  ],
+  "threshold": {
+    "mode": "contamination",
+    "contamination": 0.1
+  }
+}
