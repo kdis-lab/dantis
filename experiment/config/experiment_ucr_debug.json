@@ -1,0 +1,29 @@
+{
+  "collection_name": "UCR_Anomaly",
+  "benchmark_config": "experiment/config/benchmark_ucr.json",
+  "algorithms_config": "experiment/config/algorithms.json",
+  "dataset_dir": "experiment/datasets/UCR_Anomaly",
+  "output_dir": "experiment/results/ucr_experiment_debug",
+  "algorithms": [
+    "lof",
+    "iforest"
+  ],
+  "include_datasets": [
+    "s20101m",
+    "sddb49",
+    "sel840mECG1"
+  ],
+  "exclude_datasets": [],
+  "n_repeats": 1,
+  "base_seed": 42,
+  "metrics": [
+    "f1",
+    "precision",
+    "recall",
+    "average_precision",
+    "roc_auc"
+  ],
+  "stats": {
+    "complete_intersection": true
+  }
+}

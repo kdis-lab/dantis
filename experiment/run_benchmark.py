@@ -204,6 +204,9 @@ def run_benchmark(
     for dataset in datasets:
         benchmark_dataset = dataset.to_benchmark_dataset()
         for algorithm_name in selected_algorithms:
+            print(
+                f"[RUN] algorithm={algorithm_name} dataset={dataset.dataset_name} collection={collection_name}"
+            )
             if algorithm_name not in ALGORITHM_REGISTRY:
                 result = BenchmarkResult(
                     dataset=dataset.dataset_name,
@@ -230,6 +233,9 @@ def run_benchmark(
                     },
                 )
                 results.append(result)
+                print(
+                    f"[ERROR] algorithm={algorithm_name} dataset={dataset.dataset_name} message=Unknown algorithm"
+                )
                 continue
 
             algorithm_config = _resolve_algorithm_config(algorithm_name, benchmark_config, algorithms_config)
@@ -338,6 +344,10 @@ def run_benchmark(
                     y_score_path=y_score_path,
                     metadata=dict(benchmark_dataset.metadata),
                 )
+                f1_text = "None" if result.f1 is None else f"{result.f1:.6f}"
+                print(
+                    f"[DONE] algorithm={algorithm_name} dataset={dataset.dataset_name} status=success f1={f1_text}"
+                )
             except Exception as exc:
                 result = BenchmarkResult(
                     dataset=dataset.dataset_name,
@@ -359,6 +369,9 @@ def run_benchmark(
                     input_mode_used=get_algorithm_spec(algorithm_name).input_mode,
                     error_message=str(exc),
                     metadata=dict(benchmark_dataset.metadata),
+                )
+                print(
+                    f"[ERROR] algorithm={algorithm_name} dataset={dataset.dataset_name} message={exc}"
                 )
 
             save_result_json(run_dir / "result.json", result)
