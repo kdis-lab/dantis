@@ -73,6 +73,7 @@ def run_experiments(
     max_datasets: int | None = None,
     list_datasets: bool = False,
     verbose: bool = False,
+    algorithm_timeout_seconds: float | None = None,
 ) -> list[Path]:
     config = _load_json(experiment_config_path)
 
@@ -90,11 +91,16 @@ def run_experiments(
     base_seed = int(config.get("base_seed", benchmark_config.get("random_seed", 42)))
     anomaly_end_inclusive = bool(config.get("anomaly_end_inclusive", True))
     max_datasets = max_datasets if max_datasets is not None else config.get("max_datasets")
+    if algorithm_timeout_seconds is None:
+        algorithm_timeout_seconds = config.get("algorithm_timeout_seconds", 300)
+    if algorithm_timeout_seconds is not None:
+        algorithm_timeout_seconds = float(algorithm_timeout_seconds)
 
     print("[INFO] Starting experiments")
     print(f"[INFO] dataset_dir={dataset_dir}")
     print(f"[INFO] output_dir={output_dir}")
     print(f"[INFO] Selected algorithms: {algorithms}")
+    print(f"[INFO] algorithm_timeout_seconds={algorithm_timeout_seconds}")
 
     dataset_files, selection_stats = _select_dataset_files(
         dataset_dir,
@@ -157,6 +163,7 @@ def run_experiments(
             output_dir=repeat_dir,
             random_seed=repeat_seed,
             anomaly_end_inclusive=anomaly_end_inclusive,
+            algorithm_timeout_seconds=algorithm_timeout_seconds,
         )
 
         (repeat_dir / "repeat_metadata.json").write_text(
@@ -190,6 +197,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-datasets", type=int, default=None, help="Limit final selected datasets after include/exclude filtering.")
     parser.add_argument("--list-datasets", action="store_true", help="List selected datasets and exit without running repeats.")
     parser.add_argument("--verbose", action="store_true", help="Print detailed dataset selection counts.")
+    parser.add_argument(
+        "--algorithm-timeout-seconds",
+        type=float,
+        default=None,
+        help="Maximum wall-clock seconds per algorithm and dataset. Values <= 0 disable timeout.",
+    )
     return parser
 
 
@@ -200,6 +213,7 @@ def main(argv: list[str] | None = None) -> int:
         max_datasets=args.max_datasets,
         list_datasets=args.list_datasets,
         verbose=args.verbose,
+        algorithm_timeout_seconds=args.algorithm_timeout_seconds,
     )
     return 0
 

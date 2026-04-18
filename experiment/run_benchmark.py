@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import multiprocessing as mp
+import queue
 import random
 import time
 from pathlib import Path
@@ -176,6 +178,140 @@ def _threshold_mode_name(threshold_config: dict[str, Any] | None) -> str:
     return str(threshold_config.get("mode", "contamination")).lower()
 
 
+def _execute_algorithm_core(
+    *,
+    algorithm_name: str,
+    hyperparameters: dict[str, Any],
+    threshold_config: dict[str, Any] | None,
+    score_direction: str,
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    X_test: np.ndarray,
+    y_test: np.ndarray,
+) -> dict[str, Any]:
+    spec = get_algorithm_spec(algorithm_name)
+    model = create_algorithm(algorithm_name, hyperparameters=hyperparameters)
+
+    start_fit = time.perf_counter()
+    _fit_model(model, X_train, y_train)
+    fit_time = time.perf_counter() - start_fit
+
+    start_predict = time.perf_counter()
+
+    output_mode_used = spec.output_mode
+    score_source: str | None = None
+    threshold_value: float | None = None
+    threshold_mode: str | None = None
+
+    resolved_mode, test_scores_raw, test_labels_raw, score_source = _resolve_output(
+        model=model,
+        X=X_test,
+        spec=spec,
+    )
+
+    if resolved_mode == "label":
+        y_pred = np.asarray(test_labels_raw, dtype=int).reshape(-1)
+        test_scores = None
+        output_mode_used = "label"
+    else:
+        train_mode, train_scores_raw, _, _ = _resolve_output(
+            model=model,
+            X=X_train,
+            spec=spec,
+        )
+        if train_mode != "score" or train_scores_raw is None or test_scores_raw is None:
+            raise RuntimeError("Score-mode algorithm did not provide continuous scores consistently.")
+
+        train_scores = _align_scores_direction(train_scores_raw, score_direction)
+        test_scores = _align_scores_direction(test_scores_raw, score_direction)
+        output_mode_used = "score"
+
+        if spec.requires_threshold:
+            threshold_mode = _threshold_mode_name(threshold_config)
+            threshold_value = calibrate_threshold(train_scores, threshold_config, hyperparameters=hyperparameters)
+            y_pred = (test_scores >= threshold_value).astype(int)
+        elif spec.predict_returns_labels:
+            y_pred, score_source = _extract_binary_labels(model, X_test)
+        else:
+            raise RuntimeError("Algorithm returns scores but is configured without threshold and without label predict().")
+
+    predict_time = time.perf_counter() - start_predict
+
+    precision = _safe_metric(lambda y_true, y_hat: precision_score(y_true, y_hat, zero_division=0), y_test, y_pred, default=None)
+    recall = _safe_metric(lambda y_true, y_hat: recall_score(y_true, y_hat, zero_division=0), y_test, y_pred, default=None)
+    f1 = _safe_metric(lambda y_true, y_hat: f1_score(y_true, y_hat, zero_division=0), y_test, y_pred, default=None)
+    if test_scores is None:
+        average_precision = None
+        roc_auc = None
+    else:
+        average_precision = _safe_average_precision(y_test, test_scores)
+        roc_auc = _safe_roc_auc(y_test, test_scores)
+
+    return {
+        "fit_time": fit_time,
+        "predict_time": predict_time,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
+        "average_precision": average_precision,
+        "roc_auc": roc_auc,
+        "y_pred": y_pred,
+        "test_scores": test_scores,
+        "score_source": score_source,
+        "threshold_mode": threshold_mode,
+        "threshold_value": threshold_value,
+        "output_mode_used": output_mode_used,
+        "algorithm_status": spec.status,
+        "input_mode_used": spec.input_mode,
+    }
+
+
+def _algorithm_worker(result_queue, payload: dict[str, Any]) -> None:
+    try:
+        result = _execute_algorithm_core(**payload)
+        result_queue.put({"ok": True, "result": result})
+    except Exception as exc:
+        result_queue.put({"ok": False, "error": str(exc)})
+
+
+def _run_algorithm_with_optional_timeout(
+    *,
+    timeout_seconds: float | None,
+    payload: dict[str, Any],
+) -> dict[str, Any]:
+    if timeout_seconds is None:
+        return _execute_algorithm_core(**payload)
+
+    timeout_seconds = float(timeout_seconds)
+    if timeout_seconds <= 0:
+        return _execute_algorithm_core(**payload)
+
+    ctx = mp.get_context("spawn")
+    result_queue = ctx.Queue(maxsize=1)
+    process = ctx.Process(target=_algorithm_worker, args=(result_queue, payload))
+    process.start()
+
+    try:
+        process.join(timeout_seconds)
+        if process.is_alive():
+            process.terminate()
+            process.join(5)
+            raise TimeoutError(f"Algorithm timed out after {timeout_seconds:.1f}s")
+
+        try:
+            message = result_queue.get_nowait()
+        except queue.Empty as exc:
+            raise RuntimeError(f"Algorithm subprocess exited with code {process.exitcode} without returning a result") from exc
+
+        if not message.get("ok", False):
+            raise RuntimeError(str(message.get("error", "Unknown algorithm subprocess error")))
+
+        return dict(message["result"])
+    finally:
+        result_queue.close()
+        result_queue.join_thread()
+
+
 def run_benchmark(
     benchmark_config_path: str | Path,
     *,
@@ -185,6 +321,7 @@ def run_benchmark(
     output_dir: str | Path | None = None,
     random_seed: int | None = None,
     anomaly_end_inclusive: bool = True,
+    algorithm_timeout_seconds: float | None = None,
 ) -> list[BenchmarkResult]:
     benchmark_config = _load_json(benchmark_config_path)
     algorithms_config = _load_json(algorithms_config_path)
@@ -250,64 +387,35 @@ def run_benchmark(
             try:
                 if spec.status == "disabled":
                     raise RuntimeError("Algorithm is marked as disabled in the registry.")
-
-                model = create_algorithm(algorithm_name, hyperparameters=hyperparameters)
-
-                start_fit = time.perf_counter()
-                _fit_model(model, benchmark_dataset.X_train, benchmark_dataset.y_train)
-                fit_time = time.perf_counter() - start_fit
-
-                start_predict = time.perf_counter()
-
-                output_mode_used = spec.output_mode
-                score_source: str | None = None
-                threshold_value: float | None = None
-                threshold_mode: str | None = None
-                y_score_path: str | None = None
-
-                resolved_mode, test_scores_raw, test_labels_raw, score_source = _resolve_output(
-                    model=model,
-                    X=benchmark_dataset.X_test,
-                    spec=spec,
+                execution = _run_algorithm_with_optional_timeout(
+                    timeout_seconds=algorithm_timeout_seconds,
+                    payload={
+                        "algorithm_name": algorithm_name,
+                        "hyperparameters": hyperparameters,
+                        "threshold_config": threshold_config,
+                        "score_direction": score_direction,
+                        "X_train": benchmark_dataset.X_train,
+                        "y_train": benchmark_dataset.y_train,
+                        "X_test": benchmark_dataset.X_test,
+                        "y_test": benchmark_dataset.y_test,
+                    },
                 )
 
-                if resolved_mode == "label":
-                    y_pred = np.asarray(test_labels_raw, dtype=int).reshape(-1)
-                    test_scores = None
-                    output_mode_used = "label"
-                else:
-                    train_mode, train_scores_raw, _, _ = _resolve_output(
-                        model=model,
-                        X=benchmark_dataset.X_train,
-                        spec=spec,
-                    )
-                    if train_mode != "score" or train_scores_raw is None or test_scores_raw is None:
-                        raise RuntimeError("Score-mode algorithm did not provide continuous scores consistently.")
-
-                    train_scores = _align_scores_direction(train_scores_raw, score_direction)
-                    test_scores = _align_scores_direction(test_scores_raw, score_direction)
-                    output_mode_used = "score"
-
-                    if spec.requires_threshold:
-                        threshold_mode = _threshold_mode_name(threshold_config)
-                        threshold_value = calibrate_threshold(train_scores, threshold_config, hyperparameters=hyperparameters)
-                        y_pred = (test_scores >= threshold_value).astype(int)
-                    elif spec.predict_returns_labels:
-                        y_pred, score_source = _extract_binary_labels(model, benchmark_dataset.X_test)
-                    else:
-                        raise RuntimeError("Algorithm returns scores but is configured without threshold and without label predict().")
-
-                predict_time = time.perf_counter() - start_predict
-
-                precision = _safe_metric(lambda y_true, y_hat: precision_score(y_true, y_hat, zero_division=0), benchmark_dataset.y_test, y_pred, default=None)
-                recall = _safe_metric(lambda y_true, y_hat: recall_score(y_true, y_hat, zero_division=0), benchmark_dataset.y_test, y_pred, default=None)
-                f1 = _safe_metric(lambda y_true, y_hat: f1_score(y_true, y_hat, zero_division=0), benchmark_dataset.y_test, y_pred, default=None)
-                if test_scores is None:
-                    average_precision = None
-                    roc_auc = None
-                else:
-                    average_precision = _safe_average_precision(benchmark_dataset.y_test, test_scores)
-                    roc_auc = _safe_roc_auc(benchmark_dataset.y_test, test_scores)
+                fit_time = float(execution["fit_time"])
+                predict_time = float(execution["predict_time"])
+                precision = execution["precision"]
+                recall = execution["recall"]
+                f1 = execution["f1"]
+                average_precision = execution["average_precision"]
+                roc_auc = execution["roc_auc"]
+                y_pred = np.asarray(execution["y_pred"], dtype=int).reshape(-1)
+                test_scores_raw = execution["test_scores"]
+                test_scores = None if test_scores_raw is None else np.asarray(test_scores_raw, dtype=float).reshape(-1)
+                score_source = execution["score_source"]
+                threshold_mode = execution["threshold_mode"]
+                threshold_value = execution["threshold_value"]
+                output_mode_used = execution["output_mode_used"]
+                y_score_path: str | None = None
 
                 y_pred_path = save_numpy_array(run_dir / "y_pred.npy", y_pred)
                 if test_scores is not None:
@@ -403,6 +511,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--algorithms", nargs="*", default=None, help="Algorithms to run by name.")
     parser.add_argument("--seed", type=int, default=None, help="Random seed for the run.")
     parser.add_argument("--no-inclusive-end", action="store_true", help="Treat the anomaly end index as exclusive.")
+    parser.add_argument(
+        "--algorithm-timeout-seconds",
+        type=float,
+        default=None,
+        help="Maximum wall-clock seconds per algorithm and dataset. Values <= 0 disable timeout.",
+    )
     return parser
 
 
@@ -419,6 +533,7 @@ def main(argv: list[str] | None = None) -> int:
         output_dir=args.output_dir,
         random_seed=args.seed,
         anomaly_end_inclusive=not args.no_inclusive_end,
+        algorithm_timeout_seconds=args.algorithm_timeout_seconds,
     )
     return 0
 
