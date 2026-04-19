@@ -13,11 +13,12 @@ def retrieve_save_path(save_path, default_file_name):
     file_name = default_file_name
     # splits path into directories without file name and file name only
     file_path_tuple = os.path.split(save_path)
+    directory = file_path_tuple[0]
     if file_path_tuple[1] != "":
         file_name = file_path_tuple[1]
-    if not os.path.exists(file_path_tuple[0]):
-        os.mkdir(file_path_tuple[0])
-    save_name = os.path.join(file_path_tuple[0], file_name)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+    save_name = os.path.join(directory, file_name) if directory else file_name
     return save_name
 
 

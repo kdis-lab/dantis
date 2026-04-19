@@ -1,16 +1,14 @@
-from pathlib import Path
 from typing import Optional
 
 import numpy as np
 
 from ..algorithmbase import AlgorithmBase
 
-# try to import the real eif package, fall back to local shim
+# Try to import the external `eif` package only.
 try:
-    import eif as _eif
+    import eif as _external_eif
 except Exception:
-    # local relative import
-    from . import eif as _eif
+    _external_eif = None
 
 
 class EIFWrapper(AlgorithmBase):
@@ -29,7 +27,20 @@ class EIFWrapper(AlgorithmBase):
         super().__init__(hyperparameter or {})
         self._forest = None
 
+    @staticmethod
+    def _resolve_eif_backend():
+        if _external_eif is None:
+            raise ImportError(
+                "EIF backend is not available. Install dependency `eif` to enable this algorithm."
+            )
+        if not hasattr(_external_eif, "iForest"):
+            raise ImportError(
+                "Installed `eif` package does not expose `iForest`; incompatible version."
+            )
+        return _external_eif
+
     def fit(self, x_train: np.ndarray, y_train: np.ndarray = None):
+        eif_backend = self._resolve_eif_backend()
         hp = self._hyperparameter or {}
         ntrees = int(hp.get("n_trees", 200))
         max_samples = hp.get("max_samples", None)
@@ -49,7 +60,7 @@ class EIFWrapper(AlgorithmBase):
 
         # Create the forest using the eif API
         # The iForest implementation expects X as first arg per the repo's shim
-        self._forest = _eif.iForest(
+        self._forest = eif_backend.iForest(
             X,
             ntrees=ntrees,
             sample_size=sample_size or min(256, X.shape[0]),

@@ -14,7 +14,8 @@ class _KMeansAD(BaseEstimator, OutlierMixin):
         self.k = k
         self.window_size = window_size
         self.stride = stride
-        self.model = KMeans(n_clusters=k, n_jobs=n_jobs)
+        # sklearn >= 0.23 removed n_jobs from KMeans.
+        self.model = KMeans(n_clusters=k)
         self.padding_length = 0
 
     def _preprocess_data(self, X: np.ndarray) -> np.ndarray:

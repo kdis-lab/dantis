@@ -154,8 +154,8 @@ class GrammarViz(algorithmbase.AlgorithmBase):
         }
 
     def __init__(self, hyperparameter: Optional[Dict[str, Any]] = None):
-        hp = hyperparameter if hyperparameter is not None else self.get_default_hyperparameters()
-        super().__init__(hyperparameter=hp)
+        super().__init__(hyperparameter={})
+        self.set_hyperparameter(hyperparameter)
         self._sax_words = None
         self._offsets = None
 

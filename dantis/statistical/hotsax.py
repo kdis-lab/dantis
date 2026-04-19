@@ -100,14 +100,17 @@ class HOTSAX(algorithmbase.AlgorithmBase):
         if paa_size > win_size:
             paa_size = win_size
 
+        # Compatibility shim for saxpy on numpy versions where np.int was removed.
+        if not hasattr(np, "int"):
+            np.int = int  # type: ignore[attr-defined]
+
         discords = find_discords_hotsax(
             series,
             win_size=win_size,
             num_discords=num_discords,
-            alphabet_size=alphabet_size,
+            a_size=alphabet_size,
             paa_size=paa_size,
-            znorm_threshold=znorm_threshold,
-            sax_type="unidim",
+            z_threshold=znorm_threshold,
         )
 
         scores = np.zeros(len(series), dtype=float)

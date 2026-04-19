@@ -183,8 +183,8 @@ ALGORITHM_REGISTRY: dict[str, AlgorithmSpec] = {
         requires_threshold=True,
         input_mode="tabular_2d",
         supported_data_type="both",
-        status="experimental",
-        notes="Depends on external eif package or local shim.",
+        status="disabled",
+        notes="Disabled by default: requires external `eif` package exposing iForest.",
     ),
     "grammarviz": AlgorithmSpec(
         name="grammarviz",

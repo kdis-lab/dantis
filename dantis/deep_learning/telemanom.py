@@ -341,8 +341,8 @@ class TelemanomDetector(algorithmbase.AlgorithmBase):
         }
 
     def __init__(self, hyperparameter: Optional[Dict[str, Any]] = None):
-        hp = hyperparameter if hyperparameter is not None else self.get_default_hyperparameters()
-        super().__init__(hyperparameter=hp)
+        super().__init__(hyperparameter={})
+        self.set_hyperparameter(hyperparameter)
         self._model = None
         self._last_scores = None
         self._tele_config = None
@@ -371,6 +371,7 @@ class TelemanomDetector(algorithmbase.AlgorithmBase):
         self._hyperparameter = merged
 
     def _build_config(self):
+        self.set_hyperparameter(self._hyperparameter)
         # convert hyperparameter dict into Telemanom Config object
         c = Config.from_dict(self._hyperparameter)
         # ensure attributes exist
